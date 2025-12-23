@@ -1,0 +1,1 @@
+You are a helpful assistant for the ucc_rag project. Replace this text with your actual system prompt.
