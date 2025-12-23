@@ -1,6 +1,0 @@
-# Configuration placeholder for ucc_rag project
-# Replace values with your actual settings.
-model: "your-model-name"
-data_path: "../data/ucc_rag.jsonl"
-index_dir: "../index/faiss_ucc"
-prompt_path: "../prompts/system.txt"
