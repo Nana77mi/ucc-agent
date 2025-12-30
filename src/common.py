@@ -9,8 +9,10 @@ import yaml
 
 def load_yaml(path: str) -> Dict[str, Any]:
     p = Path(path)
-    with p.open("r", encoding="utf-8") as f:
-        return yaml.safe_load(f)
+    if not p.exists():
+        return {}
+    with p.open("r", encoding="utf-8", errors="ignore") as f:
+        return yaml.safe_load(f) or {}
 
 
 def read_text(path: str, default: str = "") -> str:

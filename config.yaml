@@ -1,0 +1,37 @@
+paths:
+  input_jsonl:
+#    "data/ucc_demo_rag_scripts.jsonl"
+    "data/ucc_methods_list.jsonl"
+  persist_dir: "index/faiss_ucc"
+  system_prompt: "prompts/system.txt"
+
+models:
+  embed_model: "bge-m3:latest"
+  llm_model: "qwen3:4b"
+
+rag:
+  chunk_size: 0
+  chunk_overlap: 0
+  score_threshold: 0
+
+runtime:
+  temperature: 0.2
+  max_context_docs: 8
+
+retrieval:
+  top_k: 50
+  show_k: 10
+
+generation:
+  temperature: 0.2
+
+rerank:
+  enabled: true
+  model: BAAI/bge-reranker-base
+  top_n: 20
+  batch_size: 8
+
+index:
+  rebuild: true
+  batch_size: 64
+  sleep_between: 0
