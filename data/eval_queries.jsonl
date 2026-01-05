@@ -1,0 +1,80 @@
+{"qid":"q001","query":"modbus 指令怎么写"}
+{"qid":"q002","query":"sqlite 打开数据库"}
+{"qid":"q003","query":"sqlite 创建数据库"}
+{"qid":"q004","query":"sqlite 创建表"}
+{"qid":"q005","query":"sqlite 查询数据"}
+{"qid":"q006","query":"sqlite 更新数据"}
+{"qid":"q007","query":"sqlite 删除数据"}
+{"qid":"q008","query":"sqlite 查询所有表"}
+{"qid":"q009","query":"UCC 怎么做表达式计算"}
+{"qid":"q010","query":"UCC 如何连接数据库执行 SQL"}
+{"qid":"q011","query":"UCC 如何通过串口发送数据"}
+{"qid":"q012","query":"UCC 如何隐藏某个 Layer"}
+{"qid":"q013","query":"UCC 如何显示某个 Layer"}
+{"qid":"q014","query":"UCC 如何给控件设置文本或属性"}
+{"qid":"q015","query":"UCC 如何统计集合数量"}
+{"qid":"q016","query":"UCC 如何生成条形码"}
+{"qid":"q017","query":"UCC 如何把数据绑定到控件"}
+{"qid":"q018","query":"UCC 如何播放音频"}
+{"qid":"q019","query":"UCC 如何解析 JSON"}
+{"qid":"q020","query":"UCC 如何发送 HTTP 请求"}
+{"qid":"q021","query":"Excel 批量导入 MySQL 怎么做"}
+{"qid":"q022","query":"MySQL 查看所有表"}
+{"qid":"q023","query":"APNG 弹窗组件怎么初始化"}
+{"qid":"q024","query":"APNG 标签建组怎么做"}
+{"qid":"q025","query":"UCC 如何读写 INI 配置文件"}
+{"qid":"q026","query":"UCC 如何读取文本文件内容"}
+{"qid":"q027","query":"UCC 如何写入文本文件并追加日志"}
+{"qid":"q028","query":"UCC 如何复制/移动/删除文件"}
+{"qid":"q029","query":"UCC 如何弹出文件选择对话框"}
+{"qid":"q030","query":"UCC 如何把内容复制到剪贴板"}
+{"qid":"q031","query":"UCC 如何调用外部程序或命令行"}
+{"qid":"q032","query":"UCC 如何延时或睡眠一段时间"}
+{"qid":"q033","query":"UCC 如何拼接字符串或链接文本"}
+{"qid":"q034","query":"UCC 如何查找字符串中的子串"}
+{"qid":"q035","query":"UCC 如何在字符串中插入一段文本"}
+{"qid":"q036","query":"UCC 如何计算字符串长度并填充到固定宽度"}
+{"qid":"q037","query":"UCC 如何清空变量或对象数据"}
+{"qid":"q038","query":"UCC 如何克隆对象/复制数据结构"}
+{"qid":"q039","query":"UCC 如何输出调试日志到控制台"}
+{"qid":"q040","query":"UCC 如何加载 Excel 数据到数据源"}
+{"qid":"q041","query":"WebServer 示例里怎么开始监听"}
+{"qid":"q042","query":"WebServer 收到请求后在哪里处理路由"}
+{"qid":"q043","query":"WebServer 示例如何返回 JSON 数据给前端"}
+{"qid":"q044","query":"WebServer 示例里 GET /users 或 /v1/users 对应哪个处理段"}
+{"qid":"q045","query":"WebServer 示例里订单接口 GET /v1/orders 或 /v2/orders 在哪里写"}
+{"qid":"q046","query":"WebServer 示例里 POST /v2/orders 怎么实现"}
+{"qid":"q047","query":"我有一个数字农业大棚，需要采集温度/湿度/光照度，并通过 ModbusRTU 控制风扇、水泵、遮阳帘。\n\n传感器和受控设备都走串口通讯，采集和控制指令都符合 ModbusRTU。请给出实现思路：如何初始化串口、拼接/发送指令、解析回包，并做简单的计算/阈值判断后下发控制。"}
+{"qid":"q048","query":"我需要做一个“离线数据导入 + 在线查询”的小工具：先从 Excel 读取多张表的数据，导入到 MySQL。\n\n导入完成后，在界面上提供“查看所有表/执行 SQL 查询”的功能。请给出关键步骤，以及涉及到的 UCC 方法和 demo 参考位置。"}
+{"qid":"q049","query":"我想做一个本地 SQLite 的 CRUD 页面：打开数据库后可以创建表、批量插入数据、查询展示到报表控件；\n\n用户选中某一行后可以修改并提交更新，也可以删除记录。请问 Demo_SQLite 里分别对应哪些按钮/段落？"}
+{"qid":"q050","query":"我要做一个“配置驱动”的小工具：从 ini 读取服务器地址、账号密码等配置；\n\n启动时把这些配置写回/更新到 ini，并把关键日志追加写入到本地文件。请问应该用哪些读写 ini 与文件写入相关的方法？"}
+{"qid":"q051","query":"modbus rtu 怎么发指令"}
+{"qid":"q052","query":"mosbus 指令格式"}
+{"qid":"q053","query":"串口 modbus 通讯怎么写"}
+{"qid":"q054","query":"sqlite 怎么 open 数据库"}
+{"qid":"q055","query":"sqlite 建表 sql 示例"}
+{"qid":"q056","query":"sqlite select 数据"}
+{"qid":"q057","query":"sqlite update 语句怎么用"}
+{"qid":"q058","query":"sqlite delete from 怎么写"}
+{"qid":"q059","query":"sqlite 查所有表"}
+{"qid":"q060","query":"UCC sqlite CRUD 示例"}
+{"qid":"q061","query":"UCC calc expression example"}
+{"qid":"q062","query":"UCC serial port send data"}
+{"qid":"q063","query":"UCC http request get post"}
+{"qid":"q064","query":"UCC json parse example"}
+{"qid":"q065","query":"UCC db execute sql"}
+{"qid":"q066","query":"UCC excel import mysql"}
+{"qid":"q067","query":"modbus rtu 指令"}
+{"qid":"q068","query":"mosbus rtu 通讯"}
+{"qid":"q069","query":"sqllite 打开数据库"}
+{"qid":"q070","query":"my sql 查看表"}
+{"qid":"q071","query":"httpp 请求"}
+{"qid":"q072","query":"jason 解析"}
+{"qid":"q073","query":"excle 导入 mysql"}
+{"qid":"q074","query":"打开 sqlite"}
+{"qid":"q075","query":"创建表"}
+{"qid":"q076","query":"查数据"}
+{"qid":"q077","query":"更新一条记录"}
+{"qid":"q078","query":"删除一行"}
+{"qid":"q079","query":"modbus 串口"}
+{"qid":"q080","query":"json 转对象"}
