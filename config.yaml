@@ -6,8 +6,13 @@ paths:
   system_prompt: "prompts/system.txt"
 
 models:
+  llm_provider: "ollama"
+  embed_provider: "ollama"
   embed_model: "bge-m3:latest"
   llm_model: "qwen3:4b"
+  # For OpenAI-compatible providers (e.g. Qwen API):
+  # openai_base_url: "https://dashscope.aliyuncs.com/compatible-mode/v1"
+  # openai_api_key: "${OPENAI_API_KEY}"
 
 rag:
   chunk_size: 0

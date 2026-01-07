@@ -8,10 +8,9 @@ from typing import Iterable, List, Optional
 
 from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
-from langchain_ollama import OllamaEmbeddings
-
 from src.common import load_yaml
 from src.loader_jsonl import load_many
+from src.model_factory import build_embeddings
 
 
 def batched(lst: List[Document], n: int) -> Iterable[List[Document]]:
@@ -38,7 +37,7 @@ def main() -> None:
         input_paths = list(input_jsonl or [])
 
     embed_model = cfg.get("models", {}).get("embed_model", "nomic-embed-text:latest")
-    embeddings = OllamaEmbeddings(model=embed_model)
+    embeddings = build_embeddings(cfg)
 
     index_cfg = cfg.get("index", {}) or {}
     rebuild = bool(index_cfg.get("rebuild", True))
