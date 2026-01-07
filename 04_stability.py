@@ -106,11 +106,40 @@ def pairwise_similarity(vectors: List[List[float]]) -> Dict[str, float]:
     return {"avg": sum(sims) / len(sims), "min": min(sims), "max": max(sims)}
 
 
+def run_llm_with_retries(
+    llm,
+    messages: List[dict],
+    *,
+    max_retries: int,
+    retry_backoff: float,
+) -> tuple[str, Optional[Exception]]:
+    last_error: Optional[Exception] = None
+    for attempt in range(max_retries + 1):
+        try:
+            resp = llm.invoke(messages)
+            ans = getattr(resp, "content", str(resp))
+            return (ans or "").strip(), None
+        except Exception as exc:
+            last_error = exc
+            if attempt < max_retries:
+                time.sleep(retry_backoff)
+    return "", last_error
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Evaluate RAG/LLM stability on repeated runs.")
     parser.add_argument("--runs", type=int, default=3, help="Repeat count per query.")
     parser.add_argument("--queries", type=str, default=os.path.join("data", "eval_queries.jsonl"))
     parser.add_argument("--report", type=str, default=os.path.join("data", "stability_report.jsonl"))
+    parser.add_argument(
+        "--sample-size",
+        type=int,
+        default=8,
+        help="Sample count for representative queries (0 means all).",
+    )
+    parser.add_argument("--max-retries", type=int, default=2, help="LLM retry attempts per run.")
+    parser.add_argument("--retry-backoff", type=float, default=1.0, help="Backoff seconds between retries.")
+    parser.add_argument("--skip-llm", action="store_true", help="Skip LLM generation and answer similarity.")
     return parser.parse_args()
 
 
@@ -147,9 +176,13 @@ def main() -> None:
         raise FileNotFoundError(f"FAISS index dir not found: {persist_dir}")
 
     queries = read_jsonl(args.queries)
+    if args.sample_size and args.sample_size > 0 and len(queries) > args.sample_size:
+        step = max(len(queries) // args.sample_size, 1)
+        sampled = [queries[i] for i in range(0, len(queries), step)][: args.sample_size]
+        queries = sampled
     embeddings = build_embeddings(cfg)
     db = FAISS.load_local(persist_dir, embeddings, allow_dangerous_deserialization=True)
-    llm = build_llm(cfg, temperature=temperature)
+    llm = None if args.skip_llm else build_llm(cfg, temperature=temperature)
 
     reranker: Optional[CrossEncoderReranker] = None
     if rerank_enabled:
@@ -166,9 +199,12 @@ def main() -> None:
 
     print("\n=== STABILITY CHECK ===")
     print(f"queries: {len(queries)}")
+    print(f"sample_size: {args.sample_size}")
     print(f"runs_per_query: {args.runs}")
     print(f"top_k(retrieve): {top_k} | compare_top_k: {show_k}")
     print(f"temperature: {temperature}")
+    if args.skip_llm:
+        print("llm: skipped")
 
     report_rows: List[dict] = []
     rag_consistent_cnt = 0
@@ -182,32 +218,61 @@ def main() -> None:
 
         rag_lists: List[List[str]] = []
         answers: List[str] = []
+        llm_failures = 0
+        llm_total = 0
 
         for _i in range(args.runs):
-            docs_ranked = retrieve_ranked_docs(
-                db=db,
-                query=query,
-                top_k=top_k,
-                score_threshold=score_threshold,
-                keyword_boost=keyword_boost,
-                reranker=reranker,
-                rerank_top_n=rerank_top_n,
-            )
+            docs_ranked: List[Document]
+            try:
+                docs_ranked = retrieve_ranked_docs(
+                    db=db,
+                    query=query,
+                    top_k=top_k,
+                    score_threshold=score_threshold,
+                    keyword_boost=keyword_boost,
+                    reranker=reranker,
+                    rerank_top_n=rerank_top_n,
+                )
+            except Exception:
+                rag_lists.append([])
+                if llm is not None:
+                    llm_total += 1
+                    llm_failures += 1
+                    answers.append("")
+                continue
+
             doc_ids = [safe_doc_id(d) for d in docs_ranked[:show_k] if safe_doc_id(d)]
             rag_lists.append(doc_ids)
+
+            if llm is None:
+                continue
 
             docs_for_llm = docs_ranked[:max_ctx]
             context_block = build_context_block(docs_for_llm)
             messages = build_messages(system_prompt, query, context_block)
-            resp = llm.invoke(messages)
-            ans = getattr(resp, "content", str(resp))
-            answers.append((ans or "").strip())
+            llm_total += 1
+
+            try:
+                ans, last_error = run_llm_with_retries(
+                    llm,
+                    messages,
+                    max_retries=args.max_retries,
+                    retry_backoff=args.retry_backoff,
+                )
+                answers.append(ans)
+            except Exception as exc:
+                last_error = exc
+                answers.append("")
+
+            if last_error is not None:
+                llm_failures += 1
 
         base = rag_lists[0] if rag_lists else []
         rag_consistent = all(x == base for x in rag_lists)
         rag_match_rate = sum(1 for x in rag_lists if x == base) / len(rag_lists) if rag_lists else 0.0
 
-        ans_vectors = embeddings.embed_documents(answers) if answers else []
+        valid_answers = [a for a in answers if a]
+        ans_vectors = embeddings.embed_documents(valid_answers) if len(valid_answers) >= 2 else []
         sim_stats = pairwise_similarity(ans_vectors)
 
         rag_consistent_cnt += 1 if rag_consistent else 0
@@ -224,6 +289,10 @@ def main() -> None:
                 "answer_similarity_avg": sim_stats["avg"],
                 "answer_similarity_min": sim_stats["min"],
                 "answer_similarity_max": sim_stats["max"],
+                "answer_total": len(answers),
+                "answer_valid": len(valid_answers),
+                "llm_failures": llm_failures,
+                "llm_total": llm_total,
             }
         )
 
