@@ -1,0 +1,7 @@
+langchain-community
+langchain-core
+langchain-ollama
+langchain-openai
+faiss-cpu
+sentence-transformers
+PyYAML
