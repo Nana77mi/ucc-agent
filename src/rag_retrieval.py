@@ -1,6 +1,8 @@
 # src/rag_retrieval.py
 from __future__ import annotations
 from typing import Any, Dict, List, Optional, Tuple
+from pathlib import Path
+import os
 from langchain_core.documents import Document
 from langchain_community.vectorstores import FAISS
 
@@ -42,19 +44,44 @@ def rerank_with_keyword_boost(query: str, results: List[Tuple[Document, float]],
     return out
 
 class CrossEncoderReranker:
-    def __init__(self, model_name: str, batch_size: int = 16):
+    def __init__(self, model_name: str, batch_size: int = 16, cache_dir: Optional[str] = None):
         self.model_name = model_name
         self.batch_size = batch_size
+        self.cache_dir = cache_dir
         self.available = False
         self._init_error: Optional[Exception] = None
         try:
             from sentence_transformers import CrossEncoder  # type: ignore
-            self._ce = CrossEncoder(model_name)
+            from huggingface_hub import snapshot_download  # type: ignore
+            resolved_model = self._resolve_model_path(model_name, cache_dir, snapshot_download)
+            self._ce = CrossEncoder(resolved_model)
             self.available = True
         except Exception as e:
             self._ce = None
             self.available = False
             self._init_error = e
+
+    @staticmethod
+    def _resolve_model_path(
+        model_name: str,
+        cache_dir: Optional[str],
+        snapshot_download,
+    ) -> str:
+        if os.path.isdir(model_name):
+            return model_name
+        if not cache_dir:
+            return model_name
+        cache_root = Path(cache_dir)
+        cache_root.mkdir(parents=True, exist_ok=True)
+        safe_name = model_name.replace("/", "__")
+        local_dir = cache_root / safe_name
+        if not local_dir.exists():
+            snapshot_download(
+                repo_id=model_name,
+                local_dir=str(local_dir),
+                local_dir_use_symlinks=False,
+            )
+        return str(local_dir)
 
     def rerank(self, query: str, docs: List[Document]) -> List[Tuple[Document, float]]:
         if not self.available or not docs:

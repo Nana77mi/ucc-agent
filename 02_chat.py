@@ -86,6 +86,7 @@ def main() -> None:
     rerank_model = str(rerank_cfg.get("model", "BAAI/bge-reranker-base"))
     rerank_top_n = int(rerank_cfg.get("top_n", top_k))
     rerank_batch_size = int(rerank_cfg.get("batch_size", 16))
+    rerank_cache_dir = str(rerank_cfg.get("cache_dir", "models/rerank"))
 
     print("=== RAG CHAT ===")
     print(f"- FAISS: {persist_dir}")
@@ -100,7 +101,11 @@ def main() -> None:
 
     reranker: Optional[CrossEncoderReranker] = None
     if rerank_enabled:
-        reranker = CrossEncoderReranker(rerank_model, batch_size=rerank_batch_size)
+        reranker = CrossEncoderReranker(
+            rerank_model,
+            batch_size=rerank_batch_size,
+            cache_dir=rerank_cache_dir,
+        )
         if reranker.available:
             print(f"[rerank] enabled model={rerank_model} batch_size={rerank_batch_size}")
         else:
