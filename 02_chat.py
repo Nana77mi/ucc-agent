@@ -6,9 +6,8 @@ from typing import Any, Dict, List, Optional
 
 from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
-from langchain_ollama import ChatOllama, OllamaEmbeddings
-
 from src.common import load_yaml, read_text
+from src.model_factory import build_embeddings, build_llm
 
 # 把“召回→阈值→重排”的逻辑抽到独立模块里（以后改 RAG 只改那边，评测脚本不动）
 from src.rag_retrieval import CrossEncoderReranker, retrieve_ranked_docs
@@ -113,10 +112,10 @@ def main() -> None:
     if not os.path.isdir(persist_dir):
         raise FileNotFoundError(f"FAISS index dir not found: {persist_dir}\nPlease run 01_index.py first.")
 
-    embeddings = OllamaEmbeddings(model=embed_model)
+    embeddings = build_embeddings(cfg)
     db = FAISS.load_local(persist_dir, embeddings, allow_dangerous_deserialization=True)
 
-    llm = ChatOllama(model=llm_model, temperature=temperature)
+    llm = build_llm(cfg, temperature=temperature)
 
     while True:
         q = input("Q> ").strip()

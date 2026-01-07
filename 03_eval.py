@@ -11,10 +11,9 @@ from typing import Dict, List, Set
 
 from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
-from langchain_ollama import OllamaEmbeddings
-
 from src.common import load_yaml
 from src.rag_retrieval import CrossEncoderReranker, retrieve_ranked_docs
+from src.model_factory import build_embeddings
 
 
 # =========================
@@ -242,7 +241,7 @@ def main() -> None:
     if not os.path.isdir(persist_dir):
         raise FileNotFoundError(f"FAISS index dir not found: {persist_dir}")
 
-    embeddings = OllamaEmbeddings(model=embed_model)
+    embeddings = build_embeddings(cfg)
     db = FAISS.load_local(persist_dir, embeddings, allow_dangerous_deserialization=True)
 
     # 加在 load FAISS 后面（db = FAISS.load_local(...) 之后）
