@@ -226,6 +226,7 @@ def main() -> None:
     rerank_model = str(rerank_cfg.get("model", "BAAI/bge-reranker-base"))
     rerank_top_n = int(rerank_cfg.get("top_n", top_k))
     rerank_batch_size = int(rerank_cfg.get("batch_size", 16))
+    rerank_cache_dir = str(rerank_cfg.get("cache_dir", "models/rerank"))
 
     # ---- load eval data ----
     if not Path(queries_path).exists():
@@ -268,7 +269,11 @@ def main() -> None:
     # ---- reranker（与 02_chat 行为一致）----
     reranker = None
     if rerank_enabled:
-        rr = CrossEncoderReranker(rerank_model, batch_size=rerank_batch_size)
+        rr = CrossEncoderReranker(
+            rerank_model,
+            batch_size=rerank_batch_size,
+            cache_dir=rerank_cache_dir,
+        )
         if getattr(rr, "available", False):
             reranker = rr
         else:
