@@ -72,9 +72,9 @@
 {"qid": "q072", "relevant_ids": ["method::Json"]}
 {"qid": "q073", "relevant_ids": ["method::DB"]}
 {"qid": "q074", "relevant_ids": ["method::DB"]}
-{"qid": "q075", "relevant_ids": ["method::Set"]}
-{"qid": "q076", "relevant_ids": ["method::Set"]}
-{"qid": "q077", "relevant_ids": ["method::Set"]}
+{"qid": "q075", "relevant_ids": ["method::DB"]}
+{"qid": "q076", "relevant_ids": ["method::DB"]}
+{"qid": "q077", "relevant_ids": ["method::DB"]}
 {"qid": "q078", "relevant_ids": ["method::Set"]}
 {"qid": "q079", "relevant_ids": ["method::SerialPort", "method::ModbusRTU"]}
 {"qid": "q080", "relevant_ids": ["method::Json", "method::JsonObject"]}
