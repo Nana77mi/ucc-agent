@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import os
+import time
 from typing import Any, Dict, List, Optional
 
 from langchain_community.vectorstores import FAISS
@@ -56,6 +57,37 @@ def build_messages(system_prompt: str, user_query: str, context_block: str) -> L
 【Answer】
 """
     return [{"role": "system", "content": sys}, {"role": "user", "content": user}]
+
+
+def extract_total_tokens(resp: Any) -> Optional[int]:
+    usage = getattr(resp, "usage_metadata", None)
+    if isinstance(usage, dict):
+        total = usage.get("total_tokens")
+        if isinstance(total, int):
+            return total
+        prompt_tokens = usage.get("input_tokens") or usage.get("prompt_tokens")
+        completion_tokens = usage.get("output_tokens") or usage.get("completion_tokens")
+        if isinstance(prompt_tokens, int) or isinstance(completion_tokens, int):
+            return int(prompt_tokens or 0) + int(completion_tokens or 0)
+
+    meta = getattr(resp, "response_metadata", None)
+    if isinstance(meta, dict):
+        token_usage = meta.get("token_usage") or meta.get("usage")
+        if isinstance(token_usage, dict):
+            total = token_usage.get("total_tokens")
+            if isinstance(total, int):
+                return total
+            prompt_tokens = token_usage.get("prompt_tokens")
+            completion_tokens = token_usage.get("completion_tokens")
+            if isinstance(prompt_tokens, int) or isinstance(completion_tokens, int):
+                return int(prompt_tokens or 0) + int(completion_tokens or 0)
+
+        prompt_eval = meta.get("prompt_eval_count")
+        eval_count = meta.get("eval_count")
+        if isinstance(prompt_eval, int) or isinstance(eval_count, int):
+            return int(prompt_eval or 0) + int(eval_count or 0)
+
+    return None
 
 
 def main() -> None:
@@ -167,10 +199,18 @@ def main() -> None:
         context_block = build_context_block(docs_for_llm)
         messages = build_messages(system_prompt, q, context_block)
 
+        start_time = time.perf_counter()
         resp = llm.invoke(messages)
+        elapsed = time.perf_counter() - start_time
         ans = getattr(resp, "content", str(resp))
+        total_tokens = extract_total_tokens(resp)
+        tokens_per_s = total_tokens / elapsed if total_tokens and elapsed > 0 else None
         print("A>")
         print((ans or "").strip())
+        if tokens_per_s is None:
+            print(f"[metrics] duration: {elapsed:.2f}s | tokens/s: N/A")
+        else:
+            print(f"[metrics] duration: {elapsed:.2f}s | tokens/s: {tokens_per_s:.2f}")
         print()
 
 
