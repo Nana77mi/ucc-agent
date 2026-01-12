@@ -18,6 +18,16 @@ class QueryCandidate:
     is_original: bool
 
 
+@dataclass(frozen=True)
+class RewriteStats:
+    llm_used: bool
+    llm_error: Optional[str]
+    generated: int
+    after_dedupe: int
+    after_gate: int
+    final_count: int
+
+
 _REWRITE_CACHE: Dict[str, Dict[str, Any]] = {}
 
 
@@ -121,6 +131,17 @@ def rewrite_queries(
     embeddings: Optional[Embeddings],
     cfg: Dict[str, Any],
 ) -> List[QueryCandidate]:
+    candidates, _stats = rewrite_queries_with_meta(query, llm=llm, embeddings=embeddings, cfg=cfg)
+    return candidates
+
+
+def rewrite_queries_with_meta(
+    query: str,
+    *,
+    llm: Optional[BaseChatModel],
+    embeddings: Optional[Embeddings],
+    cfg: Dict[str, Any],
+) -> tuple[List[QueryCandidate], RewriteStats]:
     rewrite_cfg = _get_cfg(cfg)
     enabled = bool(rewrite_cfg.get("enabled", False))
     num_rewrites = int(rewrite_cfg.get("num_rewrites", 4))
@@ -134,10 +155,27 @@ def rewrite_queries(
 
     q0 = (query or "").strip()
     if not q0:
-        return []
+        return [], RewriteStats(
+            llm_used=False,
+            llm_error=None,
+            generated=0,
+            after_dedupe=0,
+            after_gate=0,
+            final_count=0,
+        )
 
     if not enabled:
-        return [QueryCandidate(query=q0, weight=weight_q0, is_original=True)]
+        return (
+            [QueryCandidate(query=q0, weight=weight_q0, is_original=True)],
+            RewriteStats(
+                llm_used=False,
+                llm_error=None,
+                generated=0,
+                after_dedupe=0,
+                after_gate=0,
+                final_count=1,
+            ),
+        )
 
     cache_key = _normalize_query(q0)
     now = time.time()
@@ -145,22 +183,39 @@ def rewrite_queries(
     if cached and now - cached.get("ts", 0) <= cache_ttl:
         cached_queries = cached.get("items", [])
         if isinstance(cached_queries, list) and cached_queries:
-            return _build_candidates(q0, cached_queries, weight_q0, weight_rw)
+            candidates = _build_candidates(q0, cached_queries, weight_q0, weight_rw)
+            return (
+                candidates,
+                RewriteStats(
+                    llm_used=False,
+                    llm_error=None,
+                    generated=len(cached_queries),
+                    after_dedupe=len(cached_queries),
+                    after_gate=max(len(cached_queries) - 1, 0),
+                    final_count=len(candidates),
+                ),
+            )
 
     rewrites: List[str] = []
+    llm_error: Optional[str] = None
+    llm_used = False
     if llm is not None and num_rewrites > 0:
         colon_tokens = [t for t in _extract_tokens(q0) if ":" in t]
         messages = _build_prompt(q0, num_rewrites=num_rewrites, max_len=max_len, colon_tokens=colon_tokens)
         try:
+            llm_used = True
             resp = llm.invoke(messages)
             text = getattr(resp, "content", str(resp))
             parsed = _parse_json_array(text)
             rewrites = _extract_rewrite_strings(parsed)
         except Exception:
+            llm_error = "llm_invoke_failed"
             rewrites = []
 
+    generated = len(rewrites)
     rewrites = [q[:max_len].strip() for q in rewrites if q and q.strip()]
     rewrites = _dedupe_keep_order(rewrites)
+    after_dedupe = len(rewrites)
 
     gated = _gate_rewrites(
         q0,
@@ -171,10 +226,22 @@ def rewrite_queries(
     )
 
     gated = gated[:num_rewrites]
+    after_gate = len(gated)
     all_queries = [q0] + gated
 
     _REWRITE_CACHE[cache_key] = {"ts": now, "items": all_queries}
-    return _build_candidates(q0, all_queries, weight_q0, weight_rw)
+    candidates = _build_candidates(q0, all_queries, weight_q0, weight_rw)
+    return (
+        candidates,
+        RewriteStats(
+            llm_used=llm_used,
+            llm_error=llm_error,
+            generated=generated,
+            after_dedupe=after_dedupe,
+            after_gate=after_gate,
+            final_count=len(candidates),
+        ),
+    )
 
 
 def _build_candidates(q0: str, queries: List[str], weight_q0: float, weight_rw: float) -> List[QueryCandidate]:

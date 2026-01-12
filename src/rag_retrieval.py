@@ -11,7 +11,7 @@ from langchain_core.embeddings import Embeddings
 from langchain_core.language_models import BaseChatModel
 from langchain_community.vectorstores import FAISS
 
-from src.query_rewrite import QueryCandidate, rewrite_queries
+from src.query_rewrite import QueryCandidate, rewrite_queries_with_meta
 
 
 def safe_meta(doc: Document) -> Dict[str, Any]:
@@ -219,9 +219,18 @@ def retrieve_ranked_docs(
 
     try:
         emb = embeddings or getattr(db, "embeddings", None)
-        candidates = rewrite_queries(query, llm=llm, embeddings=emb, cfg=cfg or {})
+        candidates, stats = rewrite_queries_with_meta(query, llm=llm, embeddings=emb, cfg=cfg or {})
         if rewrite_cfg.get("log_rewrites", False):
             print("[query_rewrite] enabled")
+            print(
+                "[query_rewrite] stats:"
+                f" llm_used={stats.llm_used}"
+                f" llm_error={stats.llm_error or 'none'}"
+                f" generated={stats.generated}"
+                f" after_dedupe={stats.after_dedupe}"
+                f" after_gate={stats.after_gate}"
+                f" final={stats.final_count}"
+            )
             for item in candidates:
                 tag = "Q0" if item.is_original else "RW"
                 print(f"[query_rewrite] {tag}: {item.query}")
@@ -310,7 +319,7 @@ def _self_test() -> None:
         pass
 
     db = FAISS.load_local(persist_dir, embeddings, allow_dangerous_deserialization=True)
-    rewrites = rewrite_queries(query, llm=llm, embeddings=embeddings, cfg=cfg)
+    rewrites, _stats = rewrite_queries_with_meta(query, llm=llm, embeddings=embeddings, cfg=cfg)
     print("[self-test] rewrites:")
     for item in rewrites:
         tag = "Q0" if item.is_original else "RW"
