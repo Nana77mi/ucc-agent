@@ -20,6 +20,7 @@ rag:
   score_threshold: 0
   query_rewrite:
     enabled: false
+    log_rewrites: false
     num_rewrites: 4
     max_query_len: 64
     per_query_k: 15

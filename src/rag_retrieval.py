@@ -220,6 +220,11 @@ def retrieve_ranked_docs(
     try:
         emb = embeddings or getattr(db, "embeddings", None)
         candidates = rewrite_queries(query, llm=llm, embeddings=emb, cfg=cfg or {})
+        if rewrite_cfg.get("log_rewrites", False):
+            print("[query_rewrite] enabled")
+            for item in candidates:
+                tag = "Q0" if item.is_original else "RW"
+                print(f"[query_rewrite] {tag}: {item.query}")
         if not candidates or all(c.is_original for c in candidates):
             return _baseline_retrieve(
                 db,
