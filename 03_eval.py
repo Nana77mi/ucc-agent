@@ -305,6 +305,8 @@ def main() -> None:
             keyword_boost=keyword_boost,
             reranker=reranker,
             rerank_top_n=rerank_top_n,
+            embeddings=embeddings,
+            cfg=cfg,
         )
 
         if not docs_ranked:
