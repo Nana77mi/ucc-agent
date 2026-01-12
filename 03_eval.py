@@ -13,7 +13,7 @@ from langchain_community.vectorstores import FAISS
 from langchain_core.documents import Document
 from src.common import load_yaml
 from src.rag_retrieval import CrossEncoderReranker, retrieve_ranked_docs
-from src.model_factory import build_embeddings
+from src.model_factory import build_embeddings, build_llm
 
 
 # =========================
@@ -217,6 +217,9 @@ def main() -> None:
     show_k = int(retrieval_cfg.get("show_k", 10))
     k_eval = show_k  # 评测用前 show_k（通常 10）
 
+    runtime_cfg = cfg.get("runtime", {}) or {}
+    temperature = float(cfg.get("generation", {}).get("temperature", runtime_cfg.get("temperature", 0.2)))
+
     rag_cfg = cfg.get("rag", {}) or {}
     score_threshold = float(rag_cfg.get("score_threshold", 0.0))
     keyword_boost = float(rag_cfg.get("keyword_boost", 0.25))
@@ -244,6 +247,7 @@ def main() -> None:
 
     embeddings = build_embeddings(cfg)
     db = FAISS.load_local(persist_dir, embeddings, allow_dangerous_deserialization=True)
+    llm = build_llm(cfg, temperature=temperature)
 
     # 加在 load FAISS 后面（db = FAISS.load_local(...) 之后）
     print("\n[index sanity] sample doc ids:")
@@ -305,6 +309,7 @@ def main() -> None:
             keyword_boost=keyword_boost,
             reranker=reranker,
             rerank_top_n=rerank_top_n,
+            llm=llm,
             embeddings=embeddings,
             cfg=cfg,
         )
