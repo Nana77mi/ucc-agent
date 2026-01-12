@@ -18,6 +18,19 @@ rag:
   chunk_size: 0
   chunk_overlap: 0
   score_threshold: 0
+  query_rewrite:
+    enabled: false
+    log_rewrites: false
+    num_rewrites: 4
+    max_query_len: 64
+    per_query_k: 15
+    rrf_k: 60
+    sim_threshold: 0.8
+    require_colon_prefix_preserve: true
+    cache_ttl_sec: 86400
+    weights:
+      q0: 1.0
+      rewrite: 0.85
 
 runtime:
   temperature: 0.2

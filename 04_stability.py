@@ -232,6 +232,9 @@ def main() -> None:
                     keyword_boost=keyword_boost,
                     reranker=reranker,
                     rerank_top_n=rerank_top_n,
+                    llm=llm,
+                    embeddings=embeddings,
+                    cfg=cfg,
                 )
             except Exception:
                 rag_lists.append([])
