@@ -47,6 +47,7 @@ def _build_page_content(obj: Dict[str, Any]) -> str:
     name = _pick_first(obj, ["name", "title", "func", "method"], "")
     desc = _pick_first(obj, ["command", "desc", "description", "brief"], "")
     grammar = _pick_first(obj, ["grammar", "syntax", "sig", "signature"], "")
+    signatures = obj.get("signatures")
 
     if fid:
         lines.append(f"ID: {fid}")
@@ -54,6 +55,14 @@ def _build_page_content(obj: Dict[str, Any]) -> str:
         lines.append(f"NAME: {name}")
     if grammar:
         lines.append(f"SYNTAX: {grammar}")
+    if isinstance(signatures, list) and signatures:
+        lines.append("SIGNATURES:")
+        for sig in signatures[:20]:
+            ss = str(sig).strip()
+            if ss:
+                lines.append(f"- {ss}")
+    elif isinstance(signatures, str) and signatures.strip():
+        lines.append("SIGNATURE:\n" + signatures.strip())
     if desc:
         lines.append(f"DESC: {desc}")
 
