@@ -85,8 +85,8 @@ class CrossEncoderReranker:
             return model_name
         cache_root = Path(cache_dir)
         cache_root.mkdir(parents=True, exist_ok=True)
-        safe_name = model_name.replace("/", "__")
-        local_dir = cache_root / safe_name
+        local_dir = cache_root / Path(model_name)
+        local_dir.parent.mkdir(parents=True, exist_ok=True)
         if not local_dir.exists():
             snapshot_download(
                 repo_id=model_name,
