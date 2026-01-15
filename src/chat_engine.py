@@ -71,14 +71,30 @@ def build_context_block(docs: List[Document]) -> str:
     return "\n\n---\n\n".join(parts)
 
 
-def build_user_prompt(user_query: str, context_block: str) -> str:
+def format_history_block(history: Optional[Iterable[Message]], *, max_turns: int = 6) -> str:
+    if not history:
+        return ""
+    trimmed = list(history)[-max_turns:]
+    lines: List[str] = []
+    for item in trimmed:
+        role = str(item.get("role", "")).strip()
+        content = str(item.get("content", "")).strip()
+        if not role or not content:
+            continue
+        label = "User" if role == "user" else "Assistant" if role == "assistant" else role.title()
+        lines.append(f"{label}: {content}")
+    return "\n".join(lines)
+
+
+def build_user_prompt(user_query: str, context_block: str, history_block: str = "") -> str:
+    history_section = f"\n\n【History】\n{history_block}" if history_block else ""
     return f"""你是文档问答助手。
 
 请严格基于下方 Context 回答问题，并在回答中用 [1][2] 的形式标注引用来源。
 如果无法从 Context 得到答案，请回答“文档中未找到相关信息”。
 
 【Context】
-{context_block}
+{context_block}{history_section}
 
 【Question】
 {user_query}
@@ -94,14 +110,9 @@ def build_messages(
     history: Optional[Iterable[Message]] = None,
 ) -> List[Message]:
     sys = (system_prompt or "").strip()
-    user = build_user_prompt(user_query, context_block)
+    history_block = format_history_block(history)
+    user = build_user_prompt(user_query, context_block, history_block)
     messages: List[Message] = [{"role": "system", "content": sys}]
-    if history:
-        for item in history:
-            role = str(item.get("role", "")).strip()
-            content = str(item.get("content", "")).strip()
-            if role and content:
-                messages.append({"role": role, "content": content})
     messages.append({"role": "user", "content": user})
     return messages
 

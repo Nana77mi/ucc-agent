@@ -10,7 +10,7 @@ from src.chat_engine import ChatEngine
 from src.chat_memory import MemoryManager
 
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 WEB_DIR = BASE_DIR / "web"
 
 
