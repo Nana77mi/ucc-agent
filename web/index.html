@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UCC 文档助手</title>
+    <link rel="stylesheet" href="/web/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <main class="content">
+        <header class="content__header">
+          <h1>UCC 官方文档</h1>
+          <p>后续会基于 method_list JSON 生成内容。</p>
+        </header>
+        <section class="content__body">
+          <div class="doc-card">
+            <h2>欢迎使用 UCC 文档助手</h2>
+            <p>左侧为文档区域，右侧为对话侧边栏。</p>
+            <p>当前是静态占位，后续会替换为实际文档内容。</p>
+          </div>
+        </section>
+      </main>
+      <aside class="chat">
+        <div class="chat__header">
+          <div>
+            <h2>Copilot 风格助手</h2>
+            <p>与文档对话，快速获取答案</p>
+          </div>
+          <button class="chat__clear" type="button" data-action="clear">清空</button>
+        </div>
+        <div class="chat__messages" id="chatMessages">
+          <div class="message message--assistant">
+            <div class="message__bubble">你好！我可以根据文档内容回答问题。</div>
+          </div>
+        </div>
+        <form class="chat__input" id="chatForm">
+          <input
+            id="chatInput"
+            type="text"
+            placeholder="请输入你的问题..."
+            autocomplete="off"
+          />
+          <button type="submit">发送</button>
+        </form>
+      </aside>
+    </div>
+    <script src="/web/main.js"></script>
+  </body>
+</html>
