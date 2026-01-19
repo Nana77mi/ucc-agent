@@ -5,7 +5,7 @@ import argparse
 import json
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, Iterable, List
+from typing import Any, Dict, Iterable, List, Sequence
 
 
 def load_jsonl(path: Path) -> Iterable[Dict[str, Any]]:
@@ -74,9 +74,48 @@ def build_doc(item: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
-def build_payload(items: Iterable[Dict[str, Any]], source: str) -> Dict[str, Any]:
+def normalize_extra_docs(raw_docs: Sequence[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    out: List[Dict[str, Any]] = []
+    for doc in raw_docs:
+        if not isinstance(doc, dict):
+            continue
+        normalized = {
+            "id": doc.get("id") or doc.get("title"),
+            "title": doc.get("title") or "未命名文档",
+            "summary": doc.get("summary") or "暂无描述",
+            "tags": normalize_tags(doc.get("tags")),
+            "subtitle": doc.get("subtitle") or "",
+            "sections": doc.get("sections") or [],
+            "order": doc.get("order", 0),
+        }
+        out.append(normalized)
+    return out
+
+
+def load_extra_docs(path: Path) -> List[Dict[str, Any]]:
+    if not path.exists():
+        return []
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return []
+    if isinstance(payload, dict):
+        raw_docs = payload.get("docs") or []
+    elif isinstance(payload, list):
+        raw_docs = payload
+    else:
+        raw_docs = []
+    return normalize_extra_docs(raw_docs)
+
+
+def build_payload(
+    items: Iterable[Dict[str, Any]],
+    source: str,
+    extra_docs: Sequence[Dict[str, Any]] = (),
+) -> Dict[str, Any]:
     docs = [build_doc(item) for item in items]
-    docs.sort(key=lambda doc: (doc["title"] or "").lower())
+    docs.extend(extra_docs)
+    docs.sort(key=lambda doc: (doc.get("order", 1), (doc.get("title") or "").lower()))
     return {
         "generated_at": datetime.utcnow().isoformat(timespec="seconds") + "Z",
         "source": source,
@@ -98,12 +137,19 @@ def parse_args() -> argparse.Namespace:
         default=Path("web/docs.json"),
         help="Output path for web docs json.",
     )
+    parser.add_argument(
+        "--extra-docs",
+        type=Path,
+        default=Path("data/ucc_official_docs.json"),
+        help="Optional extra docs json to merge.",
+    )
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
-    payload = build_payload(load_jsonl(args.input), str(args.input))
+    extra_docs = load_extra_docs(args.extra_docs)
+    payload = build_payload(load_jsonl(args.input), str(args.input), extra_docs=extra_docs)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
