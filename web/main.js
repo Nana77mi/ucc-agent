@@ -4,12 +4,14 @@ const messages = document.getElementById("chatMessages");
 const clearBtn = document.querySelector("[data-action='clear']");
 const docList = document.getElementById("docList");
 const docSearch = document.getElementById("docSearch");
+const docMetaInfo = document.getElementById("docMetaInfo");
 const docTitle = document.getElementById("docTitle");
 const docSubtitle = document.getElementById("docSubtitle");
 const docMeta = document.getElementById("docMeta");
 const docContent = document.getElementById("docContent");
 
 let docs = [];
+let docsMeta = null;
 let activeDocId = null;
 
 function escapeHtml(value) {
@@ -135,11 +137,23 @@ async function loadDocs() {
     }
     const data = await resp.json();
     docs = Array.isArray(data) ? data : data.docs || [];
+    docsMeta = Array.isArray(data) ? null : data;
     if (!docs.length) {
       docList.innerHTML = "<div class=\"status\">暂无文档数据</div>";
       return;
     }
     activeDocId = docs[0].id;
+    if (docMetaInfo) {
+      const metaLines = [];
+      metaLines.push(`共 ${docs.length} 条`);
+      if (docsMeta?.generated_at) {
+        metaLines.push(`更新时间 ${docsMeta.generated_at}`);
+      }
+      if (docsMeta?.source) {
+        metaLines.push(`来源 ${docsMeta.source}`);
+      }
+      docMetaInfo.innerHTML = metaLines.map((line) => `<div>${escapeHtml(line)}</div>`).join("");
+    }
     renderDocList();
     renderDocDetail(docs.find((doc) => doc.id === activeDocId));
   } catch (err) {

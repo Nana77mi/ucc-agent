@@ -73,6 +73,13 @@ body {
   font-size: 13px;
 }
 
+.docs__meta {
+  font-size: 12px;
+  color: var(--muted);
+  display: grid;
+  gap: 4px;
+}
+
 .docs__list {
   display: flex;
   flex-direction: column;
@@ -159,6 +166,12 @@ body {
   overflow-x: auto;
   font-size: 12px;
   line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.doc-detail__content code {
+  font-family: "SFMono-Regular", "Menlo", "Consolas", "Liberation Mono", monospace;
 }
 
 .chat {

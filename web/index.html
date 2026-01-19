@@ -11,7 +11,7 @@
       <main class="content">
         <header class="content__header">
           <h1>UCC 官方文档</h1>
-          <p>后续会基于 method_list JSON 生成内容。</p>
+          <p>运行 data/build_web_docs.py 可更新 method_list 文档内容。</p>
         </header>
         <section class="content__body">
           <div class="docs">
@@ -19,6 +19,7 @@
               <div class="docs__search">
                 <input id="docSearch" type="search" placeholder="搜索文档主题..." />
               </div>
+              <div class="docs__meta" id="docMetaInfo"></div>
               <div class="docs__list" id="docList"></div>
             </aside>
             <article class="docs__detail" id="docDetail">
