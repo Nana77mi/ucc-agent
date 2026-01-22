@@ -13,6 +13,7 @@ from langchain_core.messages import HumanMessage, SystemMessage
 
 @dataclass(frozen=True)
 class QueryCandidate:
+    """单条改写候选。"""
     query: str
     weight: float
     is_original: bool
@@ -20,6 +21,7 @@ class QueryCandidate:
 
 @dataclass(frozen=True)
 class RewriteStats:
+    """改写过程统计信息。"""
     llm_used: bool
     llm_error: Optional[str]
     generated: int
@@ -32,14 +34,17 @@ _REWRITE_CACHE: Dict[str, Dict[str, Any]] = {}
 
 
 def _normalize_query(text: str) -> str:
+    """归一化查询字符串。"""
     return re.sub(r"\s+", " ", (text or "").strip().lower())
 
 
 def _extract_tokens(text: str) -> List[str]:
+    """从文本中提取 token。"""
     return re.findall(r"[A-Za-z0-9_:+-]+", (text or ""))
 
 
 def _token_coverage_ratio(base_tokens: List[str], candidate: str) -> float:
+    """计算候选改写对原 token 的覆盖率。"""
     if not base_tokens:
         return 1.0
     cand = " ".join(_extract_tokens(candidate)).lower()
@@ -48,6 +53,7 @@ def _token_coverage_ratio(base_tokens: List[str], candidate: str) -> float:
 
 
 def _cosine_sim(a: List[float], b: List[float]) -> float:
+    """计算向量余弦相似度。"""
     if not a or not b or len(a) != len(b):
         return 0.0
     dot = sum(x * y for x, y in zip(a, b))
@@ -59,6 +65,7 @@ def _cosine_sim(a: List[float], b: List[float]) -> float:
 
 
 def _parse_json_array(text: str) -> List[Any]:
+    """解析模型输出中的 JSON 数组。"""
     cleaned = text.strip()
     try:
         return json.loads(cleaned)
@@ -74,6 +81,7 @@ def _parse_json_array(text: str) -> List[Any]:
 
 
 def _dedupe_keep_order(items: Iterable[str]) -> List[str]:
+    """去重并保持原始顺序。"""
     seen = set()
     out = []
     for item in items:
@@ -86,6 +94,7 @@ def _dedupe_keep_order(items: Iterable[str]) -> List[str]:
 
 
 def _build_prompt(query: str, *, num_rewrites: int, max_len: int, colon_tokens: List[str]) -> List[Any]:
+    """构建改写提示词。"""
     colon_hint = "无" if not colon_tokens else ", ".join(colon_tokens)
     system = (
         "你是搜索查询改写助手。"
@@ -106,6 +115,7 @@ def _build_prompt(query: str, *, num_rewrites: int, max_len: int, colon_tokens: 
 
 
 def _extract_rewrite_strings(parsed: List[Any]) -> List[str]:
+    """从解析后的 JSON 中提取改写文本。"""
     out: List[str] = []
     for item in parsed:
         if isinstance(item, dict) and "q" in item:
@@ -121,6 +131,7 @@ def _extract_rewrite_strings(parsed: List[Any]) -> List[str]:
 
 
 def _get_cfg(cfg: Dict[str, Any]) -> Dict[str, Any]:
+    """读取查询改写配置。"""
     return (cfg.get("rag", {}) or {}).get("query_rewrite", {}) or {}
 
 
@@ -131,6 +142,7 @@ def rewrite_queries(
     embeddings: Optional[Embeddings],
     cfg: Dict[str, Any],
 ) -> List[QueryCandidate]:
+    """仅返回改写候选列表。"""
     candidates, _stats = rewrite_queries_with_meta(query, llm=llm, embeddings=embeddings, cfg=cfg)
     return candidates
 
@@ -142,6 +154,7 @@ def rewrite_queries_with_meta(
     embeddings: Optional[Embeddings],
     cfg: Dict[str, Any],
 ) -> tuple[List[QueryCandidate], RewriteStats]:
+    """执行改写并返回候选与统计信息。"""
     rewrite_cfg = _get_cfg(cfg)
     enabled = bool(rewrite_cfg.get("enabled", False))
     num_rewrites = int(rewrite_cfg.get("num_rewrites", 4))
@@ -153,6 +166,7 @@ def rewrite_queries_with_meta(
     weight_q0 = float(weights.get("q0", 1.0))
     weight_rw = float(weights.get("rewrite", 0.85))
 
+    # 处理空查询
     q0 = (query or "").strip()
     if not q0:
         return [], RewriteStats(
@@ -164,6 +178,7 @@ def rewrite_queries_with_meta(
             final_count=0,
         )
 
+    # 未启用改写时返回原问题
     if not enabled:
         return (
             [QueryCandidate(query=q0, weight=weight_q0, is_original=True)],
@@ -177,6 +192,7 @@ def rewrite_queries_with_meta(
             ),
         )
 
+    # 命中缓存则直接返回
     cache_key = _normalize_query(q0)
     now = time.time()
     cached = _REWRITE_CACHE.get(cache_key)
@@ -196,6 +212,7 @@ def rewrite_queries_with_meta(
                 ),
             )
 
+    # 调用 LLM 生成改写
     rewrites: List[str] = []
     llm_error: Optional[str] = None
     llm_used = False
@@ -212,11 +229,13 @@ def rewrite_queries_with_meta(
             llm_error = "llm_invoke_failed"
             rewrites = []
 
+    # 清洗与去重
     generated = len(rewrites)
     rewrites = [q[:max_len].strip() for q in rewrites if q and q.strip()]
     rewrites = _dedupe_keep_order(rewrites)
     after_dedupe = len(rewrites)
 
+    # 使用覆盖率/相似度门控
     gated = _gate_rewrites(
         q0,
         rewrites,
@@ -229,6 +248,7 @@ def rewrite_queries_with_meta(
     after_gate = len(gated)
     all_queries = [q0] + gated
 
+    # 写入缓存并构建候选
     _REWRITE_CACHE[cache_key] = {"ts": now, "items": all_queries}
     candidates = _build_candidates(q0, all_queries, weight_q0, weight_rw)
     return (
@@ -245,6 +265,7 @@ def rewrite_queries_with_meta(
 
 
 def _build_candidates(q0: str, queries: List[str], weight_q0: float, weight_rw: float) -> List[QueryCandidate]:
+    """根据权重构造候选列表。"""
     out: List[QueryCandidate] = []
     for q in _dedupe_keep_order(queries):
         is_original = _normalize_query(q) == _normalize_query(q0)
@@ -263,12 +284,14 @@ def _gate_rewrites(
     sim_threshold: float,
     require_colon: bool,
 ) -> List[str]:
+    """门控改写结果，过滤不相关候选。"""
     if not candidates:
         return []
 
     base_tokens = _extract_tokens(q0)
     colon_tokens = [t for t in base_tokens if ":" in t]
 
+    # 计算原问题向量
     q0_vec: Optional[List[float]] = None
     if embeddings is not None:
         try:
@@ -278,14 +301,17 @@ def _gate_rewrites(
 
     filtered: List[str] = []
     for cand in candidates:
+        # 保留需要的前缀
         if require_colon and colon_tokens:
             if not all(t in cand for t in colon_tokens):
                 continue
 
+        # 覆盖率门控
         coverage = _token_coverage_ratio(base_tokens, cand)
         if coverage < 0.5:
             continue
 
+        # 相似度门控
         if q0_vec is not None:
             try:
                 cand_vec = embeddings.embed_query(cand)
@@ -301,6 +327,7 @@ def _gate_rewrites(
 
 
 if __name__ == "__main__":
+    # 简单自测入口
     from src.common import load_yaml
     from src.model_factory import build_embeddings, build_llm
 

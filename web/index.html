@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
   <head>
+    <!-- 页面元信息 -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UCC 文档助手</title>
+    <!-- 样式文件 -->
     <link rel="stylesheet" href="/web/styles.css" />
   </head>
   <body>
+    <!-- 应用主容器 -->
     <div class="app">
       <main class="content">
         <header class="content__header">
@@ -14,6 +17,7 @@
           <p>运行 data/build_web_docs.py 可更新 method_list 文档内容。</p>
         </header>
         <section class="content__body">
+          <!-- 文档导航与详情区域 -->
           <div class="docs">
             <aside class="docs__nav">
               <div class="docs__search">
@@ -23,16 +27,19 @@
               <div class="docs__list" id="docList"></div>
             </aside>
             <article class="docs__detail" id="docDetail">
+              <!-- 文档标题与元信息 -->
               <div class="doc-detail__header">
                 <span class="doc-detail__meta" id="docMeta"></span>
                 <h2 id="docTitle">文档标题</h2>
                 <p id="docSubtitle">点击左侧条目查看完整内容。</p>
               </div>
+              <!-- 文档内容 -->
               <div class="doc-detail__content" id="docContent"></div>
             </article>
           </div>
         </section>
       </main>
+      <!-- 右侧聊天面板 -->
       <aside class="chat">
         <div class="chat__header">
           <div>
@@ -41,11 +48,13 @@
           </div>
           <button class="chat__clear" type="button" data-action="clear">清空</button>
         </div>
+        <!-- 聊天消息列表 -->
         <div class="chat__messages" id="chatMessages">
           <div class="message message--assistant">
             <div class="message__bubble">你好！我可以根据文档内容回答问题。</div>
           </div>
         </div>
+        <!-- 聊天输入框 -->
         <form class="chat__input" id="chatForm">
           <input
             id="chatInput"
@@ -57,6 +66,7 @@
         </form>
       </aside>
     </div>
+    <!-- 主脚本 -->
     <script src="/web/main.js"></script>
   </body>
 </html>

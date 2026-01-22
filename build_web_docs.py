@@ -9,6 +9,8 @@ from typing import Any, Dict, Iterable, List, Sequence
 
 
 def load_jsonl(path: Path) -> Iterable[Dict[str, Any]]:
+    """读取 JSONL 文件并逐行解析。"""
+    # 逐行解析 JSONL
     with path.open("r", encoding="utf-8") as file:
         for line in file:
             line = line.strip()
@@ -21,6 +23,7 @@ def load_jsonl(path: Path) -> Iterable[Dict[str, Any]]:
 
 
 def normalize_tags(value: Any) -> List[str]:
+    """将标签字段归一化为字符串列表。"""
     if value is None:
         return []
     if isinstance(value, list):
@@ -29,6 +32,7 @@ def normalize_tags(value: Any) -> List[str]:
 
 
 def build_sections(item: Dict[str, Any]) -> List[Dict[str, Any]]:
+    """从方法条目构造展示区块。"""
     sections: List[Dict[str, Any]] = []
     description = (item.get("description") or "").strip()
     if description:
@@ -46,6 +50,7 @@ def build_sections(item: Dict[str, Any]) -> List[Dict[str, Any]]:
 
 
 def summarize(text: str, limit: int = 60) -> str:
+    """生成摘要文本。"""
     text = text.strip()
     if len(text) <= limit:
         return text
@@ -53,6 +58,7 @@ def summarize(text: str, limit: int = 60) -> str:
 
 
 def build_doc(item: Dict[str, Any]) -> Dict[str, Any]:
+    """构造单条文档输出结构。"""
     name = (item.get("name") or item.get("id") or "").strip()
     description = (item.get("description") or "").strip()
     example_count = item.get("example_count")
@@ -75,6 +81,7 @@ def build_doc(item: Dict[str, Any]) -> Dict[str, Any]:
 
 
 def normalize_extra_docs(raw_docs: Sequence[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """规范化额外文档结构。"""
     out: List[Dict[str, Any]] = []
     for doc in raw_docs:
         if not isinstance(doc, dict):
@@ -93,6 +100,7 @@ def normalize_extra_docs(raw_docs: Sequence[Dict[str, Any]]) -> List[Dict[str, A
 
 
 def load_extra_docs(path: Path) -> List[Dict[str, Any]]:
+    """读取并解析额外文档文件。"""
     if not path.exists():
         return []
     try:
@@ -113,8 +121,12 @@ def build_payload(
     source: str,
     extra_docs: Sequence[Dict[str, Any]] = (),
 ) -> Dict[str, Any]:
+    """构建用于前端的 docs payload。"""
+    # 主列表转换为 docs
     docs = [build_doc(item) for item in items]
+    # 合并额外文档
     docs.extend(extra_docs)
+    # 按排序字段和标题排序
     docs.sort(key=lambda doc: (doc.get("order", 1), (doc.get("title") or "").lower()))
     return {
         "generated_at": datetime.utcnow().isoformat(timespec="seconds") + "Z",
@@ -124,6 +136,7 @@ def build_payload(
 
 
 def parse_args() -> argparse.Namespace:
+    """解析命令行参数。"""
     parser = argparse.ArgumentParser(description="Build web docs json from method list JSONL.")
     parser.add_argument(
         "--input",
@@ -147,9 +160,13 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> None:
+    """生成前端需要的 docs.json。"""
     args = parse_args()
+    # 读取额外文档
     extra_docs = load_extra_docs(args.extra_docs)
+    # 构建输出 payload
     payload = build_payload(load_jsonl(args.input), str(args.input), extra_docs=extra_docs)
+    # 写入输出文件
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
