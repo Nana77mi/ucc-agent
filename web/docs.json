@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-01-19T03:36:08Z",
-  "source": "data/ucc_methods_list.jsonl",
+  "generated_at": "2026-01-22T02:18:07Z",
+  "source": "data\\ucc_methods_list.jsonl",
   "docs": [
     {
       "id": "ucc-syntax",
@@ -183,95 +183,17 @@
       "order": 0
     },
     {
-      "id": "method::Add",
-      "title": "Add 方法",
-      "summary": "执行 Add 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 16 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 Add 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Add: ListBox1=M,'上海市','浦东新区','世纪大道210号'",
-            "Add: Report1=R,'省','区','地址'",
-            "Add: Report1=R,'上海市','浦东新区','世纪大道210号'",
-            "Add: Report1=R,'上海市','长宁区','延安西路900号'",
-            "Add: 报表形式=M,1,2,3,4,5,6,7,8"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "; --; Set:LayerChart.BorderStyle=0; --; Add:报表形式=M,1,2,3,4,5,6,7,8;",
-            "Add:ListTip=S,'@[SaveFileOfDownload] DownLoad Failed';",
-            "Add:List1=S,'Text1 GotFocus';"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::align",
-      "title": "align 方法",
-      "summary": "执行 align 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 5 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 align 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "#ffffff; margin: 0; padding: 20px; text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#666666; } .error_page {width: 600px; padding: 50px; margin: auto; } .error_page h",
-            "}\\n\\n        header {\\n            text-align: center; \\n            padding: 40px 0; \\n            margin-bottom: 40px; \\n        }\\n\\n        .main-title {\\n            font-size: 3.5rem; \\n",
-            "tion: all 0.3s ease; \\n            text-align: center; \\n            position: relative; \\n            overflow: hidden; \\n        }\\n\\n        .step-card:hover {\\n            transform: translateY(-1"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::animation",
-      "title": "animation 方法",
-      "summary": "执行 animation 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 4 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 animation 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Animation: fadeInDown 1s ease-out",
-            "Animation: fadeInUp 1s ease-out"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "margin-bottom: 10px; \\n            animation: fadeInDown 1s ease-out; \\n        }\\n\\n        .subtitle {\\n            font-size: 1.5rem; \\n            color: rgba(255,255,255,0.9); \\n",
-            "font-weight: 300; \\n            animation: fadeInUp 1s ease-out; \\n        }\\n\\n        .steps-container {\\n            display: grid; \\n            grid-template-columns: repeat(auto-fit, min",
-            "x rgba(0,0,0,0.3); margin-bottom: 10px; animation: fadeInDown 1s ease-out; }          .subtitle {             font-size: 1.5rem; color: rgba(255,255,255,0.9); font-weight: 300; animation: fadeInUp 1s"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::App",
       "title": "App 方法",
-      "summary": "执行 App 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 29 · 来源 2",
+      "summary": "执行 App 相关操作。\n关键词: 操作软件客户端",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 App 相关操作。"
+          "text": "执行 App 相关操作。\n关键词: 操作软件客户端"
         },
         {
           "title": "常用签名",
@@ -296,18 +218,18 @@
     {
       "id": "method::Append",
       "title": "Append 方法",
-      "summary": "向字符串/集合或文件末尾追加内容（根据上下文使用）。",
+      "summary": "向字符串/集合或文件末尾追加内容（根据上下文使用）。\n关键词: 向对象添加数据\n语法/要点: Append:Obj...",
       "tags": [
         "追加",
         "append",
         "日志",
         "写入"
       ],
-      "subtitle": "示例数 612 · 来源 2",
+      "subtitle": "示例数 15 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "向字符串/集合或文件末尾追加内容（根据上下文使用）。"
+          "text": "向字符串/集合或文件末尾追加内容（根据上下文使用）。\n关键词: 向对象添加数据\n语法/要点: Append:Obj=Value | Append:Obj=S,Value | Append:Obj=S,Value,Index | Append:Obj=M,Value1,Value2... | Append:Obj=R,ValueOfColume1,ValueOfColume2... | Append:ReportID=TITLE,ValueOfColume1,ValueOfColume2..."
         },
         {
           "title": "常用签名",
@@ -322,29 +244,11 @@
         {
           "title": "示例片段",
           "code": [
-            "Clear:group机台; Append:group机台=GROUP,'16A','16A'; Append:group机台=GROUP,'17A','17A'; Append:group机台=GROUP,'18A','18A'; Append:group机台=GROUP,'19A','19A'; Append:group机台=GROUP,'13",
-            "up机台; Append:group机台=GROUP,'16A','16A'; Append:group机台=GROUP,'17A','17A'; Append:group机台=GROUP,'18A','18A'; Append:group机台=GROUP,'19A','19A'; Append:group机台=GROUP,'13A','13A'; Append:group机台=GROUP,'14",
-            "16A'; Append:group机台=GROUP,'17A','17A'; Append:group机台=GROUP,'18A','18A'; Append:group机台=GROUP,'19A','19A'; Append:group机台=GROUP,'13A','13A'; Append:group机台=GROUP,'14A','14A'; Count:var机台总数=group机台;"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::areaStyle",
-      "title": "areaStyle 方法",
-      "summary": "执行 areaStyle 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 areaStyle 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "item\\sq             }\\comma             areaStyle: {}\\comma             data: [                 {                     value: [5\\comma4\\comma4\\comma4\\comma5\\comma3\\comma4\\comma5\\comma2\\comma3\\comma4\\co",
-            "gger: 'item'             },             areaStyle: {},             data: [                 {                     value: [5,4,4,4,5,3,4,5,2,3,4,5,4,3,3,5,4],                     name: ''"
+            "Append:Obj=Value",
+            "Append:Obj=S,Value",
+            "Append:Obj=S,Value,Index",
+            "Append:Obj=M,Value1,Value2...",
+            "Append:Obj=R,ValueOfColume1,ValueOfColume2..."
           ]
         }
       ]
@@ -352,13 +256,15 @@
     {
       "id": "method::Audio",
       "title": "Audio 方法",
-      "summary": "执行 Audio 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 6 · 来源 2",
+      "summary": "执行 Audio 相关操作。\n关键词: 播放音乐 '2021-09-03 11:31",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Audio 相关操作。"
+          "text": "执行 Audio 相关操作。\n关键词: 播放音乐 '2021-09-03 11:31"
         },
         {
           "title": "常用签名",
@@ -381,51 +287,20 @@
       ]
     },
     {
-      "id": "method::background",
-      "title": "background 方法",
-      "summary": "执行 background 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 16 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 background 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Background: #ffffff",
-            "Background: #f1f1ff",
-            "Background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-            "Background: linear-gradient(90deg, #667eea, #764ba2)",
-            "Background: #667eea"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "<table style=\"border-collapse:collapse; background:#f1f1ff; \"><tr><th style=\"border:1px solid black; \" width=75>函数语法</th><td style=\"padding:1px; border:1px solid gray; \" height=30>ShowControl:ControlI",
-            "r><tr><th style=\"border:1px solid gray; background:#ffffff; \">功能描述</th><td style=\"padding:1px; border:1px solid gray; background:#ffffff; \" height=30>显示Control对象（除Layer、Label、Image之外的可见对象）</td></tr><t",
-            "le=\"padding:1px; border:1px solid gray; background:#ffffff; \" height=30>显示Control对象（除Layer、Label、Image之外的可见对象）</td></tr><tr><th style=\"border:1px solid gray; \">参数说明</th><td  style=\"padding:1px; border"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::Barcode",
       "title": "Barcode 方法",
-      "summary": "执行 Barcode 相关操作。",
+      "summary": "执行 Barcode 相关操作。\n关键词: 显示一维或二维条码\n语法/要点: 生成条码:Type=1为1维码，Ty...",
       "tags": [
         "条形码",
         "barcode",
         "二维码",
         "qr"
       ],
-      "subtitle": "示例数 3 · 来源 2",
+      "subtitle": "示例数 4 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Barcode 相关操作。"
+          "text": "执行 Barcode 相关操作。\n关键词: 显示一维或二维条码\n语法/要点: 生成条码:Type=1为1维码，Type=2为2维码，默认为2维码 | Barcode:LayerID/ImageID/Var=Type,Content | 2013-05-26 22:36"
         },
         {
           "title": "常用签名",
@@ -437,7 +312,8 @@
         {
           "title": "示例片段",
           "code": [
-            "--生成二维码; Barcode:varBarcodePic=2,'@txtcontent.text'; --在Layer上显示二维码; DrawImage:LayerBarcode=1,varBarcodePic; DrawImage:imgBarcode=1,varBarcodePic; --在img上显示二维码; Set:imgB",
+            "Barcode:LayerID/ImageID/Var=Type,Content",
+            "生成二维码; Barcode:varBarcodePic=2,'@txtcontent.text'; --在Layer上显示二维码; DrawImage:LayerBarcode=1,varBarcodePic; DrawImage:imgBarcode=1,varBarcodePic; --在img上显示二维码; Set:imgB",
             "arIP',':@txt监听端口.Text','/V1/drivers/6'; Barcode:Image二维码=2,'http://@varIP';",
             "='','http://','@varIP','/V1/drivers/6'; Barcode:Image二维码=2,'http://@varIP';"
           ]
@@ -447,7 +323,7 @@
     {
       "id": "method::BindingDataTo",
       "title": "BindingDataTo 方法",
-      "summary": "将数据源/数据集绑定到界面控件（表格/报表等）用于展示。",
+      "summary": "将数据源/数据集绑定到界面控件（表格/报表等）用于展示。\n关键词: 显示数据\n语法/要点: BindingData...",
       "tags": [
         "绑定",
         "数据绑定",
@@ -456,11 +332,11 @@
         "grid",
         "table"
       ],
-      "subtitle": "示例数 244 · 来源 2",
+      "subtitle": "示例数 15 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "将数据源/数据集绑定到界面控件（表格/报表等）用于展示。"
+          "text": "将数据源/数据集绑定到界面控件（表格/报表等）用于展示。\n关键词: 显示数据\n语法/要点: BindingDataTo:ControlID=DataSource,FieldName --将DataSource中的数据取出字段名为FieldName的一列数据来，显示在ControlID代表的组件上 | BindingDataTo:ControlID=DataSource,DISTINCT FieldName --将DataSource中的数据取出字段名为FieldName的一列数据来，显示在ControlID代表的组件上，同时自动过滤重复数据 | BindingDataTo:ChartID=DataSource,ChartType,Title,FieldName --将DataSource中的数据取出字段名为FieldName的一列数据来，显示在ChartID代表的图表上，ChartType=1饼图 2线图 3柱图 | BindingDataTo:ControlID=Delimiter,DISTINCT Expression --将字符串Expression中的数据用分隔符Delimiter分割出来，显示在ControlID代表的组件上，同时自动过滤重复数据 | BindingDataTo:ControlID=Var of XML,NodeName,FieldName | BindingDataTo:TreeID=DataSource,'RootID','FieldOfPerentID','FieldOfNodeID','FieldOfNodeTitle','FieldOfImage' --绑定DataSource到Tree"
         },
         {
           "title": "常用签名",
@@ -475,57 +351,11 @@
         {
           "title": "示例片段",
           "code": [
-            "T100项目表 Group BY 国家和城市 Order by 国家和城市'; BindingDataTo:Report销售省份=db省份;",
-            "项目地 LIKE \"@varMatchWord\" ORDER BY 项目地'; BindingDataTo:Report项目机会列表=db项目机会列表;",
-            "和城市 LIKE \"@varMatchWord\" ORDER BY 项目地'; BindingDataTo:Report项目机会列表=db项目机会列表;"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::border",
-      "title": "border 方法",
-      "summary": "执行 border 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 10 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 border 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Border: 1px solid gray"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "e; background:#f1f1ff; \"><tr><th style=\"border:1px solid black; \" width=75>函数语法</th><td style=\"padding:1px; border:1px solid gray; \" height=30>ShowControl:ControlID</td></tr><tr><th style=\"border:1px",
-            "dth=75>函数语法</th><td style=\"padding:1px; border:1px solid gray; \" height=30>ShowControl:ControlID</td></tr><tr><th style=\"border:1px solid gray; background:#ffffff; \">功能描述</th><td style=\"padding:1px; b",
-            "ntrol:ControlID</td></tr><tr><th style=\"border:1px solid gray; background:#ffffff; \">功能描述</th><td style=\"padding:1px; border:1px solid gray; background:#ffffff; \" height=30>显示Control对象（除Layer、Label、Im"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::bottom",
-      "title": "bottom 方法",
-      "summary": "执行 bottom 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 10 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 bottom 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "padding: 40px 0; \\n            margin-bottom: 40px; \\n        }\\n\\n        .main-title {\\n            font-size: 3.5rem; \\n            font-weight: 700; \\n            color: white; \\n            tex",
-            "x rgba(0,0,0,0.3); \\n            margin-bottom: 10px; \\n            animation: fadeInDown 1s ease-out; \\n        }\\n\\n        .subtitle {\\n            font-size: 1.5rem; \\n            color: rgba(255,",
-            "font-size: 3rem; \\n            margin-bottom: 20px; \\n            color: #667eea; \\n        }\\n\\n        .step-title {\\n            font-size: 1.5rem; \\n            font-weight: 600; \\n            c"
+            "BindingDataTo:ControlID=DataSource,FieldName --将DataSource中的数据取出字段名为FieldName的一列数据来，显示在ControlID代表的组件上",
+            "BindingDataTo:ControlID=DataSource,DISTINCT FieldName --将DataSource中的数据取出字段名为FieldName的一列数据来，显示在ControlID代表的组件上，同时自动过滤重复数据",
+            "BindingDataTo:ChartID=DataSource,ChartType,Title,FieldName --将DataSource中的数据取出字段名为FieldName的一列数据来，显示在ChartID代表的图表上，ChartType=1饼图 2线图 3柱图",
+            "BindingDataTo:ControlID=Delimiter,DISTINCT Expression --将字符串Expression中的数据用分隔符Delimiter分割出来，显示在ControlID代表的组件上，同时自动过滤重复数据",
+            "BindingDataTo:ControlID=Var of XML,NodeName,FieldName"
           ]
         }
       ]
@@ -533,13 +363,15 @@
     {
       "id": "method::Browse",
       "title": "Browse 方法",
-      "summary": "执行 Browse 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 33 · 来源 2",
+      "summary": "执行 Browse 相关操作。\n关键词: 浏览文件(打开文件、另存为、指定文件夹)",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Browse 相关操作。"
+          "text": "执行 Browse 相关操作。\n关键词: 浏览文件(打开文件、另存为、指定文件夹)"
         },
         {
           "title": "常用签名",
@@ -564,18 +396,18 @@
     {
       "id": "method::Calc",
       "title": "Calc 方法",
-      "summary": "计算表达式/数学运算，支持常见运算符与函数。",
+      "summary": "计算表达式/数学运算，支持常见运算符与函数。\n语法/要点: DoCalc:i=(@i+5)*20 | ToDo:需...",
       "tags": [
         "计算",
         "表达式",
         "公式",
         "math"
       ],
-      "subtitle": "示例数 238 · 来源 2",
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "计算表达式/数学运算，支持常见运算符与函数。"
+          "text": "计算表达式/数学运算，支持常见运算符与函数。\n语法/要点: DoCalc:i=(@i+5)*20 | ToDo:需要解决对象变量引用的问题，如DoCalc:i=(@OnWho.Left+5)*20"
         },
         {
           "title": "常用签名",
@@ -600,13 +432,15 @@
     {
       "id": "method::Call",
       "title": "Call 方法",
-      "summary": "执行 Call 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 13 · 来源 2",
+      "summary": "执行 Call 相关操作。\n关键词: 执行对象的方法",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Call 相关操作。"
+          "text": "执行 Call 相关操作。\n关键词: 执行对象的方法"
         },
         {
           "title": "常用签名",
@@ -631,13 +465,15 @@
     {
       "id": "method::Camera",
       "title": "Camera 方法",
-      "summary": "执行 Camera 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 4 · 来源 2",
+      "summary": "执行 Camera 相关操作。\n关键词: 摄像头操作",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Camera 相关操作。"
+          "text": "执行 Camera 相关操作。\n关键词: 摄像头操作"
         },
         {
           "title": "常用签名",
@@ -659,36 +495,17 @@
       ]
     },
     {
-      "id": "method::card",
-      "title": "card 方法",
-      "summary": "执行 card 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 4 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 card 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "w: hidden; \\n        }\\n\\n        .step-card:hover {\\n            transform: translateY(-10px); \\n            box-shadow: 0 20px 40px rgba(0,0,0,0.15); \\n        }\\n\\n        .step-card::before {\\n",
-            "0,0,0.15); \\n        }\\n\\n        .step-card::before {\\n            content: ''; \\n            position: absolute; \\n            top: 0; \\n            left: 0; \\n            width: 100%; \\n",
-            "ive; overflow: hidden; }          .step-card:hover {             transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }          .step-card::before {             content: ''; positi"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::Case",
       "title": "Case 方法",
-      "summary": "执行 Case 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 351 · 来源 2",
+      "summary": "执行 Case 相关操作。\n关键词: 逻辑判断执行脚本",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Case 相关操作。"
+          "text": "执行 Case 相关操作。\n关键词: 逻辑判断执行脚本"
         },
         {
           "title": "常用签名",
@@ -711,35 +528,17 @@
       ]
     },
     {
-      "id": "method::center",
-      "title": "center 方法",
-      "summary": "执行 center 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 center 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "ata01}}             ]\\comma             center: [\\sq50%\\sq\\comma \\sq50%\\sq]\\comma             radius: 200         }                      ]\\comma     series: [         {             type: \\sqradar\\sq\\c",
-            "识\", max: 10}             ],             center: ['50%', '50%'],             radius: 200         }                      ],     series: [         {             type: 'radar',             tooltip: {"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::ChartSet",
       "title": "ChartSet 方法",
-      "summary": "执行 ChartSet 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 35 · 来源 2",
+      "summary": "执行 ChartSet 相关操作。\n关键词: V216 设置Chart的属性\n语法/要点: ChartSet:Ch...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 15 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 ChartSet 相关操作。"
+          "text": "执行 ChartSet 相关操作。\n关键词: V216 设置Chart的属性\n语法/要点: ChartSet:ChartID=PointAppend,SerieIndex,Value1,Value2,... 增加一个节点 | ChartSet:ChartID=PointRemove,SerieIndex,Index/ALL 减少一个或所有节点 | ChartSet:ChartID=PointsAppend,SerieIndex,Collection 增加一个集合的节点 | ChartSet:ChartID=ShowLabel,SerieIndex,True 显示/隐藏节点标签 | ChartSet:ChartID=PointBatchAppend,SerieIndex,Count 批量增加节点（适合于10000个以上的节点，比较快) | ChartSet:ChartID=PointValue,SerieIndex,PointIndex,Value 设置节点值"
         },
         {
           "title": "常用签名",
@@ -754,9 +553,11 @@
         {
           "title": "示例片段",
           "code": [
-            "ChartSet:Chart1=Rotated,@cmb数据系列序号.Text,'@cmb数据列是否转置.Text';",
-            "ChartSet:Chart1=Appearance,'@cmb图表风格.Text';",
-            "ChartSet:Chart1=Palette,'@cmb图表配色方案.Text';"
+            "ChartSet:ChartID=PointAppend,SerieIndex,Value1,Value2,... 增加一个节点",
+            "ChartSet:ChartID=PointRemove,SerieIndex,Index/ALL 减少一个或所有节点",
+            "ChartSet:ChartID=PointsAppend,SerieIndex,Collection 增加一个集合的节点",
+            "ChartSet:ChartID=ShowLabel,SerieIndex,True 显示/隐藏节点标签",
+            "ChartSet:ChartID=PointBatchAppend,SerieIndex,Count 批量增加节点（适合于10000个以上的节点，比较快)"
           ]
         }
       ]
@@ -764,13 +565,15 @@
     {
       "id": "method::Clear",
       "title": "Clear 方法",
-      "summary": "执行 Clear 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 119 · 来源 2",
+      "summary": "执行 Clear 相关操作。\n关键词: 删除全部文本\n语法/要点: Clear:ID",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 4 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Clear 相关操作。"
+          "text": "执行 Clear 相关操作。\n关键词: 删除全部文本\n语法/要点: Clear:ID"
         },
         {
           "title": "常用签名",
@@ -785,6 +588,7 @@
         {
           "title": "示例片段",
           "code": [
+            "Clear:ID",
             "Clear:group机台; Append:group机台=GROUP,'16A','16A'; Append:group机台=GROUP,'17A','17A'; Append:group机台=GROUP,'18A','18A'; Append:group机台=GROUP,'19A','19A'; Append:gr",
             "Clear:lstData,txtData,lblData;",
             "xtExpression.Text=@listExpression.text; Clear:txtResult;"
@@ -795,13 +599,15 @@
     {
       "id": "method::Clipboard",
       "title": "Clipboard 方法",
-      "summary": "执行 Clipboard 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 8 · 来源 2",
+      "summary": "执行 Clipboard 相关操作。\n关键词: 读写剪贴板",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Clipboard 相关操作。"
+          "text": "执行 Clipboard 相关操作。\n关键词: 读写剪贴板"
         },
         {
           "title": "常用签名",
@@ -826,13 +632,15 @@
     {
       "id": "method::Clone",
       "title": "Clone 方法",
-      "summary": "执行 Clone 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 16 · 来源 2",
+      "summary": "执行 Clone 相关操作。\n关键词: V99ex31 克隆对象",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Clone 相关操作。"
+          "text": "执行 Clone 相关操作。\n关键词: V99ex31 克隆对象"
         },
         {
           "title": "常用签名",
@@ -855,20 +663,22 @@
       ]
     },
     {
-      "id": "method::collapse",
-      "title": "collapse 方法",
-      "summary": "执行 collapse 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
+      "id": "method::CollectionSet",
+      "title": "CollectionSet 方法",
+      "summary": "关键词: V276 设置Collection集合内容\n语法/要点: DicSet:successCount=dic...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 1 · 来源 6",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 collapse 相关操作。"
+          "text": "关键词: V276 设置Collection集合内容\n语法/要点: DicSet:successCount=dicID,json 'Json是需要设置的值 | Set:varJson='{\"0\":\"25\",\"1\":\"24\",\"2\":\"14\",\"3\":\"4\"}'; | CollectionSet:successCount=dicID,varJson 'Json是需要设置的值 | Clear:col预览方块矩阵; | Append:col预览方块矩阵=COLLECTION,0,25; | Append:col预览方块矩阵=COLLECTION,1,24;"
         },
         {
           "title": "示例片段",
           "code": [
-            "<table style=\"border-collapse:collapse; background:#f1f1ff; \"><tr><th style=\"border:1px solid black; \" width=75>函数语法</th><td style=\"padding:1px; border:1px solid gray; \" height=30>S"
+            "CollectionSet:successCount=dicID,varJson 'Json是需要设置的值"
           ]
         }
       ]
@@ -876,13 +686,15 @@
     {
       "id": "method::CollisionDetect",
       "title": "CollisionDetect 方法",
-      "summary": "执行 CollisionDetect 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 3 · 来源 2",
+      "summary": "执行 CollisionDetect 相关操作。\n关键词: V153ex1 碰撞检测（测试两个对象有没有撞到）\n语...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 4 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 CollisionDetect 相关操作。"
+          "text": "执行 CollisionDetect 相关操作。\n关键词: V153ex1 碰撞检测（测试两个对象有没有撞到）\n语法/要点: CollisionDetect:var=ControlID1,ControlID2[,RectOrRound][,Distance] | Round:圆形碰撞函数(勾股定理)"
         },
         {
           "title": "常用签名",
@@ -895,91 +707,10 @@
         {
           "title": "示例片段",
           "code": [
+            "CollisionDetect:var=ControlID1,ControlID2[,RectOrRound][,Distance]",
             "CollisionDetect:txtAB.Text=lblBoxA,lblBoxB; CollisionDetect:txtAC.Text=lblBoxA,lblBoxC; CollisionDetect:txtCD.Text=lblBoxC,lblBoxD; IF:lblResultAB.Caption=@txtA",
-            "isionDetect:txtAB.Text=lblBoxA,lblBoxB; CollisionDetect:txtAC.Text=lblBoxA,lblBoxC; CollisionDetect:txtCD.Text=lblBoxC,lblBoxD; IF:lblResultAB.Caption=@txtAB.Text  == -1 Then '已相撞' Else '未相撞'; IF:lblR",
-            "isionDetect:txtAC.Text=lblBoxA,lblBoxC; CollisionDetect:txtCD.Text=lblBoxC,lblBoxD; IF:lblResultAB.Caption=@txtAB.Text  == -1 Then '已相撞' Else '未相撞'; IF:lblResultAC.Caption=@txtAC.Text  == -1 Then '已相撞"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::color",
-      "title": "color 方法",
-      "summary": "执行 color 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 22 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 color 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Color: #333",
-            "Color: white",
-            "Color: #666666",
-            "Color: rgba(255,255,255,0.9)",
-            "Color: #667eea"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "{title : '<span style=\"font-size:14px; color:#0A8021\">上海市</span>'}; var infoWindow1 =new BMapGL.InfoWindow(\"<div id='titlebar' style='line-height:1.8em; font-size:12px; '><b>地址:</b>上海市市东中学</br><a sty",
-            "东中学</br><a style='text-decoration:none; color:#2679BA; float:right' href='UCC://BaiduMap/城市被选中/上海市市东中学')'>详情>></a></div>\", opts1); // 创建信息窗口对象，引号里可以书写任意的html语句。    marker.addEventListener(\"mouseover\",",
-            "sans-serif; font-size:14px; color:#666666; } .error_page {width: 600px; padding: 50px; margin: auto; } .error_page h1 {margin: 20px 0 0; font-size:20px} .error_page p {margin: 10px 0; padd"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::ColorBrowse",
-      "title": "ColorBrowse 方法",
-      "summary": "执行 ColorBrowse 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 6 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 ColorBrowse 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Colorbrowse: varColor",
-            "Colorbrowse: txt新单元格文字颜色值.Text",
-            "Colorbrowse: txt新单元格背景色.Text",
-            "Colorbrowse: txt选中前景色.Text",
-            "Colorbrowse: txt选中背景色.Text"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "ColorBrowse:txt新单元格文字颜色值.Text;",
-            "ColorBrowse:txt新单元格背景色.Text;",
-            "ColorBrowse:txt选中前景色.Text;"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::columns",
-      "title": "columns 方法",
-      "summary": "执行 columns 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 columns 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "play: grid; \\n            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); \\n            gap: 30px; \\n            margin-top: 30px; \\n        }\\n\\n        .step-card {\\n            backgro",
-            "display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px; }          .step-card {             background: white; border-radius: 15px; padding:"
+            "isionDetect:txtAB.Text=lblBoxA,lblBoxB; CollisionDetect:txtAC.Text=lblBoxA,lblBoxC; CollisionDetect:txtCD.Text=lblBoxC,lblBoxD; IF:lblResultAB.Caption=@txtAB.Text == -1 Then '已相撞' Else '未相撞'; IF:lblR",
+            "isionDetect:txtAC.Text=lblBoxA,lblBoxC; CollisionDetect:txtCD.Text=lblBoxC,lblBoxD; IF:lblResultAB.Caption=@txtAB.Text == -1 Then '已相撞' Else '未相撞'; IF:lblResultAC.Caption=@txtAC.Text == -1 Then '已相撞"
           ]
         }
       ]
@@ -987,18 +718,18 @@
     {
       "id": "method::Console",
       "title": "Console 方法",
-      "summary": "执行 Console 相关操作。",
+      "summary": "执行 Console 相关操作。\n关键词: 控制台 V140ex2 2017-10-25",
       "tags": [
         "控制台",
         "日志",
         "调试",
         "print"
       ],
-      "subtitle": "示例数 95 · 来源 2",
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Console 相关操作。"
+          "text": "执行 Console 相关操作。\n关键词: 控制台 V140ex2 2017-10-25"
         },
         {
           "title": "常用签名",
@@ -1021,54 +752,17 @@
       ]
     },
     {
-      "id": "method::content",
-      "title": "content 方法",
-      "summary": "执行 content 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 content 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            ".step-card::before {\\n            content: ''; \\n            position: absolute; \\n            top: 0; \\n            left: 0; \\n            width: 100%; \\n            height: 5px; \\n",
-            ".step-card::before {             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #667eea, #764ba2); }          .step-icon {"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::ControlID",
-      "title": "ControlID 方法",
-      "summary": "执行 ControlID 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 ControlID 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "1px; border:1px solid gray; \" height=30>ControlID:除Layer、Label、Image之外的可见对象的ID</td></tr><tr><th style=\"border:1px solid gray; background:#ffffff; \">例子</th><td style=\"padding:1px; border:1px solid gray"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::Convert",
       "title": "Convert 方法",
-      "summary": "执行 Convert 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 21 · 来源 2",
+      "summary": "执行 Convert 相关操作。\n关键词: 通用格式转换 V144.6",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Convert 相关操作。"
+          "text": "执行 Convert 相关操作。\n关键词: 通用格式转换 V144.6"
         },
         {
           "title": "常用签名",
@@ -1093,7 +787,7 @@
     {
       "id": "method::Count",
       "title": "Count 方法",
-      "summary": "执行 Count 相关操作。",
+      "summary": "执行 Count 相关操作。\n关键词: 计算对象的数量\n语法/要点: Count:var=ListID/Combo...",
       "tags": [
         "统计",
         "数量",
@@ -1101,11 +795,11 @@
         "集合",
         "list"
       ],
-      "subtitle": "示例数 20 · 来源 2",
+      "subtitle": "示例数 8 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Count 相关操作。"
+          "text": "执行 Count 相关操作。\n关键词: 计算对象的数量\n语法/要点: Count:var=ListID/ComboID/Report '获得List/Combo/Report的列表数 | Count:var='ABCDEF' '获得字符串中的字符数 | Count:var=dbVar '获得记录的数量 | Count:var=TextBox/Label '获得文本的数量 | Count:var=Collection '获得集合的数量 V99ex39 2017-10-22"
         },
         {
           "title": "常用签名",
@@ -1120,31 +814,42 @@
         {
           "title": "示例片段",
           "code": [
-            "13A'; Append:group机台=GROUP,'14A','14A'; Count:var机台总数=group机台;",
-            "Count:varCount=List音乐列表; RunAction:fun加载播放列表; Audio:varResult=OpenList,col音乐列表;",
-            "t3001铺位及品牌; BindingDataTo:List1=db铺位列表; Count:Text1.text=db铺位列表;"
+            "Count:var=ListID/ComboID/Report '获得List/Combo/Report的列表数",
+            "Count:var='ABCDEF' '获得字符串中的字符数",
+            "Count:var=dbVar '获得记录的数量",
+            "Count:var=TextBox/Label '获得文本的数量",
+            "Count:var=Collection '获得集合的数量 V99ex39 2017-10-22"
           ]
         }
       ]
     },
     {
-      "id": "method::data",
-      "title": "data 方法",
-      "summary": "执行 data 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 7 · 来源 2",
+      "id": "method::CPU",
+      "title": "CPU 方法",
+      "summary": "关键词: CPU使用率",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 0 · 来源 6",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 data 相关操作。"
-        },
+          "text": "关键词: CPU使用率"
+        }
+      ]
+    },
+    {
+      "id": "method::DataSource",
+      "title": "DataSource 方法",
+      "summary": "关键词: ToDo:数据源",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 0 · 来源 6",
+      "sections": [
         {
-          "title": "示例片段",
-          "code": [
-            "tooltip : { show : true },  legend : {  data : [ \"销量\" ] },  xAxis : [ { type : \"category\",  data : [ \"衬衫\", \"羊毛衫\", \"雪纺衫\", \"裤子\", \"高跟鞋\", \"袜子\" ] } ],  yAxis : [ {  type : \"value\"  } ],  series : [ { name",
-            "\" ] },  xAxis : [ { type : \"category\",  data : [ \"衬衫\", \"羊毛衫\", \"雪纺衫\", \"裤子\", \"高跟鞋\", \"袜子\" ] } ],  yAxis : [ {  type : \"value\"  } ],  series : [ { name : \"销量\", type : \"bar\", data : [ 5, 20, 40, 10, 10, 20",
-            "series : [ { name : \"销量\", type : \"bar\", data : [ 5, 20, 40, 10, 10, 20 ] } ]  }; '; Console:INFO='@varDataOption';"
-          ]
+          "title": "功能说明",
+          "text": "关键词: ToDo:数据源"
         }
       ]
     },
@@ -1163,7 +868,7 @@
         "delete",
         "连接"
       ],
-      "subtitle": "示例数 0 · 来源 2",
+      "subtitle": "示例数 12 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
@@ -1194,13 +899,15 @@
     {
       "id": "method::Decode",
       "title": "Decode 方法",
-      "summary": "执行 Decode 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
+      "summary": "执行 Decode 相关操作。\n关键词: V99ex29 将文件或字符串解码（Base64）",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 4 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Decode 相关操作。"
+          "text": "执行 Decode 相关操作。\n关键词: V99ex29 将文件或字符串解码（Base64）"
         },
         {
           "title": "常用签名",
@@ -1221,63 +928,17 @@
       ]
     },
     {
-      "id": "method::decoration",
-      "title": "decoration 方法",
-      "summary": "执行 decoration 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 3 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 decoration 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "'><b>地址:</b>上海市市东中学</br><a style='text-decoration:none; color:#2679BA; float:right' href='UCC://BaiduMap/城市被选中/上海市市东中学')'>详情>></a></div>\", opts1); // 创建信息窗口对象，引号里可以书写任意的html语句。    marker.addEventList",
-            "x 0; padding: 0; } a {color: #369; text-decoration:none; } a:hover {color: #f30; text-decoration:underline; }#tt{color:#f30} </style> <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></hea",
-            "tion:none; } a:hover {color: #f30; text-decoration:underline; }#tt{color:#f30} </style> <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head> <body> <div class=\"error_page\">    <img src"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::Delete",
-      "title": "Delete 方法",
-      "summary": "执行 Delete 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 Delete 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Delete: @varID"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "lValue,@varRowIndex,'ID'; --STEP 02 ӽɾ; Delete:@varID; Message:Delete; --STEP 03 Reportɾ; ReportSet:ReportUI=RemoveRow,@varRowIndex; --STEP 04 Groupɾ; Remove:groupǩ='@varID'; --STEP 05 ݿɾ(ɾ); Clear:co",
-            "Delete: @varID;",
-            "Delete:@varID;"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::Destroy",
       "title": "Destroy 方法",
-      "summary": "执行 Destroy 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 3 · 来源 2",
+      "summary": "执行 Destroy 相关操作。\n关键词: 删除界面上的组件  V99ex15 2017-04-20 @上海市委党...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 7 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Destroy 相关操作。"
+          "text": "执行 Destroy 相关操作。\n关键词: 删除界面上的组件  V99ex15 2017-04-20 @上海市委党校  V271 2024-09-29 @南京 江苏省侨商总会大会\n语法/要点: V271 2024-09-29 @南京 江苏省侨商总会大会 ToDo:删除Group中的组件 New函数动态生成的组件 | Destroy:varCount=ID1,ID2... | Destroy:varCount=GROUP,GroupID --删除Group中的组件 | Destroy:varCount=WithChildren,LayerID '删除Layer及其包含的组件 | Destroy:varCount=Collection,colID 'ToDo:删除结合中的组件"
         },
         {
           "title": "常用签名",
@@ -1290,9 +951,11 @@
         {
           "title": "示例片段",
           "code": [
-            "Set:var移除总数=0; Destroy:var移除总数=GROUP,Group动态标签组; CLear:Group动态标签组;",
-            "Set:var移除总数=0; Destroy:var移除总数=@varClickID;",
-            "Destroy:var移除总数='1_0首页';"
+            "Destroy:varCount=ID1,ID2...",
+            "Destroy:varCount=GROUP,GroupID --删除Group中的组件",
+            "Destroy:varCount=WithChildren,LayerID '删除Layer及其包含的组件",
+            "Destroy:varCount=Collection,colID 'ToDo:删除结合中的组件",
+            "Set:var移除总数=0; Destroy:var移除总数=GROUP,Group动态标签组; CLear:Group动态标签组;"
           ]
         }
       ]
@@ -1300,47 +963,45 @@
     {
       "id": "method::Dir",
       "title": "Dir 方法",
-      "summary": "执行 Dir 相关操作。",
-      "tags": [],
+      "summary": "执行 Dir 相关操作。\n关键词: 查找文件",
+      "tags": [
+        "UCC"
+      ],
       "subtitle": "示例数 0 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Dir 相关操作。"
+          "text": "执行 Dir 相关操作。\n关键词: 查找文件"
         }
       ]
     },
     {
-      "id": "method::display",
-      "title": "display 方法",
-      "summary": "执行 display 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 6 · 来源 2",
+      "id": "method::DLL",
+      "title": "DLL 方法",
+      "summary": "关键词: 调用外部DLL V99ex37 2017-09-22",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 0 · 来源 6",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 display 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "-->  <a href=\"#\" id=\"UCCmessage\" style=\"display:none; \">UCCmessage</a>     <script type=\"text/javascript\">  var map = new BMapGL.Map(\"container\"); map.centerAndZoom(new BMapGL.Point(116.331398,39.8974",
-            "，如有侵权请告知！</p> </div> </div> <div style='display:none'><script>_tj_ts(); </script></div> <script>getset()</script> <script type=\"text/javascript\"> var lastread=new LastRead(); lastread.set('50585', '37",
-            ".steps-container {\\n            display: grid; \\n            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); \\n            gap: 30px; \\n            margin-top: 30px; \\n        }\\n"
-          ]
+          "text": "关键词: 调用外部DLL V99ex37 2017-09-22"
         }
       ]
     },
     {
       "id": "method::DownLoad",
       "title": "DownLoad 方法",
-      "summary": "执行 DownLoad 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
+      "summary": "执行 DownLoad 相关操作。\n关键词: 下载文件",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 DownLoad 相关操作。"
+          "text": "执行 DownLoad 相关操作。\n关键词: 下载文件"
         },
         {
           "title": "常用签名",
@@ -1359,36 +1020,17 @@
       ]
     },
     {
-      "id": "method::dqheight",
-      "title": "dqheight 方法",
-      "summary": "执行 dqheight 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 3 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 dqheight 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "ltiple --> <!DOCTYPE html> <html style=\\dqheight: 100%\\dq>     <head>         <meta charset=\\dqansi\\dq>     </head>     <body style=\\dqheight: 100%; margin: 0\\dq>         <div id=\\dqcontainer\\dq style",
-            "dqansi\\dq>     </head>     <body style=\\dqheight: 100%; margin: 0\\dq>         <div id=\\dqcontainer\\dq style=\\dqheight: 100%\\dq></div>          <script type=\\dqtext/javascript\\dq src=\\dqecharts.min.js\\",
-            "<div id=\\dqcontainer\\dq style=\\dqheight: 100%\\dq></div>          <script type=\\dqtext/javascript\\dq src=\\dqecharts.min.js\\dq></script>                   <script type=\\dqtext/javascript\\dq> va"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::DrawArc",
       "title": "DrawArc 方法",
-      "summary": "执行 DrawArc 相关操作。",
-      "tags": [],
+      "summary": "执行 DrawArc 相关操作。\n关键词: 画圆弧 V176 2020-12-29",
+      "tags": [
+        "UCC"
+      ],
       "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 DrawArc 相关操作。"
+          "text": "执行 DrawArc 相关操作。\n关键词: 画圆弧 V176 2020-12-29"
         },
         {
           "title": "常用签名",
@@ -1411,13 +1053,15 @@
     {
       "id": "method::DrawBezier",
       "title": "DrawBezier 方法",
-      "summary": "执行 DrawBezier 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
+      "summary": "执行 DrawBezier 相关操作。\n关键词: 画贝塞尔曲线 V176 2020-12-29",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 DrawBezier 相关操作。"
+          "text": "执行 DrawBezier 相关操作。\n关键词: 画贝塞尔曲线 V176 2020-12-29"
         },
         {
           "title": "常用签名",
@@ -1438,13 +1082,15 @@
     {
       "id": "method::DrawCircle",
       "title": "DrawCircle 方法",
-      "summary": "执行 DrawCircle 相关操作。",
-      "tags": [],
+      "summary": "执行 DrawCircle 相关操作。\n关键词: 画圆和椭圆  V176 2020-12-29",
+      "tags": [
+        "UCC"
+      ],
       "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 DrawCircle 相关操作。"
+          "text": "执行 DrawCircle 相关操作。\n关键词: 画圆和椭圆  V176 2020-12-29"
         },
         {
           "title": "常用签名",
@@ -1467,13 +1113,15 @@
     {
       "id": "method::DrawImage",
       "title": "DrawImage 方法",
-      "summary": "执行 DrawImage 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 19 · 来源 2",
+      "summary": "执行 DrawImage 相关操作。\n关键词: 画图",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 DrawImage 相关操作。"
+          "text": "执行 DrawImage 相关操作。\n关键词: 画图"
         },
         {
           "title": "常用签名",
@@ -1498,13 +1146,15 @@
     {
       "id": "method::DrawImageWithMask",
       "title": "DrawImageWithMask 方法",
-      "summary": "执行 DrawImageWithMask 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 4 · 来源 2",
+      "summary": "执行 DrawImageWithMask 相关操作。\n关键词: 画遮罩图 V199",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 DrawImageWithMask 相关操作。"
+          "text": "执行 DrawImageWithMask 相关操作。\n关键词: 画遮罩图 V199"
         },
         {
           "title": "常用签名",
@@ -1528,13 +1178,15 @@
     {
       "id": "method::DrawLine",
       "title": "DrawLine 方法",
-      "summary": "执行 DrawLine 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 14 · 来源 2",
+      "summary": "执行 DrawLine 相关操作。\n关键词: 画线",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 DrawLine 相关操作。"
+          "text": "执行 DrawLine 相关操作。\n关键词: 画线"
         },
         {
           "title": "常用签名",
@@ -1559,13 +1211,15 @@
     {
       "id": "method::DrawPie",
       "title": "DrawPie 方法",
-      "summary": "执行 DrawPie 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
+      "summary": "执行 DrawPie 相关操作。\n关键词: 画扇形  V176 2020-12-29",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 6 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 DrawPie 相关操作。"
+          "text": "执行 DrawPie 相关操作。\n关键词: 画扇形  V176 2020-12-29"
         },
         {
           "title": "常用签名",
@@ -1587,15 +1241,32 @@
       ]
     },
     {
-      "id": "method::DrawRectangle",
-      "title": "DrawRectangle 方法",
-      "summary": "执行 DrawRectangle 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 6 · 来源 2",
+      "id": "method::DrawPoint",
+      "title": "DrawPoint 方法",
+      "summary": "关键词: 画点",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 0 · 来源 6",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 DrawRectangle 相关操作。"
+          "text": "关键词: 画点"
+        }
+      ]
+    },
+    {
+      "id": "method::DrawRectangle",
+      "title": "DrawRectangle 方法",
+      "summary": "执行 DrawRectangle 相关操作。\n关键词: 画渐变圆角矩形  V211 2021-09-12",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
+      "sections": [
+        {
+          "title": "功能说明",
+          "text": "执行 DrawRectangle 相关操作。\n关键词: 画渐变圆角矩形  V211 2021-09-12"
         },
         {
           "title": "常用签名",
@@ -1620,13 +1291,15 @@
     {
       "id": "method::DrawText",
       "title": "DrawText 方法",
-      "summary": "执行 DrawText 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 129 · 来源 2",
+      "summary": "执行 DrawText 相关操作。\n关键词: 画文字 V153 2019-03-16",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 DrawText 相关操作。"
+          "text": "执行 DrawText 相关操作。\n关键词: 画文字 V153 2019-03-16"
         },
         {
           "title": "常用签名",
@@ -1651,13 +1324,15 @@
     {
       "id": "method::Drive",
       "title": "Drive 方法",
-      "summary": "执行 Drive 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
+      "summary": "执行 Drive 相关操作。\n关键词: 硬盘大小和使用率",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 2 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Drive 相关操作。"
+          "text": "执行 Drive 相关操作。\n关键词: 硬盘大小和使用率"
         },
         {
           "title": "常用签名",
@@ -1677,13 +1352,15 @@
     {
       "id": "method::Encode",
       "title": "Encode 方法",
-      "summary": "执行 Encode 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 5 · 来源 2",
+      "summary": "执行 Encode 相关操作。\n关键词: V99ex29 将文件或字符串编码（Base64）",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Encode 相关操作。"
+          "text": "执行 Encode 相关操作。\n关键词: V99ex29 将文件或字符串编码（Base64）"
         },
         {
           "title": "常用签名",
@@ -1708,26 +1385,60 @@
     {
       "id": "method::Exit",
       "title": "Exit 方法",
-      "summary": "执行 Exit 相关操作。",
-      "tags": [],
+      "summary": "执行 Exit 相关操作。\n关键词: 结束程序运行，关闭UCC Runtime",
+      "tags": [
+        "UCC"
+      ],
       "subtitle": "示例数 0 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Exit 相关操作。"
+          "text": "执行 Exit 相关操作。\n关键词: 结束程序运行，关闭UCC Runtime"
+        }
+      ]
+    },
+    {
+      "id": "method::ExitAction",
+      "title": "ExitAction 方法",
+      "summary": "关键词: 2017-04-02 V99ex12 不再执行剩余的Action",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 0 · 来源 6",
+      "sections": [
+        {
+          "title": "功能说明",
+          "text": "关键词: 2017-04-02 V99ex12 不再执行剩余的Action"
+        }
+      ]
+    },
+    {
+      "id": "method::ExitFor",
+      "title": "ExitFor 方法",
+      "summary": "关键词: V232 2022-07-07 新增ExitFor函数，退出循环",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 0 · 来源 6",
+      "sections": [
+        {
+          "title": "功能说明",
+          "text": "关键词: V232 2022-07-07 新增ExitFor函数，退出循环"
         }
       ]
     },
     {
       "id": "method::Export",
       "title": "Export 方法",
-      "summary": "执行 Export 相关操作。",
-      "tags": [],
+      "summary": "执行 Export 相关操作。\n关键词: 导出数据",
+      "tags": [
+        "UCC"
+      ],
       "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Export 相关操作。"
+          "text": "执行 Export 相关操作。\n关键词: 导出数据"
         },
         {
           "title": "常用签名",
@@ -1748,86 +1459,17 @@
       ]
     },
     {
-      "id": "method::family",
-      "title": "family 方法",
-      "summary": "执行 family 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 5 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 family 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "padding: 20px; text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#666666; } .error_page {width: 600px; padding: 50px; margin: auto; } .error_page h1 {margin: 20px 0 0",
-            "}\\n\\n        body {\\n            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; \\n            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); \\n            min-height:",
-            "box; }          body {             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; color: #333; line-hei"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::file",
-      "title": "file 方法",
-      "summary": "执行 file 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 file 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "eb:Browser='Baidu.html'; --Web:Browser='file:///C:/Users/michael/Downloads/html5-canvas-china-map/index.html'; Console:INFO='Hello World';"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::FileBrowse",
-      "title": "FileBrowse 方法",
-      "summary": "执行 FileBrowse 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 14 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 FileBrowse 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Filebrowse: txtFilePath.Text='*.xls|*.xls|*.csv|*.csv'",
-            "Filebrowse: txtFile",
-            "Filebrowse: txt编码文件名",
-            "Filebrowse: txtImageFile.Text='*.jpg|*.jpg|*.bmp|*.bmp|*.png|*.png|*.ico|*.ico'",
-            "Filebrowse: txtFile='*.*'"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "FileBrowse:txtImageFile.Text='*.jpg|*.jpg|*.bmp|*.bmp|*.png|*.png|*.ico|*.ico'",
-            "FileBrowse:txtFilePath.Text='*.xls|*.xls|*.csv|*.csv';",
-            "FileBrowse:txtFile='*.*';"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::FileCopy",
       "title": "FileCopy 方法",
-      "summary": "执行 FileCopy 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 4 · 来源 2",
+      "summary": "执行 FileCopy 相关操作。\n关键词: 复制文件",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 FileCopy 相关操作。"
+          "text": "执行 FileCopy 相关操作。\n关键词: 复制文件"
         },
         {
           "title": "常用签名",
@@ -1850,13 +1492,15 @@
     {
       "id": "method::FileDelete",
       "title": "FileDelete 方法",
-      "summary": "执行 FileDelete 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 4 · 来源 2",
+      "summary": "执行 FileDelete 相关操作。\n关键词: 删除文件",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 FileDelete 相关操作。"
+          "text": "执行 FileDelete 相关操作。\n关键词: 删除文件"
         },
         {
           "title": "常用签名",
@@ -1879,13 +1523,15 @@
     {
       "id": "method::FileInfo",
       "title": "FileInfo 方法",
-      "summary": "执行 FileInfo 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
+      "summary": "执行 FileInfo 相关操作。\n关键词: 读取文件信息",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 6 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 FileInfo 相关操作。"
+          "text": "执行 FileInfo 相关操作。\n关键词: 读取文件信息"
         },
         {
           "title": "常用签名",
@@ -1909,13 +1555,15 @@
     {
       "id": "method::FileMove",
       "title": "FileMove 方法",
-      "summary": "执行 FileMove 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
+      "summary": "执行 FileMove 相关操作。\n关键词: 移动文件",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 2 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 FileMove 相关操作。"
+          "text": "执行 FileMove 相关操作。\n关键词: 移动文件"
         },
         {
           "title": "常用签名",
@@ -1943,7 +1591,7 @@
         "文本",
         "日志"
       ],
-      "subtitle": "示例数 12 · 来源 2",
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
@@ -1972,13 +1620,15 @@
     {
       "id": "method::FileRename",
       "title": "FileRename 方法",
-      "summary": "执行 FileRename 相关操作。",
-      "tags": [],
+      "summary": "执行 FileRename 相关操作。\n关键词: 重命名文件",
+      "tags": [
+        "UCC"
+      ],
       "subtitle": "示例数 0 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 FileRename 相关操作。"
+          "text": "执行 FileRename 相关操作。\n关键词: 重命名文件"
         }
       ]
     },
@@ -1994,7 +1644,7 @@
         "日志",
         "保存"
       ],
-      "subtitle": "示例数 15 · 来源 2",
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
@@ -2023,13 +1673,15 @@
     {
       "id": "method::FillString",
       "title": "FillString 方法",
-      "summary": "执行 FillString 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 23 · 来源 2",
+      "summary": "执行 FillString 相关操作。\n关键词: 填充字符串",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 FillString 相关操作。"
+          "text": "执行 FillString 相关操作。\n关键词: 填充字符串"
         },
         {
           "title": "常用签名",
@@ -2052,15 +1704,32 @@
       ]
     },
     {
+      "id": "method::FindData",
+      "title": "FindData 方法",
+      "summary": "关键词: 根据条件过滤数据(ToDo:暂时只能用于DataSet)",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 0 · 来源 6",
+      "sections": [
+        {
+          "title": "功能说明",
+          "text": "关键词: 根据条件过滤数据(ToDo:暂时只能用于DataSet)"
+        }
+      ]
+    },
+    {
       "id": "method::FindString",
       "title": "FindString 方法",
-      "summary": "执行 FindString 相关操作。",
-      "tags": [],
+      "summary": "执行 FindString 相关操作。\n关键词: 获得字符位置",
+      "tags": [
+        "UCC"
+      ],
       "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 FindString 相关操作。"
+          "text": "执行 FindString 相关操作。\n关键词: 获得字符位置"
         },
         {
           "title": "常用签名",
@@ -2081,48 +1750,22 @@
       ]
     },
     {
-      "id": "method::Flash",
-      "title": "Flash 方法",
-      "summary": "执行 Flash 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 3 · 来源 2",
+      "id": "method::Focus",
+      "title": "Focus 方法",
+      "summary": "关键词: 设置对象的焦点 V276 2024-11-21\n语法/要点: Focus:LayerID --V276 ...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 1 · 来源 6",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Flash 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Flash: FlashChinaMap='DataPath\\MapChina.swf'",
-            "Flash: Flash='@txtFile.text'"
-          ]
+          "text": "关键词: 设置对象的焦点 V276 2024-11-21\n语法/要点: Focus:LayerID --V276 2024-11-21 设置对象的焦点"
         },
         {
           "title": "示例片段",
           "code": [
-            "; Move:var=Chart业态,'1024','/'; --初始化数据; Flash:FlashChinaMap='DataPath\\MapChina.swf'; Move:var=LayerMap,'1600','/'; Move:var=LayerMap,'-1','/',255; --; Set:var当前业态='(全部)'; DB:db业态=ACCESS,Food.mDB,,SQL",
-            "'; Move:var=Chart业态,'750','/'; --初始化数据; Flash:FlashChinaMap='DataPath\\MapChina.swf'; Move:var=LayerMap,'1024','/'; Move:var=LayerMap,'-1','/',255; DB:db菜类收入统计=ACCESS,Food.mDB,,SQL SELECT 科目名称,合计 FROM",
-            "Flash:Flash='@txtFile.text'; Set:Flash.ScaleMode=0;"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::float",
-      "title": "float 方法",
-      "summary": "执行 float 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 float 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "e='text-decoration:none; color:#2679BA; float:right' href='UCC://BaiduMap/城市被选中/上海市市东中学')'>详情>></a></div>\", opts1); // 创建信息窗口对象，引号里可以书写任意的html语句。    marker.addEventListener(\"mouseover\", function(){thi"
+            "Focus:LayerID --V276 2024-11-21 设置对象的焦点"
           ]
         }
       ]
@@ -2130,13 +1773,15 @@
     {
       "id": "method::For",
       "title": "For 方法",
-      "summary": "执行 For 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 31 · 来源 2",
+      "summary": "执行 For 相关操作。\n关键词: 循环\n语法/要点: For:[i,]1,10[,1]=RunAction:va...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 4 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 For 相关操作。"
+          "text": "执行 For 相关操作。\n关键词: 循环\n语法/要点: For:[i,]1,10[,1]=RunAction:varAction | ForAsync: 'For1',10,'index1',1,1000,1=RunAction:funRunOnceAsync1; '不可以省略参数 | Topic:ForStart/ForOnce/ForFinished | CPUtickCount:CPU最小间隔，如：10 | ForVar:循环变量名，如：index1 | StartNum:循环起始数，如：1"
         },
         {
           "title": "常用签名",
@@ -2151,6 +1796,7 @@
         {
           "title": "示例片段",
           "code": [
+            "For:[i,]1,10[,1]=RunAction:varAction",
             "For:i,0,@var机台总数=RunAction:fun改变一台机台颜色;",
             "Calc:varCount=@varCount -1; For:i,0,@varCount=RunAction:fun加载一条播放列表;",
             "varһڼ=WEEKDAY,'@varµһ'; --ʼڣ1ǰڶΪգڰдںΪգ; For:var,1,42=RunAction:fun; --ʾ;"
@@ -2161,13 +1807,15 @@
     {
       "id": "method::ForAsync",
       "title": "ForAsync 方法",
-      "summary": "执行 ForAsync 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 10 · 来源 2",
+      "summary": "执行 ForAsync 相关操作。\n关键词: V247 多线程循环",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 ForAsync 相关操作。"
+          "text": "执行 ForAsync 相关操作。\n关键词: V247 多线程循环"
         },
         {
           "title": "常用签名",
@@ -2190,41 +1838,32 @@
       ]
     },
     {
-      "id": "method::Format",
-      "title": "Format 方法",
-      "summary": "执行 Format 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 0 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 Format 相关操作。"
-        }
-      ]
-    },
-    {
       "id": "method::FreeCPU",
       "title": "FreeCPU 方法",
-      "summary": "执行 FreeCPU 相关操作。",
-      "tags": [],
+      "summary": "执行 FreeCPU 相关操作。\n关键词: 释放CPU",
+      "tags": [
+        "UCC"
+      ],
       "subtitle": "示例数 0 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 FreeCPU 相关操作。"
+          "text": "执行 FreeCPU 相关操作。\n关键词: 释放CPU"
         }
       ]
     },
     {
       "id": "method::FTP",
       "title": "FTP 方法",
-      "summary": "执行 FTP 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 8 · 来源 2",
+      "summary": "执行 FTP 相关操作。\n关键词: FTP操作",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 FTP 相关操作。"
+          "text": "执行 FTP 相关操作。\n关键词: FTP操作"
         },
         {
           "title": "常用签名",
@@ -2249,13 +1888,15 @@
     {
       "id": "method::GantSet",
       "title": "GantSet 方法",
-      "summary": "执行 GantSet 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
+      "summary": "执行 GantSet 相关操作。\n关键词: V250 设置Gant的属性\n语法/要点: GantSet:Gant1...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 6 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GantSet 相关操作。"
+          "text": "执行 GantSet 相关操作。\n关键词: V250 设置Gant的属性\n语法/要点: GantSet:Gant1=AllowBlockScale,'True' '设置是否允许调整区块尺寸 | GantSet:Gant1=TimeLine,Value,MinValue,MaxValue '设置时间线的当前值，最大值，最小值"
         },
         {
           "title": "常用签名",
@@ -2267,69 +1908,11 @@
         {
           "title": "示例片段",
           "code": [
+            "GantSet:Gant1=AllowBlockScale,'True' '设置是否允许调整区块尺寸",
+            "GantSet:Gant1=TimeLine,Value,MinValue,MaxValue '设置时间线的当前值，最大值，最小值",
             "GantSet:Gant1=AllowBlockScale,'@check允许改变尺寸.Value';",
             "GantSet:Gant1=TimeLineValue,'@txtTimeLineValue.Text';",
-            "Gantset: Gant1=AllowBlockScale,'@check允许改变尺寸.Value';",
-            "Gantset: Gant1=TimeLineValue,'@txtTimeLineValue.Text';"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::gap",
-      "title": "gap 方法",
-      "summary": "执行 gap 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 gap 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Gap: 30px"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "fit, minmax(250px, 1fr)); \\n            gap: 30px; \\n            margin-top: 30px; \\n        }\\n\\n        .step-card {\\n            background: white; \\n            border-radius: 15px; \\n",
-            ": repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px; }          .step-card {             background: white; border-radius: 15px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);",
-            "Gap: 30px;",
-            "gap: 30px;"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::Get",
-      "title": "Get 方法",
-      "summary": "执行 Get 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 13 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 Get 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Get: txtOutput.text=@[Action]",
-            "Get: varCount=lstData.ListCount",
-            "Get: varResult=0",
-            "Get: txtSelectedIndexOfTextBox=TextBox1.SelectedIndex",
-            "Get: txtSelectedCountOfTextBox=TextBox1.SelectedCount"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "Get:varCount=lstData.ListCount; Call:varResult=lstData,'AddItem','@varCount';",
-            "Get:varResult=0; set:txtresult.text=0;",
-            "Get:txtSelectedIndexOfTextBox=TextBox1.SelectedIndex;"
+            "Gantset: Gant1=AllowBlockScale,'@check允许改变尺寸.Value';"
           ]
         }
       ]
@@ -2337,26 +1920,36 @@
     {
       "id": "method::GetAsc",
       "title": "GetAsc 方法",
-      "summary": "执行 GetAsc 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 0 · 来源 2",
+      "summary": "执行 GetAsc 相关操作。\n关键词: 获得指定字符的Ascii码，如果是多个字符，则用Separater指定的...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 1 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GetAsc 相关操作。"
+          "text": "执行 GetAsc 相关操作。\n关键词: 获得指定字符的Ascii码，如果是多个字符，则用Separater指定的字符分隔，默认Separater=\"-\"\n语法/要点: GetAsc:Var=Character,Separater | 2013-4-27 19:37"
+        },
+        {
+          "title": "示例片段",
+          "code": [
+            "GetAsc:Var=Character,Separater"
+          ]
         }
       ]
     },
     {
       "id": "method::GetChr",
       "title": "GetChr 方法",
-      "summary": "执行 GetChr 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
+      "summary": "执行 GetChr 相关操作。\n关键词: 获得指定Ascii码表示的字符，如果是多个字符，则用Separater指...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 4 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GetChr 相关操作。"
+          "text": "执行 GetChr 相关操作。\n关键词: 获得指定Ascii码表示的字符，如果是多个字符，则用Separater指定的字符分隔，默认Separater=\"-\"\n语法/要点: GetChr:Var=Ascii,Separater | 2013-4-27 19:25"
         },
         {
           "title": "常用签名",
@@ -2367,6 +1960,7 @@
         {
           "title": "示例片段",
           "code": [
+            "GetChr:Var=Ascii,Separater",
             "eight=125; Set:varContent='1234567890'; GetChr:varNewLine=13; LinkString:Label1.Caption='@varNewLine','@varContent','@varContent','@varContent','@varContent','@varContent','@varContent'; --; Set:Label",
             "Getchr: varNewLine=13;",
             "GetChr:varNewLine=13;"
@@ -2377,13 +1971,15 @@
     {
       "id": "method::GetCursorPos",
       "title": "GetCursorPos 方法",
-      "summary": "执行 GetCursorPos 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 37 · 来源 2",
+      "summary": "执行 GetCursorPos 相关操作。\n关键词: 获得屏幕上鼠标的XY坐标",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GetCursorPos 相关操作。"
+          "text": "执行 GetCursorPos 相关操作。\n关键词: 获得屏幕上鼠标的XY坐标"
         },
         {
           "title": "常用签名",
@@ -2406,41 +2002,17 @@
       ]
     },
     {
-      "id": "method::GetDate",
-      "title": "GetDate 方法",
-      "summary": "执行 GetDate 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 GetDate 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Getdate: txtInput.text"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "GetDate:txtInput.text;",
-            "Getdate: txtInput.text;"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::GetDateAdd",
       "title": "GetDateAdd 方法",
-      "summary": "执行 GetDateAdd 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 9 · 来源 2",
+      "summary": "执行 GetDateAdd 相关操作。\n关键词: 计算日期或时间",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GetDateAdd 相关操作。"
+          "text": "执行 GetDateAdd 相关操作。\n关键词: 计算日期或时间"
         },
         {
           "title": "常用签名",
@@ -2465,13 +2037,15 @@
     {
       "id": "method::GetDateDiff",
       "title": "GetDateDiff 方法",
-      "summary": "执行 GetDateDiff 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 6 · 来源 2",
+      "summary": "执行 GetDateDiff 相关操作。\n关键词: 比较两个日期或时间",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GetDateDiff 相关操作。"
+          "text": "执行 GetDateDiff 相关操作。\n关键词: 比较两个日期或时间"
         },
         {
           "title": "常用签名",
@@ -2494,41 +2068,17 @@
       ]
     },
     {
-      "id": "method::GetDateRemain",
-      "title": "GetDateRemain 方法",
-      "summary": "执行 GetDateRemain 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 GetDateRemain 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Getdateremain: txt结果.Text=Control2.Text,txt已用步数.Text,txt剩余步数.Text"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "GetDateRemain:txt结果.Text=Control2.Text,txt已用步数.Text,txt剩余步数.Text;",
-            "Getdateremain: txt结果.Text=Control2.Text,txt已用步数.Text,txt剩余步数.Text;"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::GetDateTime",
       "title": "GetDateTime 方法",
-      "summary": "执行 GetDateTime 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 78 · 来源 2",
+      "summary": "执行 GetDateTime 相关操作。\n关键词: 获得系统日期或时间",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GetDateTime 相关操作。"
+          "text": "执行 GetDateTime 相关操作。\n关键词: 获得系统日期或时间"
         },
         {
           "title": "常用签名",
@@ -2553,13 +2103,15 @@
     {
       "id": "method::GetFieldValue",
       "title": "GetFieldValue 方法",
-      "summary": "执行 GetFieldValue 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 42 · 来源 2",
+      "summary": "执行 GetFieldValue 相关操作。\n关键词: 获取当前记录中指定字段的数据\n语法/要点: GetFiel...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 4 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GetFieldValue 相关操作。"
+          "text": "执行 GetFieldValue 相关操作。\n关键词: 获取当前记录中指定字段的数据\n语法/要点: GetFieldValue:Text1.text=DataSource,Index,FieldName[,DafaultValue] | 5.ALL (与后面的聚合函数一起使用) SUM/AVG/MAX/MIN/COUNT(字段名称),如 SUM(数量) | -InsertString(REM:暂未开放) | InsertString:var=StringSource,StringToInsert,IndexOfStart | -FindString(REM:暂未开放)"
         },
         {
           "title": "常用签名",
@@ -2574,6 +2126,7 @@
         {
           "title": "示例片段",
           "code": [
+            "GetFieldValue:Text1.text=DataSource,Index,FieldName[,DafaultValue]",
             "GetFieldValue:var当前菜类=db菜类收入统计,@[ChartArgumentIndex],'科目名称'; DB:db指定菜类的菜品收入构成=ACCESS,Food.mDB,,SQL SELECT 名称,数量,实收金额 FROM tbl_菜品销售明细 WHERE 类别名称='@var当前菜类'; Bind",
             "GetFieldValue:var当前业态=db业态,@[ChartArgumentIndex],'科目名称'; DB:db业态=ACCESS,Food.mDB,,SQL SELECT SettingName,SettingValue FROM tbl_Setting WHERE [Type]='业态' AND Set",
             "GetFieldValue:var当前菜类=db菜类收入统计,@[ChartArgumentIndex],'科目名称'; DB:db指定菜类的菜品收入构成=ACCESS,Food.mDB,,SQL SELECT 名称,Sum(数量) As 数量小计,Sum(实收金额) as 实收金额小计 FROM tbl_菜品销售明细"
@@ -2584,13 +2137,15 @@
     {
       "id": "method::GetFileLineCount",
       "title": "GetFileLineCount 方法",
-      "summary": "执行 GetFileLineCount 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
+      "summary": "执行 GetFileLineCount 相关操作。\n关键词: 获得超大文本文件的行数  2024-06-12",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 2 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GetFileLineCount 相关操作。"
+          "text": "执行 GetFileLineCount 相关操作。\n关键词: 获得超大文本文件的行数  2024-06-12"
         },
         {
           "title": "常用签名",
@@ -2608,15 +2163,32 @@
       ]
     },
     {
-      "id": "method::GetFileNameFromURI",
-      "title": "GetFileNameFromURI 方法",
-      "summary": "执行 GetFileNameFromURI 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 5 · 来源 2",
+      "id": "method::GetFileList",
+      "title": "GetFileList 方法",
+      "summary": "关键词: 获得指定路径下的所有文件名 V202 2021-08-26",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 0 · 来源 6",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GetFileNameFromURI 相关操作。"
+          "text": "关键词: 获得指定路径下的所有文件名 V202 2021-08-26"
+        }
+      ]
+    },
+    {
+      "id": "method::GetFileNameFromURI",
+      "title": "GetFileNameFromURI 方法",
+      "summary": "执行 GetFileNameFromURI 相关操作。\n关键词: 获得文件名",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
+      "sections": [
+        {
+          "title": "功能说明",
+          "text": "执行 GetFileNameFromURI 相关操作。\n关键词: 获得文件名"
         },
         {
           "title": "常用签名",
@@ -2640,13 +2212,15 @@
     {
       "id": "method::GetHost",
       "title": "GetHost 方法",
-      "summary": "执行 GetHost 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
+      "summary": "执行 GetHost 相关操作。\n关键词: 获得指定IP的机器名",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 2 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GetHost 相关操作。"
+          "text": "执行 GetHost 相关操作。\n关键词: 获得指定IP的机器名"
         },
         {
           "title": "常用签名",
@@ -2666,13 +2240,15 @@
     {
       "id": "method::GetIP",
       "title": "GetIP 方法",
-      "summary": "执行 GetIP 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 5 · 来源 2",
+      "summary": "执行 GetIP 相关操作。\n关键词: 获得本机IP",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GetIP 相关操作。"
+          "text": "执行 GetIP 相关操作。\n关键词: 获得本机IP"
         },
         {
           "title": "常用签名",
@@ -2695,13 +2271,15 @@
     {
       "id": "method::GetLTWH",
       "title": "GetLTWH 方法",
-      "summary": "执行 GetLTWH 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
+      "summary": "执行 GetLTWH 相关操作。\n关键词: 获得对象的坐标 V213 2021-09-15 @澳门",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 6 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GetLTWH 相关操作。"
+          "text": "执行 GetLTWH 相关操作。\n关键词: 获得对象的坐标 V213 2021-09-15 @澳门"
         },
         {
           "title": "常用签名",
@@ -2725,13 +2303,15 @@
     {
       "id": "method::GetPartOfString",
       "title": "GetPartOfString 方法",
-      "summary": "执行 GetPartOfString 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 67 · 来源 2",
+      "summary": "执行 GetPartOfString 相关操作。\n关键词: 获取字符串的部分子串\n语法/要点: GetPartOf...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 15 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GetPartOfString 相关操作。"
+          "text": "执行 GetPartOfString 相关操作。\n关键词: 获取字符串的部分子串\n语法/要点: GetPartOfString:var=SearchResult.text,' ',FIRST/LAST/1/2/3/... | GetPartOfString:var=SearchResult.text,' ',LEFT/RIGHT 'V99ex35 2017-09-03 @虹桥飞昆明 | GetPartOfString:var=SearchResult.text,' ',LEFTREV/RIGHTREV 'V183 2021-03-21 | GetPartOfString:var=SearchResult.text,1,3 | GetPartOfString:var=SearchResult.text,1 '从左数数，返回右侧字符串 | GetPartOfString:var=SearchResult.text,-1 '从右数数，返回左侧字符串"
         },
         {
           "title": "常用签名",
@@ -2746,50 +2326,42 @@
         {
           "title": "示例片段",
           "code": [
-            "; Calc:varID起始计数=@varID起始计数 + @var循环次数; GetPartOfString:col十六进制数总集='@var接收到的数据内容','11110000',MASK,'',@varID起始计数; Convert:col十进制数总集='16','10',col十六进制数总集; --更新这一组数据; ChartSet:Chart数据展示=PointsAppend,0,co",
-            "CSV SQL标准格式; Clear:ReportData,varSheet; GetPartOfString:var第一个字符='@txt表名.Text',1,LEFT; Case:@var第一个字符 > 0 THEN LinkString:varSheet='','[','@txt表名.Text',']'; Set:varSQL='SELECT * FROM @varSheet'; Set:t",
-            "CEL SQL标准格式; Clear:ReportData,varSheet; GetPartOfString:var第一个字符='@txt表名.Text',1,LEFT; FindString:var第一个字符='@txt表名.Text','$',1; Case:@var第一个字符 > 0 THEN LinkString:varSheet='','[','@txt表名.Text',']'; Ca"
+            "GetPartOfString:var=SearchResult.text,' ',FIRST/LAST/1/2/3/...",
+            "GetPartOfString:var=SearchResult.text,' ',LEFT/RIGHT 'V99ex35 2017-09-03 @虹桥飞昆明",
+            "GetPartOfString:var=SearchResult.text,' ',LEFTREV/RIGHTREV 'V183 2021-03-21",
+            "GetPartOfString:var=SearchResult.text,1,3",
+            "GetPartOfString:var=SearchResult.text,1 '从左数数，返回右侧字符串"
           ]
         }
       ]
     },
     {
-      "id": "method::GetRandomNumber",
-      "title": "GetRandomNumber 方法",
-      "summary": "执行 GetRandomNumber 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
+      "id": "method::GetPixel",
+      "title": "GetPixel 方法",
+      "summary": "关键词: 获得屏幕XY坐标的颜色值",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 0 · 来源 6",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GetRandomNumber 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Getrandomnumber: var项目ID=999999"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "--提交数据; GetRandomNumber:var项目ID=999999; Set:varFile='LEADS2017.mdb'; Set:varSQL=\"INSERT INTO T100项目表 (项目ID,项目编号,项目地,国家和城市,客户,项目名称,当前状态,项目经理) values('@var项目ID','@txt项目编号",
-            "Getrandomnumber: var项目ID=999999;",
-            "GetRandomNumber:var项目ID=999999;"
-          ]
+          "text": "关键词: 获得屏幕XY坐标的颜色值"
         }
       ]
     },
     {
       "id": "method::GetRecordCount",
       "title": "GetRecordCount 方法",
-      "summary": "执行 GetRecordCount 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 23 · 来源 2",
+      "summary": "执行 GetRecordCount 相关操作。\n关键词: 获得记录总数",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GetRecordCount 相关操作。"
+          "text": "执行 GetRecordCount 相关操作。\n关键词: 获得记录总数"
         },
         {
           "title": "常用签名",
@@ -2814,13 +2386,15 @@
     {
       "id": "method::GetRGBcolor",
       "title": "GetRGBcolor 方法",
-      "summary": "执行 GetRGBcolor 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 23 · 来源 2",
+      "summary": "执行 GetRGBcolor 相关操作。\n关键词: 获得RGB的颜色值\n语法/要点: GetRGBcolor:Va...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 4 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GetRGBcolor 相关操作。"
+          "text": "执行 GetRGBcolor 相关操作。\n关键词: 获得RGB的颜色值\n语法/要点: GetRGBcolor:Var=Red,Green,Blue | 2012-10-24 14:14"
         },
         {
           "title": "常用签名",
@@ -2835,6 +2409,7 @@
         {
           "title": "示例片段",
           "code": [
+            "GetRGBcolor:Var=Red,Green,Blue",
             "Layer2行弹窗=0; Set:apng2行弹窗背景图.Width=180; GetRGBcolor:var绿色=0,255,0; GetRGBcolor:var红色=255,0,0; --SetOnTop:Button6,lbl机台编号,Button6copy1,lbl状态灯,lbl机台状态; SetOnTop:Button6; SetOnTop:lbl机台编号,Button6copy1,lb",
             "图.Width=180; GetRGBcolor:var绿色=0,255,0; GetRGBcolor:var红色=255,0,0; --SetOnTop:Button6,lbl机台编号,Button6copy1,lbl状态灯,lbl机台状态; SetOnTop:Button6; SetOnTop:lbl机台编号,Button6copy1,lbl状态灯,lbl机台状态; SetOnTop:Butt",
             ",Layer矩形; Clear:colColors,colPositions; GetRGBcolor:varColor=238,93,78; Append:colColors=Collection,'Color1',@varColor; GetRGBcolor:varColor=196,65,53; Append:colColors=Collection,'Color2',@varColor;"
@@ -2845,13 +2420,15 @@
     {
       "id": "method::GetSelectedIndex",
       "title": "GetSelectedIndex 方法",
-      "summary": "执行 GetSelectedIndex 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 10 · 来源 2",
+      "summary": "执行 GetSelectedIndex 相关操作。\n关键词: 获得当前选中的行号（如果有多行，返回第1行）",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GetSelectedIndex 相关操作。"
+          "text": "执行 GetSelectedIndex 相关操作。\n关键词: 获得当前选中的行号（如果有多行，返回第1行）"
         },
         {
           "title": "常用签名",
@@ -2876,13 +2453,15 @@
     {
       "id": "method::GetSize",
       "title": "GetSize 方法",
-      "summary": "执行 GetSize 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
+      "summary": "执行 GetSize 相关操作。\n关键词: 获得尺寸",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 4 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GetSize 相关操作。"
+          "text": "执行 GetSize 相关操作。\n关键词: 获得尺寸"
         },
         {
           "title": "常用签名",
@@ -2903,15 +2482,32 @@
       ]
     },
     {
-      "id": "method::GetUID",
-      "title": "GetUID 方法",
-      "summary": "执行 GetUID 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
+      "id": "method::GetTimeRemain",
+      "title": "GetTimeRemain 方法",
+      "summary": "关键词: 获得推算的剩余时间 2024-06-27",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 0 · 来源 6",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GetUID 相关操作。"
+          "text": "关键词: 获得推算的剩余时间 2024-06-27"
+        }
+      ]
+    },
+    {
+      "id": "method::GetUID",
+      "title": "GetUID 方法",
+      "summary": "执行 GetUID 相关操作。\n关键词: 获得唯一ID  V170 2019-11-30",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 2 · 来源 2",
+      "sections": [
+        {
+          "title": "功能说明",
+          "text": "执行 GetUID 相关操作。\n关键词: 获得唯一ID  V170 2019-11-30"
         },
         {
           "title": "常用签名",
@@ -2931,13 +2527,15 @@
     {
       "id": "method::GetVersion",
       "title": "GetVersion 方法",
-      "summary": "执行 GetVersion 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 6 · 来源 2",
+      "summary": "执行 GetVersion 相关操作。\n关键词: 获得版本号",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GetVersion 相关操作。"
+          "text": "执行 GetVersion 相关操作。\n关键词: 获得版本号"
         },
         {
           "title": "常用签名",
@@ -2962,13 +2560,15 @@
     {
       "id": "method::GridGet",
       "title": "GridGet 方法",
-      "summary": "执行 GridGet 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
+      "summary": "执行 GridGet 相关操作。\n关键词: V290 获得Grid的属性 2025-09-01\n语法/要点: Gr...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 5 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GridGet 相关操作。"
+          "text": "执行 GridGet 相关操作。\n关键词: V290 获得Grid的属性 2025-09-01\n语法/要点: GridGet:var=GridID,CellValue,1,1 '获得单元格的值"
         },
         {
           "title": "常用签名",
@@ -2980,6 +2580,7 @@
         {
           "title": "示例片段",
           "code": [
+            "GridGet:var=GridID,CellValue,1,1 '获得单元格的值",
             "GridGet:txtCellValue.text=Grid1,CellValue,@txtRowIndex,@txtColumnIndex;",
             "GridGet:txtRowCount.text=Grid1,RowsCount;",
             "Gridget: txtCellValue.text=Grid1,CellValue,@txtRowIndex,@txtColumnIndex;",
@@ -2991,13 +2592,15 @@
     {
       "id": "method::GridSet",
       "title": "GridSet 方法",
-      "summary": "执行 GridSet 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 22 · 来源 2",
+      "summary": "执行 GridSet 相关操作。\n关键词: V280 设置Grid的属性\n语法/要点: GridSet:GridI...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 15 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 GridSet 相关操作。"
+          "text": "执行 GridSet 相关操作。\n关键词: V280 设置Grid的属性\n语法/要点: GridSet:GridID=ColumnAlignment,ColumnIndex/ALL,0-8 列对齐 | GridSet:GridID=HeadColumnAlignment,ColumnIndex/ALL,0-8 标题对齐 | GridSet:GridID=ColumnWidth,ColumnIndex/ALL,1500 | GridSet:GridID=RowHeight,RowIndex/ALL,500 | GridSet:GridID=HeadRows,0 '不要标题行 | GridSet:GridID=HeadColumns,0 '不要标题列"
         },
         {
           "title": "常用签名",
@@ -3012,9 +2615,11 @@
         {
           "title": "示例片段",
           "code": [
-            "resh,'','RowButNoRefresh悄悄加载','女','18'; GridSet:Grid1=HideFocus;",
-            "GridSet:Grid1=ColumnWidth,@txtColumnIndex.text,'@txtColumnWidth.text';",
-            "GridSet:Grid1=CellValue,@txtRowIndex,@txtColumnIndex,'@txtCellValueToSet.Text';"
+            "GridSet:GridID=ColumnAlignment,ColumnIndex/ALL,0-8 列对齐",
+            "GridSet:GridID=HeadColumnAlignment,ColumnIndex/ALL,0-8 标题对齐",
+            "GridSet:GridID=ColumnWidth,ColumnIndex/ALL,1500",
+            "GridSet:GridID=RowHeight,RowIndex/ALL,500",
+            "GridSet:GridID=HeadRows,0 '不要标题行"
           ]
         }
       ]
@@ -3022,13 +2627,15 @@
     {
       "id": "method::Hash",
       "title": "Hash 方法",
-      "summary": "执行 Hash 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 7 · 来源 2",
+      "summary": "执行 Hash 相关操作。\n关键词: V90 计算文件或字符串的HASH值（MD5,SHA1,CRC32）",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Hash 相关操作。"
+          "text": "执行 Hash 相关操作。\n关键词: V90 计算文件或字符串的HASH值（MD5,SHA1,CRC32）"
         },
         {
           "title": "常用签名",
@@ -3051,46 +2658,17 @@
       ]
     },
     {
-      "id": "method::height",
-      "title": "height 方法",
-      "summary": "执行 height 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 27 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 height 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Height: 280px",
-            "Height: 5px",
-            "Height: 30px",
-            "Height: 100%",
-            "Height: 20px"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "</title>  <style type=\"text/css\">  html{height:100%}  body{height:100%; margin:0px; padding:0px}  #container{height:100%}  </style>   <script type=\"text/javascript\" src=\"https://api.map.baidu.com/api?",
-            "pe=\"text/css\">  html{height:100%}  body{height:100%; margin:0px; padding:0px}  #container{height:100%}  </style>   <script type=\"text/javascript\" src=\"https://api.map.baidu.com/api?v=1.0&type=webgl&ak",
-            "%; margin:0px; padding:0px}  #container{height:100%}  </style>   <script type=\"text/javascript\" src=\"https://api.map.baidu.com/api?v=1.0&type=webgl&ak=OOahNZC3nL7BTn0VPUzbkl8E3UltkkRp\">  </script>  <s"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::HideButton",
       "title": "HideButton 方法",
-      "summary": "执行 HideButton 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
+      "summary": "执行 HideButton 相关操作。\n关键词: 隐藏按钮",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 6 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 HideButton 相关操作。"
+          "text": "执行 HideButton 相关操作。\n关键词: 隐藏按钮"
         },
         {
           "title": "常用签名",
@@ -3114,13 +2692,15 @@
     {
       "id": "method::HideControl",
       "title": "HideControl 方法",
-      "summary": "执行 HideControl 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 15 · 来源 2",
+      "summary": "执行 HideControl 相关操作。\n关键词: 隐藏组件",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 HideControl 相关操作。"
+          "text": "执行 HideControl 相关操作。\n关键词: 隐藏组件"
         },
         {
           "title": "常用签名",
@@ -3145,18 +2725,18 @@
     {
       "id": "method::HideLayer",
       "title": "HideLayer 方法",
-      "summary": "执行 HideLayer 相关操作。",
+      "summary": "执行 HideLayer 相关操作。\n关键词: 隐藏层",
       "tags": [
         "隐藏",
         "layer",
         "界面",
         "UI"
       ],
-      "subtitle": "示例数 31 · 来源 2",
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 HideLayer 相关操作。"
+          "text": "执行 HideLayer 相关操作。\n关键词: 隐藏层"
         },
         {
           "title": "常用签名",
@@ -3179,15 +2759,32 @@
       ]
     },
     {
-      "id": "method::HoleScreen",
-      "title": "HoleScreen 方法",
-      "summary": "执行 HoleScreen 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
+      "id": "method::HideNeighbors",
+      "title": "HideNeighbors 方法",
+      "summary": "关键词: 隐藏与自己同一Container的其它对象",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 0 · 来源 6",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 HoleScreen 相关操作。"
+          "text": "关键词: 隐藏与自己同一Container的其它对象"
+        }
+      ]
+    },
+    {
+      "id": "method::HoleScreen",
+      "title": "HoleScreen 方法",
+      "summary": "执行 HoleScreen 相关操作。\n关键词: 在窗体上挖洞（原理是挖除指定的颜色） V162 2019-07-...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
+      "sections": [
+        {
+          "title": "功能说明",
+          "text": "执行 HoleScreen 相关操作。\n关键词: 在窗体上挖洞（原理是挖除指定的颜色） V162 2019-07-17 01:25"
         },
         {
           "title": "常用签名",
@@ -3206,95 +2803,9 @@
       ]
     },
     {
-      "id": "method::htt",
-      "title": "htt 方法",
-      "summary": "执行 htt 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 htt 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "ist连接信息列表=S,'@varNow START WebServer at htt://@varIP :@txt监听端口.Text  '; LinkString:txt访问地址示例.Text='','http://','@varIP','/V1/orders/6';"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::http",
-      "title": "http 方法",
-      "summary": "发起 HTTP 请求（GET/POST 等）并读取响应。",
-      "tags": [
-        "http",
-        "https",
-        "get",
-        "post",
-        "api",
-        "请求",
-        "接口",
-        "web"
-      ],
-      "subtitle": "示例数 20 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "发起 HTTP 请求（GET/POST 等）并读取响应。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Http: //127.0.0.1/V2/orders/156"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "Web:Control11='http://www.softyoung.com';",
-            "d:List连接信息列表=S,'@varNow 启动 WebServer at http://@varIP :@txt监听端口.Text  ',0; LinkString:txt访问地址示例.Text='','http://','@varIP',':@txt监听端口.Text','/V1/drivers/6'; Barcode:Image二维码=2,'http://@varIP';",
-            "ext  ',0; LinkString:txt访问地址示例.Text='','http://','@varIP',':@txt监听端口.Text','/V1/drivers/6'; Barcode:Image二维码=2,'http://@varIP';"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::https",
-      "title": "https 方法",
-      "summary": "执行 https 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 16 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 https 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Https: //m.aoyuge.com/50/50585",
-            "Https: //m.aoyuge.com/50/50585/37693924.html",
-            "Https: //m.aoyuge.com/50/50585/37693946_2.html",
-            "Https: //m.aoyuge.com/50/50585/38327078.html",
-            "Https: //m.aoyuge.com/50/50585/ sans-serif"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            ">   <script type=\"text/javascript\" src=\"https://api.map.baidu.com/api?v=1.0&type=webgl&ak=OOahNZC3nL7BTn0VPUzbkl8E3UltkkRp\">  </script>  <script type=\"text/javascript\">   function OnUCC(a){    window.",
-            "参数.Text'=='URL' Then Set:txt待转换文本.Text='https://sd.ucancode.cn:9090/tree/images/books/古寺巡礼.png';",
-            "--     THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=radar-multiple --> <!DOCTYPE html> <html style=\\dqheight: 100%\\dq>     <head>         <meta charset=\\dqansi"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::IF",
       "title": "IF 方法",
-      "summary": "执行 IF 相关操作。",
+      "summary": "执行 IF 相关操作。\n关键词: 逻辑判断后赋值",
       "tags": [
         "判断",
         "比较",
@@ -3304,11 +2815,11 @@
         "条件",
         "当 时"
       ],
-      "subtitle": "示例数 2",
+      "subtitle": "示例数 2 · 来源 6",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 IF 相关操作。"
+          "text": "执行 IF 相关操作。\n关键词: 逻辑判断后赋值"
         },
         {
           "title": "常用签名",
@@ -3326,29 +2837,9 @@
       ]
     },
     {
-      "id": "method::indicator",
-      "title": "indicator 方法",
-      "summary": "执行 indicator 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 indicator 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "omma     radar: [         {             indicator: [               {{Data01}}             ]\\comma             center: [\\sq50%\\sq\\comma \\sq50%\\sq]\\comma             radius: 200         }",
-            "},     radar: [         {             indicator: [               {text: \"问题解决\", max: 10},{text: \"技术运用\", max: 10},{text: \"人文情怀\", max: 10},{text: \"审美情趣\", max: 10},{text: \"理性思维\", max: 10},{text: \"批判质疑\""
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::INIRead",
       "title": "INIRead 方法",
-      "summary": "读取 INI 配置项（节/键/值）。",
+      "summary": "读取 INI 配置项（节/键/值）。\n关键词: 读出INI文件",
       "tags": [
         "ini",
         "配置",
@@ -3356,11 +2847,11 @@
         "读取",
         "参数"
       ],
-      "subtitle": "示例数 13 · 来源 2",
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "读取 INI 配置项（节/键/值）。"
+          "text": "读取 INI 配置项（节/键/值）。\n关键词: 读出INI文件"
         },
         {
           "title": "常用签名",
@@ -3385,7 +2876,7 @@
     {
       "id": "method::INIWrite",
       "title": "INIWrite 方法",
-      "summary": "写入/更新 INI 配置项（节/键/值）。",
+      "summary": "写入/更新 INI 配置项（节/键/值）。\n关键词: 写入INI文件",
       "tags": [
         "ini",
         "配置",
@@ -3394,11 +2885,11 @@
         "保存",
         "参数"
       ],
-      "subtitle": "示例数 7 · 来源 2",
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "写入/更新 INI 配置项（节/键/值）。"
+          "text": "写入/更新 INI 配置项（节/键/值）。\n关键词: 写入INI文件"
         },
         {
           "title": "常用签名",
@@ -3423,13 +2914,15 @@
     {
       "id": "method::InputBox",
       "title": "InputBox 方法",
-      "summary": "执行 InputBox 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
+      "summary": "执行 InputBox 相关操作。\n关键词: 弹出InputBox",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 2 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 InputBox 相关操作。"
+          "text": "执行 InputBox 相关操作。\n关键词: 弹出InputBox"
         },
         {
           "title": "常用签名",
@@ -3449,13 +2942,15 @@
     {
       "id": "method::InsertString",
       "title": "InsertString 方法",
-      "summary": "执行 InsertString 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
+      "summary": "执行 InsertString 相关操作。\n关键词: 在指定位置插入字符",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 4 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 InsertString 相关操作。"
+          "text": "执行 InsertString 相关操作。\n关键词: 在指定位置插入字符"
         },
         {
           "title": "常用签名",
@@ -3476,30 +2971,9 @@
       ]
     },
     {
-      "id": "method::javascript",
-      "title": "javascript 方法",
-      "summary": "执行 javascript 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 3 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 javascript 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "bqgmb_head\"> <div class=\"back\"><a href=\"javascript:history.go(-1); \">返回</a></div> <h2 id=\"bqgmb_h1\">巅峰</h2> <div class=\"back_r\"><a href=\"/\">首页</a></div> </div> <div> <div class=\"nr_set\"> <div class=\"s",
-            "ss=\"nr_set\"> <div class=\"set3\"><a href=\"javascript:report('《巅峰》小说报错','需要报错的小说是《巅峰》，章节是“第２２３６章 以法制法”，具体报错内容是：（这里填写报错内容，可不填写）'); \">报错</a></div> <div id=\"lightdiv\" class=\"set1\" onclick=\"nr_setbg('light')",
-            "ss=\"nr_set\"> <div class=\"set3\"><a href=\"javascript:report('《巅峰》小说报错','需要报错的小说是《巅峰》，章节是“第２２５９章 突出重点”，具体报错内容是：（这里填写报错内容，可不填写）'); \">报错</a></div> <div id=\"lightdiv\" class=\"set1\" onclick=\"nr_setbg('light')"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::Json",
       "title": "Json 方法",
-      "summary": "解析/生成 JSON，进行对象与字符串转换。",
+      "summary": "解析/生成 JSON，进行对象与字符串转换。\n关键词: Json操作",
       "tags": [
         "json",
         "解析",
@@ -3507,11 +2981,11 @@
         "对象",
         "格式"
       ],
-      "subtitle": "示例数 105 · 来源 2",
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "解析/生成 JSON，进行对象与字符串转换。"
+          "text": "解析/生成 JSON，进行对象与字符串转换。\n关键词: Json操作"
         },
         {
           "title": "常用签名",
@@ -3534,36 +3008,17 @@
       ]
     },
     {
-      "id": "method::JsonObject",
-      "title": "JsonObject 方法",
-      "summary": "执行 JsonObject 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 3 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 JsonObject 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "JsonObject:json={\"result\":{\"code\":\"0\",\"msg\":\"Success in IDCard! \"}  , \"idcard\":{\"name\":\"瞿福长\",\"sex\":\"男\",\"idno\":\"530325199510230518\",\"addr\":\"云南省曲靖市富源县后所镇老牛场村委会坡底下",
-            "JsonObject:json={\"topic\":\"哈哈哈\",\"payload\":\"1234\"}",
-            "JsonObject:json={\"output\":{\"choices\":[{\"message\":{\"content\":\"```html\\n<!DOCTYPE html>\\n<html lang=\\\"zh-CN\\\">\\n<head>\\n    <meta charset=\\\"UTF-8\\\">\\n    <meta na"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::KeyBoard",
       "title": "KeyBoard 方法",
-      "summary": "执行 KeyBoard 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 10 · 来源 2",
+      "summary": "执行 KeyBoard 相关操作。\n关键词: 发送键盘按键  V212 2021-09-14 17:28 @澳门\n...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 5 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 KeyBoard 相关操作。"
+          "text": "执行 KeyBoard 相关操作。\n关键词: 发送键盘按键  V212 2021-09-14 17:28 @澳门\n语法/要点: KeyBoard:Var=KEYDOWN,KEYCODE/KEYNAME/STRING,'CONTENT' | KeyBoard:Var=KEYUP,KEYCODE/KEYNAME/STRING,'CONTENT' | V212 2021-09-14 17:28 @澳门"
         },
         {
           "title": "常用签名",
@@ -3578,6 +3033,8 @@
         {
           "title": "示例片段",
           "code": [
+            "KeyBoard:Var=KEYDOWN,KEYCODE/KEYNAME/STRING,'CONTENT'",
+            "KeyBoard:Var=KEYUP,KEYCODE/KEYNAME/STRING,'CONTENT'",
             "Call:var发送结果=txt按键接收测试,'SetFocus'; KeyBoard:var发送结果=KEYDOWN,STRING,'@txt文本.Text';",
             "Call:var发送结果=txt按键接收测试,'SetFocus'; KeyBoard:var发送结果=KEYDOWN,KEYNAME,'@txt按键名.Text';",
             "Call:var发送结果=txt按键接收测试,'SetFocus'; KeyBoard:var发送结果=KEYDOWN,KEYCODE,'@txt按键值.Text';"
@@ -3586,82 +3043,17 @@
       ]
     },
     {
-      "id": "method::Layer",
-      "title": "Layer 方法",
-      "summary": "执行 Layer 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 Layer 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "new:varNew=label,,Test,Layer:Layer1; move:varresult=@varNew,50-10-100-30,'-'; set:buton(@varNew).memo='haha'; set:buton(@varNew).action='ShowLayer:LayerB1';"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::left",
-      "title": "left 方法",
-      "summary": "执行 left 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 4 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 left 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Left: 0"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "is\\sq     }\\comma     legend: {         left: \\sqcenter\\sq\\comma     }\\comma     radar: [         {             indicator: [               {{Data01}}             ]\\comma             center: [\\sq50%\\sq",
-            "er: 'axis'     },     legend: {         left: 'center',     },     radar: [         {             indicator: [               {text: \"问题解决\", max: 10},{text: \"技术运用\", max: 10},{text: \"人文情怀\", max: 10},{te",
-            "te; \\n            top: 0; \\n            left: 0; \\n            width: 100%; \\n            height: 5px; \\n            background: linear-gradient(90deg, #667eea, #764ba2); \\n        }\\n\\n        .step-"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::legend",
-      "title": "legend 方法",
-      "summary": "执行 legend 相关操作。",
-      "tags": [],
+      "id": "method::LengthOfString",
+      "title": "LengthOfString 方法",
+      "summary": "执行 LengthOfString 相关操作。\n关键词: 获得字符长度（中文英文都算一个字符）",
+      "tags": [
+        "UCC"
+      ],
       "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 legend 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "option = { tooltip : { show : true },  legend : {  data : [ \"销量\" ] },  xAxis : [ { type : \"category\",  data : [ \"衬衫\", \"羊毛衫\", \"雪纺衫\", \"裤子\", \"高跟鞋\", \"袜子\" ] } ],  yAxis : [ {  type : \"value\"  } ],  series",
-            "trigger: \\sqaxis\\sq     }\\comma     legend: {         left: \\sqcenter\\sq\\comma     }\\comma     radar: [         {             indicator: [               {{Data01}}             ]\\comma",
-            "p: {         trigger: 'axis'     },     legend: {         left: 'center',     },     radar: [         {             indicator: [               {text: \"问题解决\", max: 10},{text: \"技术运用\", max: 10},{text: \"人"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::LengthOfString",
-      "title": "LengthOfString 方法",
-      "summary": "执行 LengthOfString 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 9 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 LengthOfString 相关操作。"
+          "text": "执行 LengthOfString 相关操作。\n关键词: 获得字符长度（中文英文都算一个字符）"
         },
         {
           "title": "常用签名",
@@ -3686,13 +3078,15 @@
     {
       "id": "method::LinkString",
       "title": "LinkString 方法",
-      "summary": "执行 LinkString 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 58 · 来源 2",
+      "summary": "执行 LinkString 相关操作。\n关键词: 连接多个字符串成为新的字符串",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 LinkString 相关操作。"
+          "text": "执行 LinkString 相关操作。\n关键词: 连接多个字符串成为新的字符串"
         },
         {
           "title": "常用签名",
@@ -3715,66 +3109,26 @@
       ]
     },
     {
-      "id": "method::LoadDataFromExcel",
-      "title": "LoadDataFromExcel 方法",
-      "summary": "执行 LoadDataFromExcel 相关操作。",
+      "id": "method::ListGet",
+      "title": "ListGet 方法",
+      "summary": "关键词: V293ex3 获得List/ComboBox的属性 2026-01-05 尚佳中心\n语法/要点: Li...",
       "tags": [
-        "excel",
-        "导入",
-        "导出",
-        "表格",
-        "mysql",
-        "数据源"
+        "UCC"
       ],
-      "subtitle": "示例数 1 · 来源 2",
+      "subtitle": "示例数 5 · 来源 6",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 LoadDataFromExcel 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Loaddatafromexcel: DataProductList=LHT.xls,Sheet1,WHERE 产品名 LIKE '%@ProduceID%', Order by 产品名"
-          ]
+          "text": "关键词: V293ex3 获得List/ComboBox的属性 2026-01-05 尚佳中心\n语法/要点: ListGet:var=ListID/ComboBoxID,ITEMSCOUNT --获得下拉列表的列表数 | ListGet:var=ListID/ComboBoxID,ITEMVALUE[,1] --获得下拉列表某行值,从0起 | ListGet:var=ListID/ComboBoxID,SELECTEDVALUE --获得下拉列表选中的值 | ListGet:var=ListID/ComboBoxID,SELECTEDINDEX --获得下拉列表选中的序号，从0起 | ListGet:var=ListID/ComboBoxID,SELECTEDCOUNT --获得下拉列表选中总数（多选时有用）"
         },
         {
           "title": "示例片段",
           "code": [
-            "Set:ProduceID=TextForSearch.Text; LoadDataFromExcel:DataProductList=LHT.xls,Sheet1,WHERE 产品名 LIKE '%@ProduceID%', Order by 产品名; BindingDataTo:ProductList=DataProductList,产品名;",
-            "Loaddatafromexcel: DataProductList=LHT.xls,Sheet1,WHERE 产品名 LIKE '%@ProduceID%', Order by 产品名;",
-            "LoadDataFromExcel:DataProductList=LHT.xls,Sheet1,WHERE 产品名 LIKE '%@ProduceID%', Order by 产品名;"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::margin",
-      "title": "margin 方法",
-      "summary": "执行 margin 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 14 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 margin 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Margin: auto",
-            "Margin: 0",
-            "Margin: 0 auto",
-            "Margin: -15px auto auto -10px",
-            "Margin: 0px"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            ">  html{height:100%}  body{height:100%; margin:0px; padding:0px}  #container{height:100%}  </style>   <script type=\"text/javascript\" src=\"https://api.map.baidu.com/api?v=1.0&type=webgl&ak=OOahNZC3nL7B",
-            "<style type=\"text/css\">  body,html {   margin: 0; padding: 0; height: 100%; overflow: hidden; } </style> <title>ECharts-demo-柱形图</title> <script src=\"http://127.0.0.1/javascripts/echarts-all.js\"></sc",
-            "/head>     <body style=\\dqheight: 100%; margin: 0\\dq>         <div id=\\dqcontainer\\dq style=\\dqheight: 100%\\dq></div>          <script type=\\dqtext/javascript\\dq src=\\dqecharts.min.js\\dq></script>"
+            "ListGet:var=ListID/ComboBoxID,ITEMSCOUNT --获得下拉列表的列表数",
+            "ListGet:var=ListID/ComboBoxID,ITEMVALUE[,1] --获得下拉列表某行值,从0起",
+            "ListGet:var=ListID/ComboBoxID,SELECTEDVALUE --获得下拉列表选中的值",
+            "ListGet:var=ListID/ComboBoxID,SELECTEDINDEX --获得下拉列表选中的序号，从0起",
+            "ListGet:var=ListID/ComboBoxID,SELECTEDCOUNT --获得下拉列表选中总数（多选时有用）"
           ]
         }
       ]
@@ -3782,13 +3136,15 @@
     {
       "id": "method::Math",
       "title": "Math 方法",
-      "summary": "执行 Math 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 28 · 来源 2",
+      "summary": "执行 Math 相关操作。\n关键词: 数学函数",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Math 相关操作。"
+          "text": "执行 Math 相关操作。\n关键词: 数学函数"
         },
         {
           "title": "常用签名",
@@ -3811,36 +3167,17 @@
       ]
     },
     {
-      "id": "method::max",
-      "title": "max 方法",
-      "summary": "执行 max 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 34 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 max 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "{text: \\dq问题解决\\dq\\comma max: 10}\\comma{text: \\dq技术运用\\dq\\comma max: 10}\\comma{text: \\dq人文情怀\\dq\\comma max: 10}\\comma{text: \\dq审美情趣\\dq\\comma max: 10}\\comma{text: \\dq理性思维\\dq\\comma max: 10}",
-            "a max: 10}\\comma{text: \\dq技术运用\\dq\\comma max: 10}\\comma{text: \\dq人文情怀\\dq\\comma max: 10}\\comma{text: \\dq审美情趣\\dq\\comma max: 10}\\comma{text: \\dq理性思维\\dq\\comma max: 10}\\comma{text: \\dq批判质疑\\dq\\comma max: 10}",
-            "a max: 10}\\comma{text: \\dq人文情怀\\dq\\comma max: 10}\\comma{text: \\dq审美情趣\\dq\\comma max: 10}\\comma{text: \\dq理性思维\\dq\\comma max: 10}\\comma{text: \\dq批判质疑\\dq\\comma max: 10}\\comma{text: \\dq勇于探究\\dq\\comma max: 10}"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::Memory",
       "title": "Memory 方法",
-      "summary": "执行 Memory 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
+      "summary": "执行 Memory 相关操作。\n关键词: 内存大小和使用率",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 2 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Memory 相关操作。"
+          "text": "执行 Memory 相关操作。\n关键词: 内存大小和使用率"
         },
         {
           "title": "常用签名",
@@ -3860,13 +3197,15 @@
     {
       "id": "method::Message",
       "title": "Message 方法",
-      "summary": "执行 Message 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 15 · 来源 2",
+      "summary": "执行 Message 相关操作。\n关键词: 发送消息",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Message 相关操作。"
+          "text": "执行 Message 相关操作。\n关键词: 发送消息"
         },
         {
           "title": "常用签名",
@@ -3889,9 +3228,24 @@
       ]
     },
     {
+      "id": "method::MMap",
+      "title": "MMap 方法",
+      "summary": "关键词: 进程间通讯-内存映射 MMap '2024-05-21 06:47 V266",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 0 · 来源 6",
+      "sections": [
+        {
+          "title": "功能说明",
+          "text": "关键词: 进程间通讯-内存映射 MMap '2024-05-21 06:47 V266"
+        }
+      ]
+    },
+    {
       "id": "method::ModbusRTU",
       "title": "ModbusRTU 方法",
-      "summary": "通过 Modbus RTU 协议（串口）生成/解析指令并进行寄存器读写，适用于传感器采集与设备控制。",
+      "summary": "通过 Modbus RTU 协议（串口）生成/解析指令并进行寄存器读写，适用于传感器采集与设备控制。\n关键词: 实...",
       "tags": [
         "modbus",
         "rtu",
@@ -3909,11 +3263,11 @@
         "控制",
         "采集"
       ],
-      "subtitle": "示例数 11 · 来源 2",
+      "subtitle": "示例数 6 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "通过 Modbus RTU 协议（串口）生成/解析指令并进行寄存器读写，适用于传感器采集与设备控制。"
+          "text": "通过 Modbus RTU 协议（串口）生成/解析指令并进行寄存器读写，适用于传感器采集与设备控制。\n关键词: 实现ModbusRTU协议的编码和解码  V192 2021-06-15 22:47\n语法/要点: ModbusRTU:varContent=QUERY,SlaveAddress,FunctionCode,RegisterAddress,RegisterCount | ModbusRTU:colResponse=RESPONSE,varContent | 2021-06-27 22:46 | ModbusRTU:varCol=MAPPING,colMapping,varContent | colMapping:寄存器名称和类型列表（自动判定长度） | varContent:从RTU收到的十六进制字符串"
         },
         {
           "title": "常用签名",
@@ -3928,9 +3282,11 @@
         {
           "title": "示例片段",
           "code": [
+            "ModbusRTU:varContent=QUERY,SlaveAddress,FunctionCode,RegisterAddress,RegisterCount",
+            "ModbusRTU:colResponse=RESPONSE,varContent",
+            "ModbusRTU:varCol=MAPPING,colMapping,varContent",
             "ModbusRTU:varContent=QUERY,@txt从站号.Text,@txt功能号.Text,@txt寄存器地址.Text,@txt寄存器数量.Text; Set:txt指令.text=@varContent; HideLayer:Layer生成ModbusRTU指令;",
-            "--发送06指令，设置寄存器的值; ModbusRTU:varRTU=QUERY,1,06,'@txt待写寄存器地址.Text','@txt待写寄存器值.Text'; SerialPort:varResult=WRITE,@varHandle,@varRTU; --Set:var执行结果='发送T  @varResult  >> @varRTU ';",
-            "--发送03指令，读取寄存器的值; ModbusRTU:varRTU=QUERY,1,03,'@txt待读寄存器地址.Text',1; SerialPort:varResult=WRITE,@varHandle,@varRTU; --Set:var执行结果='发送T  @varResult  >> @varRTU '; --接收返回值; SerialPo"
+            "发送06指令，设置寄存器的值; ModbusRTU:varRTU=QUERY,1,06,'@txt待写寄存器地址.Text','@txt待写寄存器值.Text'; SerialPort:varResult=WRITE,@varHandle,@varRTU; --Set:var执行结果='发送T @varResult >> @varRTU ';"
           ]
         }
       ]
@@ -3938,13 +3294,15 @@
     {
       "id": "method::ModbusTCP",
       "title": "ModbusTCP 方法",
-      "summary": "执行 ModbusTCP 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 4 · 来源 2",
+      "summary": "执行 ModbusTCP 相关操作。\n关键词: 实现ModbusTCP协议的编码和解码  V248 2023-05...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 5 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 ModbusTCP 相关操作。"
+          "text": "执行 ModbusTCP 相关操作。\n关键词: 实现ModbusTCP协议的编码和解码  V248 2023-05-27 15:54 @到东北大学参加教育研讨会的飞机上\n语法/要点: ModbusTCP:varCol=MAPPING,colMapping,varContent '2023-05-26 14:37 | colMapping:寄存器名称和类型列表（自动判定长度） | varContent:从TCP收到的十六进制字符串 | varCol:返回变量对象中的字典对象 '每个寄存器取一个值 | ModbusTCP:varContent=QUERY,SlaveAddress,FunctionCode,RegisterAddress,RegisterCount[,TCPID] '2023-12-12 03:47 儿子生日，千人大会"
         },
         {
           "title": "常用签名",
@@ -3956,6 +3314,8 @@
         {
           "title": "示例片段",
           "code": [
+            "ModbusTCP:varCol=MAPPING,colMapping,varContent '2023-05-26 14:37",
+            "ModbusTCP:varContent=QUERY,SlaveAddress,FunctionCode,RegisterAddress,RegisterCount[,TCPID] '2023-12-12 03:47 儿子生日，千人大会",
             "ppend:col寄存器映射集=COLLECTION,'测试','dint'; ModbusTCP:col指令集=MAPPING,col寄存器映射集,'@txtModbusTCP指令.Text'; BindingDataTo:Report寄存器映射=col寄存器映射集,HORIZONTAL; Append:Report寄存器映射=R,'@col指令集(0)','@col指令集(1)','@col指",
             "=COLLECTION,'2位单精度小数交换高低位','real_swap'; ModbusTCP:col指令集=MAPPING,col寄存器映射集,'@txtModbusTCP指令.Text'; BindingDataTo:Report寄存器映射=col寄存器映射集,HORIZONTAL; Append:Report寄存器映射=R,'@col指令集(0)','@col指令集(1)','@col指",
             "end:col寄存器映射集=COLLECTION,'布尔集群','bool'; ModbusTCP:col指令集=MAPPING,col寄存器映射集,'@txtModbusTCP指令.Text'; BindingDataTo:Report寄存器映射=col指令集,HORIZONTAL; Append:Report寄存器映射=R,'@col指令集(布尔集群)','@col指令集(布尔集群.0)','"
@@ -3964,55 +3324,17 @@
       ]
     },
     {
-      "id": "method::MosbusRTU",
-      "title": "MosbusRTU 方法",
-      "summary": "（兼容写法）通过 Modbus RTU 协议进行寄存器读写/指令解析。",
-      "tags": [
-        "modbus",
-        "rtu",
-        "串口",
-        "寄存器",
-        "读寄存器",
-        "写寄存器",
-        "传感器",
-        "温湿度",
-        "光照"
-      ],
-      "subtitle": "示例数 2 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "（兼容写法）通过 Modbus RTU 协议进行寄存器读写/指令解析。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Mosbusrtu: varContent=QUERY,@txt从站号.Text,@txt功能号.Text,@txt寄存器地址.Text,@txt寄存器数量.Text",
-            "Mosbusrtu: col指令集=RESPONSE,'@txtMODBUSRTU指令.Text'"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "MosbusRTU:varContent=QUERY,@txt从站号.Text,@txt功能号.Text,@txt寄存器地址.Text,@txt寄存器数量.Text; Set:txt指令.text=@varContent;",
-            "MosbusRTU:col指令集=RESPONSE,'@txtMODBUSRTU指令.Text'; Set:txt反馈从站号.text=@col指令集(0); Set:txt反馈功能号.text=@col指令集(1); Set:txt反馈数据总数.text=@col指令集(2); Set:txt反馈数据内容.text=",
-            "Mosbusrtu: varContent=QUERY,@txt从站号.Text,@txt功能号.Text,@txt寄存器地址.Text,@txt寄存器数量.Text;",
-            "Mosbusrtu: col指令集=RESPONSE,'@txtMODBUSRTU指令.Text';",
-            "MosbusRTU:varContent=QUERY,@txt从站号.Text,@txt功能号.Text,@txt寄存器地址.Text,@txt寄存器数量.Text;"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::Mouse",
       "title": "Mouse 方法",
-      "summary": "执行 Mouse 相关操作。",
-      "tags": [],
+      "summary": "执行 Mouse 相关操作。\n关键词: 发送鼠标事件  V213 2021-09-15 14:03 @澳门\n语法/...",
+      "tags": [
+        "UCC"
+      ],
       "subtitle": "示例数 9 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Mouse 相关操作。"
+          "text": "执行 Mouse 相关操作。\n关键词: 发送鼠标事件  V213 2021-09-15 14:03 @澳门\n语法/要点: Mouse:Var=DOWN,X/Y,LEFT/RIGHT/MIDDDLE,DelayBefore,DelayAfter; | Mouse:Var=UP,X/Y,LEFT/RIGHT/MIDDDLE,DelayBefore,DelayAfter; | Mouse:Var=CLICK,X/Y,LEFT/RIGHT/MIDDDLE,DelayBefore,DelayAfter; | Mouse:Var=DOUBLECLICK,X/Y,LEFT/RIGHT/MIDDDLE,DelayBefore,DelayAfter; | Mouse:Var=SETPOS,X/Y,DelayBefore,DelayAfter; | Mouse:Var=GETPOS;"
         },
         {
           "title": "常用签名",
@@ -4027,9 +3349,11 @@
         {
           "title": "示例片段",
           "code": [
-            "--Mouse:Var=CLICK,'@txt坐标X.Text / @txt坐标Y.Text',LEFT,500,200; Mouse:Var=Down,'@txt坐标X.Text / @txt坐标Y.Text',LEFT,500,100; Mouse:Var=UP,'@txt坐标X.Text / @txt坐标Y.Text",
-            "t坐标X.Text / @txt坐标Y.Text',LEFT,500,200; Mouse:Var=Down,'@txt坐标X.Text / @txt坐标Y.Text',LEFT,500,100; Mouse:Var=UP,'@txt坐标X.Text / @txt坐标Y.Text',LEFT,0,200;",
-            "t坐标X.Text / @txt坐标Y.Text',LEFT,500,100; Mouse:Var=UP,'@txt坐标X.Text / @txt坐标Y.Text',LEFT,0,200;"
+            "Mouse:Var=DOWN,X/Y,LEFT/RIGHT/MIDDDLE,DelayBefore,DelayAfter;",
+            "Mouse:Var=UP,X/Y,LEFT/RIGHT/MIDDDLE,DelayBefore,DelayAfter;",
+            "Mouse:Var=CLICK,X/Y,LEFT/RIGHT/MIDDDLE,DelayBefore,DelayAfter;",
+            "Mouse:Var=DOUBLECLICK,X/Y,LEFT/RIGHT/MIDDDLE,DelayBefore,DelayAfter;",
+            "Mouse:Var=SETPOS,X/Y,DelayBefore,DelayAfter;"
           ]
         }
       ]
@@ -4037,13 +3361,15 @@
     {
       "id": "method::Move",
       "title": "Move 方法",
-      "summary": "执行 Move 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 93 · 来源 2",
+      "summary": "执行 Move 相关操作。\n关键词: 移动对象的坐标、高度和宽度\n语法/要点: Move:var=OnWho,L-...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 6 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Move 相关操作。"
+          "text": "执行 Move 相关操作。\n关键词: 移动对象的坐标、高度和宽度\n语法/要点: Move:var=OnWho,L-T-W-H[,'-'][,Speed][,ActionDuringMoving] | Move:OnWho1,2,...='L-T-W-H','-'[,Speed][,ActionDuringMoving]'TODO:如果可以支持多个对象同时移动则可以让移动过程比较一致，重要的是需要使用相对坐标 | Move:var=OnWho,L/T/W/H[,Add/Subtract/Multiply/Divide/'-'][,Speed][,ActionDuringMoving] | Add:值相加 | Subtract:值相减 | Multiply:值相乘"
         },
         {
           "title": "常用签名",
@@ -4058,9 +3384,11 @@
         {
           "title": "示例片段",
           "code": [
+            "Move:var=OnWho,L-T-W-H[,'-'][,Speed][,ActionDuringMoving]",
+            "Move:OnWho1,2,...='L-T-W-H','-'[,Speed][,ActionDuringMoving]'TODO:如果可以支持多个对象同时移动则可以让移动过程比较一致，重要的是需要使用相对坐标",
+            "Move:var=OnWho,L/T/W/H[,Add/Subtract/Multiply/Divide/'-'][,Speed][,ActionDuringMoving]",
             "机台编号).Left + @Button(@var当前机台编号).Width; Move:var=Layer2行弹窗,'@var左边值-@var高度值','-',50; --改变底色; --RunAction:fun改变机台底色; --Set:Button('@17A').ForeColor=255; --Set:Button(@var当前机台编号).ForeColor=0;",
-            "机台编号).Left + @Button(@var当前机台编号).Width; Move:var=Layer2行弹窗,'@var左边值-@var高度值','-',50;",
-            "Move:var=@var待移动对象,'1600','/',255;"
+            "机台编号).Left + @Button(@var当前机台编号).Width; Move:var=Layer2行弹窗,'@var左边值-@var高度值','-',50;"
           ]
         }
       ]
@@ -4068,13 +3396,15 @@
     {
       "id": "method::MsgBox",
       "title": "MsgBox 方法",
-      "summary": "执行 MsgBox 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 25 · 来源 2",
+      "summary": "执行 MsgBox 相关操作。\n关键词: 弹出MsgBox",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 MsgBox 相关操作。"
+          "text": "执行 MsgBox 相关操作。\n关键词: 弹出MsgBox"
         },
         {
           "title": "常用签名",
@@ -4097,36 +3427,17 @@
       ]
     },
     {
-      "id": "method::name",
-      "title": "name 方法",
-      "summary": "执行 name 相关操作。",
-      "tags": [],
+      "id": "method::NavigationSet",
+      "title": "NavigationSet 方法",
+      "summary": "执行 NavigationSet 相关操作。\n关键词: 左边导航 V272 2024-10-22",
+      "tags": [
+        "UCC"
+      ],
       "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 name 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "[ {  type : \"value\"  } ],  series : [ { name : \"销量\", type : \"bar\", data : [ 5, 20, 40, 10, 10, 20 ] } ]  }; '; Console:INFO='@varDataOption';",
-            "omma5\\comma4]\\comma                     name: \\sq\\sq                 }             ]         }              ] }; if (option \\and\\and typeof option === \\sqobject\\sq)  {myChart.setOption(option); }",
-            "2,3,4,5,4,3,3,5,4],                     name: ''                 }             ]         }              ] }; if (option && typeof option === 'object')  {myChart.setOption(option); }          </script>"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::NavigationSet",
-      "title": "NavigationSet 方法",
-      "summary": "执行 NavigationSet 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 13 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 NavigationSet 相关操作。"
+          "text": "执行 NavigationSet 相关操作。\n关键词: 左边导航 V272 2024-10-22"
         },
         {
           "title": "常用签名",
@@ -4151,13 +3462,15 @@
     {
       "id": "method::New",
       "title": "New 方法",
-      "summary": "执行 New 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 37 · 来源 2",
+      "summary": "执行 New 相关操作。\n关键词: 新建组件",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 4 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 New 相关操作。"
+          "text": "执行 New 相关操作。\n关键词: 新建组件"
         },
         {
           "title": "常用签名",
@@ -4172,144 +3485,10 @@
         {
           "title": "示例片段",
           "code": [
+            "New:varID=Label/Image/APNG/Rectangle/Circle/Triangle/TextBox/Button/Var/Layer,ID,Title,Container,'jsonProperties' '2024-09-25 V270:额外属性用Json输入",
             "new:varNew=label,,Test,Layer:Layer1; move:varresult=@varNew,50-10-100-30,'-'; set:buton(@varNew).memo='haha'; set:buton(@varNew).action='ShowLayer:LayerB1';",
-            "'','[','@varID','_OnMouseUp]'; --ϳID6λ; New:varNewLabel=Label,'@varID','@varID','LayerDesigner',True; Set:Button(@varNewLabel).Left=0; Set:Button(@varNewLabel).Top=0; Set:Button(@varNewLabel).Width=12",
+            "','[','@varID','_OnMouseUp]'; --ϳID6λ; New:varNewLabel=Label,'@varID','@varID','LayerDesigner',True; Set:Button(@varNewLabel).Left=0; Set:Button(@varNewLabel).Top=0; Set:Button(@varNewLabel).Width=12",
             ":Button(@varNewLabel).Caption='@varID'; New:varNewLabelEvent=Var,'@varEvent','@varEvent',LayerDesigner; --ǩ¼Ժò; --Set:Var(@varNewLabelEvent).Action='RunAction:funLabelEvent'; --; Calc:varRecordCount=@"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::opacity",
-      "title": "opacity 方法",
-      "summary": "执行 opacity 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 8 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 opacity 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "{\\n            from {\\n                opacity: 0; \\n                transform: translateY(-30px); \\n            }\\n            to {\\n                opacity: 1; \\n                transform: translat",
-            "}\\n            to {\\n                opacity: 1; \\n                transform: translateY(0); \\n            }\\n        }\\n\\n        @keyframes fadeInUp {\\n            from {\\n                opacity",
-            "{\\n            from {\\n                opacity: 0; \\n                transform: translateY(30px); \\n            }\\n            to {\\n                opacity: 1; \\n                transform: translate"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::overflow",
-      "title": "overflow 方法",
-      "summary": "执行 overflow 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 4 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 overflow 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Overflow: hidden"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "margin: 0; padding: 0; height: 100%; overflow: hidden; } </style> <title>ECharts-demo-柱形图</title> <script src=\"http://127.0.0.1/javascripts/echarts-all.js\"></script> </head> <body>     <!-- 为EChart",
-            "position: relative; \\n            overflow: hidden; \\n        }\\n\\n        .step-card:hover {\\n            transform: translateY(-10px); \\n            box-shadow: 0 20px 40px rgba(0,0,0,0.15); \\",
-            "text-align: center; position: relative; overflow: hidden; }          .step-card:hover {             transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }          .step-card::befor"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::padding",
-      "title": "padding 方法",
-      "summary": "执行 padding 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 24 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 padding 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Padding: 0",
-            "Padding: 20px",
-            "Padding: 50px",
-            "Padding: 40px 0",
-            "Padding: 30px"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "ht:100%}  body{height:100%; margin:0px; padding:0px}  #container{height:100%}  </style>   <script type=\"text/javascript\" src=\"https://api.map.baidu.com/api?v=1.0&type=webgl&ak=OOahNZC3nL7BTn0VPUzbkl8E",
-            "e=\"text/css\">  body,html {   margin: 0; padding: 0; height: 100%; overflow: hidden; } </style> <title>ECharts-demo-柱形图</title> <script src=\"http://127.0.0.1/javascripts/echarts-all.js\"></script> </hea",
-            "d black; \" width=75>函数语法</th><td style=\"padding:1px; border:1px solid gray; \" height=30>ShowControl:ControlID</td></tr><tr><th style=\"border:1px solid gray; background:#ffffff; \">功能描述</th><td style=\"p"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::Param",
-      "title": "Param 方法",
-      "summary": "执行 Param 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 Param 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Param: var=OnWho"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "Param:var=OnWho; Case:OnWho.value='Chart菜类收入统计'=RunAction:fun指定菜类的菜品收入构成; Case:OnWho.value='Chart业态'=RunAction:fun指定业态; Case:OnWho.value='Chart业态选择'=RunAction:f",
-            "Param:var=OnWho; Case:OnWho.value='ChartDemo'=RunAction:fun获取门店收入对比;",
-            "Param: var=OnWho;",
-            "Param:var=OnWho;"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::position",
-      "title": "position 方法",
-      "summary": "执行 position 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 4 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 position 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Position: relative",
-            "Position: absolute"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "text-align: center; \\n            position: relative; \\n            overflow: hidden; \\n        }\\n\\n        .step-card:hover {\\n            transform: translateY(-10px); \\n            box-shado",
-            "n            content: ''; \\n            position: absolute; \\n            top: 0; \\n            left: 0; \\n            width: 100%; \\n            height: 5px; \\n            background: linear-gradient",
-            "ion: all 0.3s ease; text-align: center; position: relative; overflow: hidden; }          .step-card:hover {             transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }"
           ]
         }
       ]
@@ -4317,13 +3496,15 @@
     {
       "id": "method::Printer",
       "title": "Printer 方法",
-      "summary": "执行 Printer 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 7 · 来源 2",
+      "summary": "执行 Printer 相关操作。\n关键词: 打印机操作",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Printer 相关操作。"
+          "text": "执行 Printer 相关操作。\n关键词: 打印机操作"
         },
         {
           "title": "常用签名",
@@ -4346,56 +3527,17 @@
       ]
     },
     {
-      "id": "method::radar",
-      "title": "radar 方法",
-      "summary": "执行 radar 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 radar 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "eft: \\sqcenter\\sq\\comma     }\\comma     radar: [         {             indicator: [               {{Data01}}             ]\\comma             center: [\\sq50%\\sq\\comma \\sq50%\\sq]\\comma             radiu",
-            "d: {         left: 'center',     },     radar: [         {             indicator: [               {text: \"问题解决\", max: 10},{text: \"技术运用\", max: 10},{text: \"人文情怀\", max: 10},{text: \"审美情趣\", max: 10},{text:"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::radius",
-      "title": "radius 方法",
-      "summary": "执行 radius 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 6 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 radius 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "%\\sq\\comma \\sq50%\\sq]\\comma             radius: 200         }                      ]\\comma     series: [         {             type: \\sqradar\\sq\\comma             tooltip: {                 trigger: \\",
-            "center: ['50%', '50%'],             radius: 200         }                      ],     series: [         {             type: 'radar',             tooltip: {                 trigger: 'item'",
-            "background: white; \\n            border-radius: 15px; \\n            padding: 30px; \\n            box-shadow: 0 10px 30px rgba(0,0,0,0.1); \\n            transition: all 0.3s ease; \\n            text-al"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::Random",
       "title": "Random 方法",
-      "summary": "执行 Random 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 13 · 来源 2",
+      "summary": "执行 Random 相关操作。\n关键词: 获得随机数或随机选择 2019-07-26",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Random 相关操作。"
+          "text": "执行 Random 相关操作。\n关键词: 获得随机数或随机选择 2019-07-26"
         },
         {
           "title": "常用签名",
@@ -4420,13 +3562,15 @@
     {
       "id": "method::Remove",
       "title": "Remove 方法",
-      "summary": "执行 Remove 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 14 · 来源 2",
+      "summary": "执行 Remove 相关操作。\n关键词: 移除List/Combo的条目或Text/Label的字符  V99ex...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 11 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Remove 相关操作。"
+          "text": "执行 Remove 相关操作。\n关键词: 移除List/Combo的条目或Text/Label的字符  V99ex13 2017-04-12\n语法/要点: Remove:CollectionVar=Index/Key --移除Index或Key对应的集合项 V99ex39 2017-10-22 | Remove:CollectionVar =IndexStart,IndexEnd '移除IndexStart到IndexEnd之间对应的集合项，包含IndexEnd项 2024-06-26 | Remove:ListID/ComboID=Index | Remove:TextID=Index,Length --移除TextID.Text从Index起的Length的字符 | Remove:LabelID=Index,Length --移除LabelID.Caption从Index起的Length的字符 | Remove:RecordID=Index --ToDo：移除RecordID中序号为Index的项,有可能不可以移除"
         },
         {
           "title": "常用签名",
@@ -4441,9 +3585,11 @@
         {
           "title": "示例片段",
           "code": [
-            "Set:var列表序号=@List音乐列表.ListIndex; Remove:List音乐列表=@var列表序号;",
-            "会一周气温数据(0).Key; Case:@var数据个数 > 30 Then Remove:col运动会一周气温数据='@varKey'; BindingDataTo:Chart数据展示=col运动会一周气温数据,2,'运动会一周气温数据','气温'; ChartSet:Chart数据展示=ViewValue,ALL,X,0,@var数据个数; --Set:varKey=@col运动会一周气温数",
-            "周气温数据(0).Key; --Case:@var数据个数 > 30 Then Remove:col运动会一周气温数据=0;"
+            "Remove:CollectionVar=Index/Key --移除Index或Key对应的集合项 V99ex39 2017-10-22",
+            "Remove:CollectionVar =IndexStart,IndexEnd '移除IndexStart到IndexEnd之间对应的集合项，包含IndexEnd项 2024-06-26",
+            "Remove:ListID/ComboID=Index",
+            "Remove:TextID=Index,Length --移除TextID.Text从Index起的Length的字符",
+            "Remove:LabelID=Index,Length --移除LabelID.Caption从Index起的Length的字符"
           ]
         }
       ]
@@ -4451,13 +3597,15 @@
     {
       "id": "method::Replace",
       "title": "Replace 方法",
-      "summary": "执行 Replace 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 36 · 来源 2",
+      "summary": "执行 Replace 相关操作。\n关键词: 替换字符\n语法/要点: Replace:var='BAD','A','E'",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 4 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Replace 相关操作。"
+          "text": "执行 Replace 相关操作。\n关键词: 替换字符\n语法/要点: Replace:var='BAD','A','E'"
         },
         {
           "title": "常用签名",
@@ -4472,8 +3620,9 @@
         {
           "title": "示例片段",
           "code": [
+            "Replace:var='BAD','A','E'",
             "ssUTF8.html',UTF-8,0; --用地址替换{address}; Replace:varFileBaiduMap=varFileBaiduMap,'{address}','@txt地址.Text'; --保存为新文件; FileWrite:var='DataPath\\BaiduAddressTemp.html',UTF-8,0,varFileBaiduMap; --加载新文件; We",
-            "--ҵµĵ1; Set:varµһ='@var @var· 1'; Replace:varµһ='@varµһ',' ',''; --м; GetDateAdd:varµһ='m',1,'@varµһ'; GetDateDiff:var='d','@varµһ','@varµһ'; --1ڼ; GetDateTime:varһڼ=WEEKDAY,'@varµһ'; --ʼڣ1ǰڶΪգڰ",
+            "ҵµĵ1; Set:varµһ='@var @var· 1'; Replace:varµһ='@varµһ',' ',''; --м; GetDateAdd:varµһ='m',1,'@varµһ'; GetDateDiff:var='d','@varµһ','@varµһ'; --1ڼ; GetDateTime:varһڼ=WEEKDAY,'@varµһ'; --ʼڣ1ǰڶΪգڰ",
             "Set:var='@lbl.Caption @lbl·.Caption 1'; Replace:var='@var',' ',''; GetDateAdd:var='m',@var·ݱ仯,'@var'; GetDateTime:var='YEAR','@var'; GetDateTime:var·='MONTH','@var'; LinkString:lbl.Caption='','@var','"
           ]
         }
@@ -4482,13 +3631,15 @@
     {
       "id": "method::ReportGet",
       "title": "ReportGet 方法",
-      "summary": "执行 ReportGet 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 65 · 来源 2",
+      "summary": "执行 ReportGet 相关操作。\n关键词: V97 获得Report的属性\n语法/要点: ReportGet:...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 15 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 ReportGet 相关操作。"
+          "text": "执行 ReportGet 相关操作。\n关键词: V97 获得Report的属性\n语法/要点: ReportGet:var=ReportControl1,ColumnTitle,1 '获得指定列的标题 | ReportGet:var=ReportControl1,ColumnWidth,1 '获得指定列的宽度 | ReportGet:var=ReportControl1,ColumnVisible,1 '获得指定列是否可见 | ReportGet:var=ReportControl1,RowLTWH,1 --获得指定行的矩形Left,Top,Width,Height（用于覆盖） | ReportGet:var=ReportControl1,CellValue,1,1 '获得单元格的值 | ReportGet:var=ReportControl1,CellForeColor,1,1 '获得单元格的前景色"
         },
         {
           "title": "常用签名",
@@ -4503,9 +3654,11 @@
         {
           "title": "示例片段",
           "code": [
-            "ReportGet:varRowIndex=Report销售省份,SelectedRowIndex,1; ReportGet:lbl城市名字.Caption=Report销售省份,CellValue,@varRowIndex,1; LinkString:varMatchWord='','@lbl城市名字.Caption",
-            "RowIndex=Report销售省份,SelectedRowIndex,1; ReportGet:lbl城市名字.Caption=Report销售省份,CellValue,@varRowIndex,1; LinkString:varMatchWord='','@lbl城市名字.Caption','%'; DB:db项目机会列表=Access,'LEADS2017.mdb','',SQL 'SEL",
-            "ReportGet:Var5=Control1,CellValue,@i,1; ReportGet:Var6=Control1,CellValue,@i,2; set:Var9=Var5;"
+            "ReportGet:var=ReportControl1,ColumnTitle,1 '获得指定列的标题",
+            "ReportGet:var=ReportControl1,ColumnWidth,1 '获得指定列的宽度",
+            "ReportGet:var=ReportControl1,ColumnVisible,1 '获得指定列是否可见",
+            "ReportGet:var=ReportControl1,RowLTWH,1 --获得指定行的矩形Left,Top,Width,Height（用于覆盖）",
+            "ReportGet:var=ReportControl1,CellValue,1,1 '获得单元格的值"
           ]
         }
       ]
@@ -4513,13 +3666,15 @@
     {
       "id": "method::ReportSet",
       "title": "ReportSet 方法",
-      "summary": "执行 ReportSet 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 103 · 来源 2",
+      "summary": "执行 ReportSet 相关操作。\n关键词: V97 设置Report的属性\n语法/要点: ReportSet:...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 15 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 ReportSet 相关操作。"
+          "text": "执行 ReportSet 相关操作。\n关键词: V97 设置Report的属性\n语法/要点: ReportSet:ReportControl1=AddIndexColumn,1 | ReportSet:ReportControl1=ColumnTitle,ColumnIndex,'haha' --设置第ColumnIndex列的标题 | ReportSet:ReportControl1=ColumnWidth,ColumnIndex/ALL,50 --设置第ColumnIndex列的宽度，如果ColumnIndex=ALL则表示设置所有列的宽度 | ReportSet:ReportControl1=ColumnVisible,ColumnIndex,True | ReportSet:ReportControl1=AddComboToColumn,ColumnIndex,CollectionOfOptions | ReportSet:ReportControl1=AddComboToColumn,ColumnIndex,DataSourceOfOptions,FieldName 'V159 2019-06-15"
         },
         {
           "title": "常用签名",
@@ -4534,38 +3689,11 @@
         {
           "title": "示例片段",
           "code": [
-            "ReportSet:Report1=ColumnTitle,@txtColumnIndex.text,'@txtColumnTitle.text';",
-            "ReportSet:Report1=ColumnWidth,@txtColumnIndex.text,'@txtColumnWidth.text';",
-            "ReportSet:Report1=ColumnVisible,@txtColumnIndex.text,'@txtColumnVisible.text';"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::Resize",
-      "title": "Resize 方法",
-      "summary": "执行 Resize 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 Resize 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Resize: 394328=0,0,1887,1180",
-            "Resize: 852698=0/0/1924/1180"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "Resize:394328=0,0,1887,1180",
-            "Resize:852698=0/0/1924/1180",
-            "Resize: 394328=0,0,1887,1180;",
-            "Resize: 852698=0/0/1924/1180;"
+            "ReportSet:ReportControl1=AddIndexColumn,1",
+            "ReportSet:ReportControl1=ColumnTitle,ColumnIndex,'haha' --设置第ColumnIndex列的标题",
+            "ReportSet:ReportControl1=ColumnWidth,ColumnIndex/ALL,50 --设置第ColumnIndex列的宽度，如果ColumnIndex=ALL则表示设置所有列的宽度",
+            "ReportSet:ReportControl1=ColumnVisible,ColumnIndex,True",
+            "ReportSet:ReportControl1=AddComboToColumn,ColumnIndex,CollectionOfOptions"
           ]
         }
       ]
@@ -4573,13 +3701,15 @@
     {
       "id": "method::Return",
       "title": "Return 方法",
-      "summary": "执行 Return 相关操作。",
-      "tags": [],
+      "summary": "执行 Return 相关操作。\n关键词: 返回值",
+      "tags": [
+        "UCC"
+      ],
       "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Return 相关操作。"
+          "text": "执行 Return 相关操作。\n关键词: 返回值"
         },
         {
           "title": "常用签名",
@@ -4601,13 +3731,15 @@
     {
       "id": "method::Rotate",
       "title": "Rotate 方法",
-      "summary": "执行 Rotate 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
+      "summary": "执行 Rotate 相关操作。\n关键词: 旋转图片框(角度和大小)",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 4 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Rotate 相关操作。"
+          "text": "执行 Rotate 相关操作。\n关键词: 旋转图片框(角度和大小)"
         },
         {
           "title": "常用签名",
@@ -4629,13 +3761,15 @@
     {
       "id": "method::Run",
       "title": "Run 方法",
-      "summary": "执行 Run 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 9 · 来源 2",
+      "summary": "执行 Run 相关操作。\n关键词: 运行外部程序\n语法/要点: Run:FilePath | Run:[WAIT,...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 6 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Run 相关操作。"
+          "text": "执行 Run 相关操作。\n关键词: 运行外部程序\n语法/要点: Run:FilePath | Run:[WAIT,]FileName[,Param] | 2012-11-12 12:35 | Run:varHandle=NOWAIT/WAIT,FileName[,Param] | WAIT:一直等到运行结束 | -FindData(REM:暂未开放)"
         },
         {
           "title": "常用签名",
@@ -4650,9 +3784,11 @@
         {
           "title": "示例片段",
           "code": [
-            "--注意修改7zip的路径; --注意多个文件的名称用空格隔开; Run:WAIT,'C:\\Program Files\\7-Zip\\7z.exe','a C:\\Users\\michael\\Downloads\\UnZip\\haha.zip C:\\Users\\michael\\Downloads\\UnZip\\text1.txt  C:\\Users\\michael\\Downloads\\UnZ",
-            "--注意修改WinRAR的路径; --注意多个文件的名称用空格隔开; Run:WAIT,'C:\\Program Files (x86)\\WinRAR\\WinRAR','a -ep C:\\Users\\michael\\Downloads\\UnZip\\haha.zip C:\\Users\\michael\\Downloads\\UnZip\\text1.txt  C:\\Users\\michael\\Do",
-            "Run:'mspaint.exe','Data\\A01.jpg'; Run:'notepad.exe';"
+            "Run:FilePath",
+            "Run:[WAIT,]FileName[,Param]",
+            "Run:varHandle=NOWAIT/WAIT,FileName[,Param]",
+            "注意修改7zip的路径; --注意多个文件的名称用空格隔开; Run:WAIT,'C:\\Program Files\\7-Zip\\7z.exe','a C:\\Users\\michael\\Downloads\\UnZip\\haha.zip C:\\Users\\michael\\Downloads\\UnZip\\text1.txt C:\\Users\\michael\\Downloads\\UnZ",
+            "注意修改WinRAR的路径; --注意多个文件的名称用空格隔开; Run:WAIT,'C:\\Program Files (x86)\\WinRAR\\WinRAR','a -ep C:\\Users\\michael\\Downloads\\UnZip\\haha.zip C:\\Users\\michael\\Downloads\\UnZip\\text1.txt C:\\Users\\michael\\Do"
           ]
         }
       ]
@@ -4660,13 +3796,15 @@
     {
       "id": "method::RunAction",
       "title": "RunAction 方法",
-      "summary": "执行 RunAction 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 416 · 来源 2",
+      "summary": "执行 RunAction 相关操作。\n关键词: 运行脚本",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 RunAction 相关操作。"
+          "text": "执行 RunAction 相关操作。\n关键词: 运行脚本"
         },
         {
           "title": "常用签名",
@@ -4691,13 +3829,15 @@
     {
       "id": "method::SavePicture",
       "title": "SavePicture 方法",
-      "summary": "执行 SavePicture 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 12 · 来源 2",
+      "summary": "执行 SavePicture 相关操作。\n关键词: V70 保存图像到对象或文件",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 SavePicture 相关操作。"
+          "text": "执行 SavePicture 相关操作。\n关键词: V70 保存图像到对象或文件"
         },
         {
           "title": "常用签名",
@@ -4722,7 +3862,7 @@
     {
       "id": "method::SerialPort",
       "title": "SerialPort 方法",
-      "summary": "串口通讯：打开/配置串口并进行数据收发。",
+      "summary": "串口通讯：打开/配置串口并进行数据收发。\n关键词: 串口通信 '2021-05-19 22:18",
       "tags": [
         "串口",
         "serial",
@@ -4732,11 +3872,11 @@
         "传感器",
         "modbus"
       ],
-      "subtitle": "示例数 15 · 来源 2",
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "串口通讯：打开/配置串口并进行数据收发。"
+          "text": "串口通讯：打开/配置串口并进行数据收发。\n关键词: 串口通信 '2021-05-19 22:18"
         },
         {
           "title": "常用签名",
@@ -4759,30 +3899,9 @@
       ]
     },
     {
-      "id": "method::series",
-      "title": "series 方法",
-      "summary": "执行 series 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 5 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 series 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "],  yAxis : [ {  type : \"value\"  } ],  series : [ { name : \"销量\", type : \"bar\", data : [ 5, 20, 40, 10, 10, 20 ] } ]  }; '; Console:INFO='@varDataOption';",
-            "],  yAxis : [ {  type : \"value\"  } ],  series : [ { \"name\" : \"销量\", \"type\" : \"bar\", \"data\" : [ 5, 20, 40, 10, 10, 20 ] } ]  };",
-            "],  yAxis : [ {  type : \"value\"  } ],  series : [ { \"name\" : \"销量\", \"type\" : \"bar\", \"data\" : [ 5, 20, 40, 10, 10, 20 ] } ]  }; // 为echarts对象加载数据         myChart.setOption(option); </script> </body> </"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::Set",
       "title": "Set 方法",
-      "summary": "执行 Set 相关操作。",
+      "summary": "执行 Set 相关操作。\n关键词: 设置属性值",
       "tags": [
         "设置",
         "赋值",
@@ -4790,11 +3909,11 @@
         "变量",
         "UI"
       ],
-      "subtitle": "示例数 1643 · 来源 2",
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Set 相关操作。"
+          "text": "执行 Set 相关操作。\n关键词: 设置属性值"
         },
         {
           "title": "常用签名",
@@ -4819,13 +3938,15 @@
     {
       "id": "method::SetFieldValue",
       "title": "SetFieldValue 方法",
-      "summary": "执行 SetFieldValue 相关操作。",
-      "tags": [],
+      "summary": "执行 SetFieldValue 相关操作。\n关键词: 更新当前记录中指定字段的数据",
+      "tags": [
+        "UCC"
+      ],
       "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 SetFieldValue 相关操作。"
+          "text": "执行 SetFieldValue 相关操作。\n关键词: 更新当前记录中指定字段的数据"
         },
         {
           "title": "常用签名",
@@ -4848,13 +3969,15 @@
     {
       "id": "method::SetOnTop",
       "title": "SetOnTop 方法",
-      "summary": "执行 SetOnTop 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 9 · 来源 2",
+      "summary": "执行 SetOnTop 相关操作。\n关键词: 组件置顶",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 SetOnTop 相关操作。"
+          "text": "执行 SetOnTop 相关操作。\n关键词: 组件置顶"
         },
         {
           "title": "常用签名",
@@ -4877,57 +4000,17 @@
       ]
     },
     {
-      "id": "method::shadow",
-      "title": "shadow 方法",
-      "summary": "执行 shadow 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 6 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 shadow 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "color: white; \\n            text-shadow: 2px 2px 4px rgba(0,0,0,0.3); \\n            margin-bottom: 10px; \\n            animation: fadeInDown 1s ease-out; \\n        }\\n\\n        .subtitle {\\n",
-            "padding: 30px; \\n            box-shadow: 0 10px 30px rgba(0,0,0,0.1); \\n            transition: all 0.3s ease; \\n            text-align: center; \\n            position: relative; \\n",
-            "m: translateY(-10px); \\n            box-shadow: 0 20px 40px rgba(0,0,0,0.15); \\n        }\\n\\n        .step-card::before {\\n            content: ''; \\n            position: absolute; \\n            top:"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::show",
-      "title": "show 方法",
-      "summary": "执行 show 相关操作。",
-      "tags": [],
+      "id": "method::ShowButton",
+      "title": "ShowButton 方法",
+      "summary": "执行 ShowButton 相关操作。\n关键词: 显示按钮",
+      "tags": [
+        "UCC"
+      ],
       "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 show 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "rDataOption='var option = { tooltip : { show : true },  legend : {  data : [ \"销量\" ] },  xAxis : [ { type : \"category\",  data : [ \"衬衫\", \"羊毛衫\", \"雪纺衫\", \"裤子\", \"高跟鞋\", \"袜子\" ] } ],  yAxis : [ {  type : \"valu",
-            "var option = { tooltip : { show : true },  legend : {  data : [ \"销量\" ] },  xAxis : [ { type : \"category\",  data : [ \"衬衫\", \"羊毛衫\", \"雪纺衫\", \"裤子\", \"高跟鞋\", \"袜子\" ] } ],  yAxis : [ {  type : \"valu",
-            "Id('main')); var option = { tooltip : { show : true },  legend : {  data : [ \"销量\" ] },  xAxis : [ { type : \"category\",  data : [ \"衬衫\", \"羊毛衫\", \"雪纺衫\", \"裤子\", \"高跟鞋\", \"袜子\" ] } ],  yAxis : [ {  type : \"valu"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::ShowButton",
-      "title": "ShowButton 方法",
-      "summary": "执行 ShowButton 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 4 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 ShowButton 相关操作。"
+          "text": "执行 ShowButton 相关操作。\n关键词: 显示按钮"
         },
         {
           "title": "常用签名",
@@ -4950,13 +4033,15 @@
     {
       "id": "method::ShowControl",
       "title": "ShowControl 方法",
-      "summary": "执行 ShowControl 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 17 · 来源 2",
+      "summary": "执行 ShowControl 相关操作。\n关键词: 显示组件",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 ShowControl 相关操作。"
+          "text": "执行 ShowControl 相关操作。\n关键词: 显示组件"
         },
         {
           "title": "常用签名",
@@ -4981,18 +4066,18 @@
     {
       "id": "method::ShowLayer",
       "title": "ShowLayer 方法",
-      "summary": "执行 ShowLayer 相关操作。",
+      "summary": "执行 ShowLayer 相关操作。\n关键词: 显示层",
       "tags": [
         "显示",
         "layer",
         "界面",
         "UI"
       ],
-      "subtitle": "示例数 48 · 来源 2",
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 ShowLayer 相关操作。"
+          "text": "执行 ShowLayer 相关操作。\n关键词: 显示层"
         },
         {
           "title": "常用签名",
@@ -5015,15 +4100,32 @@
       ]
     },
     {
-      "id": "method::ShowPictures",
-      "title": "ShowPictures 方法",
-      "summary": "执行 ShowPictures 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
+      "id": "method::ShowNeighbors",
+      "title": "ShowNeighbors 方法",
+      "summary": "关键词: 显示与自己同一Container的其它对象",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 0 · 来源 6",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 ShowPictures 相关操作。"
+          "text": "关键词: 显示与自己同一Container的其它对象"
+        }
+      ]
+    },
+    {
+      "id": "method::ShowPictures",
+      "title": "ShowPictures 方法",
+      "summary": "执行 ShowPictures 相关操作。\n关键词: 图片切换",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 2 · 来源 2",
+      "sections": [
+        {
+          "title": "功能说明",
+          "text": "执行 ShowPictures 相关操作。\n关键词: 图片切换"
         },
         {
           "title": "常用签名",
@@ -5041,80 +4143,20 @@
       ]
     },
     {
-      "id": "method::SingleJsonObject",
-      "title": "SingleJsonObject 方法",
-      "summary": "执行 SingleJsonObject 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 SingleJsonObject 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "SingleJsonObject:Count=7,json={\"单号\":0,\"接单日期\":\"2024-01-01\",\"客户\":\"阿呆哥哥\",\"交期\":\"\",\"优先级\":0,\"姓名\":\"hahaha\",\"备注\":\"hehehe\"}"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::size",
-      "title": "size 方法",
-      "summary": "执行 size 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 28 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 size 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "var opts1 = {title : '<span style=\"font-size:14px; color:#0A8021\">上海市</span>'}; var infoWindow1 =new BMapGL.InfoWindow(\"<div id='titlebar' style='line-height:1.8em; font-size:12px; '><b>地址:</b>上海市市东中学",
-            "itlebar' style='line-height:1.8em; font-size:12px; '><b>地址:</b>上海市市东中学</br><a style='text-decoration:none; color:#2679BA; float:right' href='UCC://BaiduMap/城市被选中/上海市市东中学')'>详情>></a></div>\", opts1); //",
-            "sans-serif; font-size:14px; color:#666666; } .error_page {width: 600px; padding: 50px; margin: auto; } .error_page h1 {margin: 20px 0 0; font-size:20px} .error_page p {margin: 1"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::sizing",
-      "title": "sizing 方法",
-      "summary": "执行 sizing 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 sizing 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "padding: 0; \\n            box-sizing: border-box; \\n        }\\n\\n        body {\\n            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; \\n            background: linear-gr",
-            "margin: 0; padding: 0; box-sizing: border-box; }          body {             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%,"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::Sleep",
       "title": "Sleep 方法",
-      "summary": "执行 Sleep 相关操作。",
+      "summary": "执行 Sleep 相关操作。\n关键词: 系统延时",
       "tags": [
         "sleep",
         "延时",
         "等待",
         "定时"
       ],
-      "subtitle": "示例数 24 · 来源 2",
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Sleep 相关操作。"
+          "text": "执行 Sleep 相关操作。\n关键词: 系统延时"
         },
         {
           "title": "常用签名",
@@ -5138,13 +4180,15 @@
     {
       "id": "method::Sort",
       "title": "Sort 方法",
-      "summary": "执行 Sort 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 5 · 来源 2",
+      "summary": "执行 Sort 相关操作。\n关键词: 数据排序(ToDo:暂时只能用于DataSet，应该提供快速排序法)",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Sort 相关操作。"
+          "text": "执行 Sort 相关操作。\n关键词: 数据排序(ToDo:暂时只能用于DataSet，应该提供快速排序法)"
         },
         {
           "title": "常用签名",
@@ -5167,35 +4211,17 @@
       ]
     },
     {
-      "id": "method::spacing",
-      "title": "spacing 方法",
-      "summary": "执行 spacing 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 spacing 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "o auto -10px ; line-height:50px; letter-spacing:0px; font-size:20px; font-family:'黑体'; \"  >    这是多行文字，设置了1.固定宽度，2.高度，3.背景图片，4.上下左右边距，5.文字行高，6.文字间距，7.字号，8.字体，UCC中可以用来显示产品介绍  </div>  </body>  </html>",
-            "o auto -10px ; line-height:50px; letter-spacing:0px; font-size:20px; font-family:'黑体'; \"  >    {{DescriptionData}}  </div>  </body>  </html>"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::Stop",
       "title": "Stop 方法",
-      "summary": "执行 Stop 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
+      "summary": "执行 Stop 相关操作。\n关键词: 停止外部程序",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 4 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Stop 相关操作。"
+          "text": "执行 Stop 相关操作。\n关键词: 停止外部程序"
         },
         {
           "title": "常用签名",
@@ -5216,36 +4242,32 @@
       ]
     },
     {
-      "id": "method::Text",
-      "title": "Text 方法",
-      "summary": "执行 Text 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 39 · 来源 2",
+      "id": "method::TCP",
+      "title": "TCP 方法",
+      "summary": "关键词: TCP通信 '2021-08-26 22:47",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 0 · 来源 6",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Text 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "DB:db数据集=MySQL,'@txtServer.Text :@txtPort.Text','@txtDatabase.Text','@txtUsername.Text','@txtPassword.Text',SQL @txtSQL.text ; Console:INFO='@db数据集'; --RunAction:db数据集=funRunSQL(@txtAcces",
-            "DB:dbConn=OPEN,MySQL,'@txtServer.Text :@txtPort.Text','@txtDatabase.Text','@txtUsername.Text','@txtPassword.Text','{MySQL ODBC 8.0 Unicode Driver}' ; Set:txtִн.Text='@dbConn';",
-            "Append:List指令库=S,'@txt指令.Text  :  @txt名称.Text';"
-          ]
+          "text": "关键词: TCP通信 '2021-08-26 22:47"
         }
       ]
     },
     {
       "id": "method::TextFileClose",
       "title": "TextFileClose 方法",
-      "summary": "执行 TextFileClose 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
+      "summary": "执行 TextFileClose 相关操作。\n关键词: 关闭文本文件  2024-06-12",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 2 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 TextFileClose 相关操作。"
+          "text": "执行 TextFileClose 相关操作。\n关键词: 关闭文本文件  2024-06-12"
         },
         {
           "title": "常用签名",
@@ -5265,13 +4287,15 @@
     {
       "id": "method::TextFileOpen",
       "title": "TextFileOpen 方法",
-      "summary": "执行 TextFileOpen 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
+      "summary": "执行 TextFileOpen 相关操作。\n关键词: 打开文本文件  2024-06-12",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 2 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 TextFileOpen 相关操作。"
+          "text": "执行 TextFileOpen 相关操作。\n关键词: 打开文本文件  2024-06-12"
         },
         {
           "title": "常用签名",
@@ -5291,13 +4315,15 @@
     {
       "id": "method::TextFileReadLine",
       "title": "TextFileReadLine 方法",
-      "summary": "执行 TextFileReadLine 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 1 · 来源 2",
+      "summary": "执行 TextFileReadLine 相关操作。\n关键词: 读取一行文本文件  2024-06-12",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 TextFileReadLine 相关操作。"
+          "text": "执行 TextFileReadLine 相关操作。\n关键词: 读取一行文本文件  2024-06-12"
         },
         {
           "title": "常用签名",
@@ -5316,53 +4342,13 @@
       ]
     },
     {
-      "id": "method::title",
-      "title": "title 方法",
-      "summary": "执行 title 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 5 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 title 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "var marker = new BMapGL.Marker(point, {title: '上海市市东中学'}); // 创建标注    map.addOverlay(marker); // 将标注添加到地图中    //map.addOverlay(new BMapGL.Marker(point, {title: '上海市市东中学'}))    //添加带属性窗口的事件    var opt",
-            "ap.addOverlay(new BMapGL.Marker(point, {title: '上海市市东中学'}))    //添加带属性窗口的事件    var opts1 = {title : '<span style=\"font-size:14px; color:#0A8021\">上海市</span>'}; var infoWindow1 =new BMapGL.InfoWindow(\"<",
-            "东中学'}))    //添加带属性窗口的事件    var opts1 = {title : '<span style=\"font-size:14px; color:#0A8021\">上海市</span>'}; var infoWindow1 =new BMapGL.InfoWindow(\"<div id='titlebar' style='line-height:1.8em; font-siz"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::tooltip",
-      "title": "tooltip 方法",
-      "summary": "执行 tooltip 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 7 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 tooltip 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "='*'; Set:varDataOption='var option = { tooltip : { show : true },  legend : {  data : [ \"销量\" ] },  xAxis : [ { type : \"category\",  data : [ \"衬衫\", \"羊毛衫\", \"雪纺衫\", \"裤子\", \"高跟鞋\", \"袜子\" ] } ],  yAxis : [ {",
-            "var option = { tooltip : { show : true },  legend : {  data : [ \"销量\" ] },  xAxis : [ { type : \"category\",  data : [ \"衬衫\", \"羊毛衫\", \"雪纺衫\", \"裤子\", \"高跟鞋\", \"袜子\" ] } ],  yAxis : [ {",
-            "getElementById('main')); var option = { tooltip : { show : true },  legend : {  data : [ \"销量\" ] },  xAxis : [ { type : \"category\",  data : [ \"衬衫\", \"羊毛衫\", \"雪纺衫\", \"裤子\", \"高跟鞋\", \"袜子\" ] } ],  yAxis : [ {"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::top",
       "title": "top 方法",
       "summary": "执行 top 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 4 · 来源 2",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
@@ -5385,72 +4371,17 @@
       ]
     },
     {
-      "id": "method::transform",
-      "title": "transform 方法",
-      "summary": "执行 transform 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 10 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 transform 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Transform: translateY(0)",
-            "Transform: translateY(-30px)",
-            "Transform: translateY(30px)"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            ".step-card:hover {\\n            transform: translateY(-10px); \\n            box-shadow: 0 20px 40px rgba(0,0,0,0.15); \\n        }\\n\\n        .step-card::before {\\n            content: ''; \\n",
-            "opacity: 0; \\n                transform: translateY(-30px); \\n            }\\n            to {\\n                opacity: 1; \\n                transform: translateY(0); \\n            }\\n",
-            "opacity: 1; \\n                transform: translateY(0); \\n            }\\n        }\\n\\n        @keyframes fadeInUp {\\n            from {\\n                opacity: 0; \\n                transfo"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::transition",
-      "title": "transition 方法",
-      "summary": "执行 transition 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 transition 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Transition: all 0.3s ease"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "0px 30px rgba(0,0,0,0.1); \\n            transition: all 0.3s ease; \\n            text-align: center; \\n            position: relative; \\n            overflow: hidden; \\n        }\\n\\n        .step-card",
-            "ox-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease; text-align: center; position: relative; overflow: hidden; }          .step-card:hover {             transform: translateY(-10px); box",
-            "Transition: all 0.3s ease;",
-            "transition: all 0.3s ease;"
-          ]
-        }
-      ]
-    },
-    {
       "id": "method::Translucence",
       "title": "Translucence 方法",
-      "summary": "执行 Translucence 相关操作。",
-      "tags": [],
+      "summary": "执行 Translucence 相关操作。\n关键词: 实现图片框的半透明",
+      "tags": [
+        "UCC"
+      ],
       "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Translucence 相关操作。"
+          "text": "执行 Translucence 相关操作。\n关键词: 实现图片框的半透明"
         },
         {
           "title": "常用签名",
@@ -5473,13 +4404,15 @@
     {
       "id": "method::Transparent",
       "title": "Transparent 方法",
-      "summary": "执行 Transparent 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 9 · 来源 2",
+      "summary": "执行 Transparent 相关操作。\n关键词: 根据指定颜色让图片框透明",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Transparent 相关操作。"
+          "text": "执行 Transparent 相关操作。\n关键词: 根据指定颜色让图片框透明"
         },
         {
           "title": "常用签名",
@@ -5504,13 +4437,15 @@
     {
       "id": "method::TreeGet",
       "title": "TreeGet 方法",
-      "summary": "执行 TreeGet 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 5 · 来源 2",
+      "summary": "执行 TreeGet 相关操作。\n关键词: V98 获得Tree的属性\n语法/要点: TreeGet:var=Tr...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 15 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 TreeGet 相关操作。"
+          "text": "执行 TreeGet 相关操作。\n关键词: V98 获得Tree的属性\n语法/要点: TreeGet:var=TreeID,ID,Index 获得第Index个节点（根节点）的ID | TreeGet:var=TreeID,ID,Index[,PerentID] 获得第Index个子节点或者全部子节点的ID,默认PerentID为ROOT 'V142 | TreeGet:varCollection=TreeID,ID,ALL[,PerentID] 获得部子节点的ID，使用varCollection来记录,默认PerentID为ROOT 'V142 | TreeGet:var=TreeID,SelectedCount 获得用户选中的所有节点数 | TreeGet:var=TreeID,SelectedID[,Index] 获得用户选中的第Index个节点的ID，默认为用户选中的第1个节点 | TreeGet:varCollection=TreeID,SelectedID,ALL 获得用户选中的全部的ID，使用varCollection来记录"
         },
         {
           "title": "常用签名",
@@ -5525,9 +4460,11 @@
         {
           "title": "示例片段",
           "code": [
-            "TreeGet:txtNodeID=Tree1,SelectedID; TreeGet:txtNodeText=Tree1,Title,'@txtNodeID';",
-            "TreeGet:varID=TreeDB,SelectedID; DB:db工作包=Access,PMS2016.MDB,,SQL SELECT * FROM t1100工作包 WHERE ID = '@varID' OR 上级工作包ID = '@varID' ; BindingDataTo:ReportDB=db工作",
-            "TreeGet:varCount=Tree1,SelectedCount; TreeGet:col选中的ID列表=Tree1,SelectedID,ALL; BindingDataTo:lstSelectedID=col选中的ID列表,KEY;"
+            "TreeGet:var=TreeID,ID,Index 获得第Index个节点（根节点）的ID",
+            "TreeGet:var=TreeID,ID,Index[,PerentID] 获得第Index个子节点或者全部子节点的ID,默认PerentID为ROOT 'V142",
+            "TreeGet:varCollection=TreeID,ID,ALL[,PerentID] 获得部子节点的ID，使用varCollection来记录,默认PerentID为ROOT 'V142",
+            "TreeGet:var=TreeID,SelectedCount 获得用户选中的所有节点数",
+            "TreeGet:var=TreeID,SelectedID[,Index] 获得用户选中的第Index个节点的ID，默认为用户选中的第1个节点"
           ]
         }
       ]
@@ -5535,13 +4472,15 @@
     {
       "id": "method::TreeSet",
       "title": "TreeSet 方法",
-      "summary": "执行 TreeSet 相关操作。",
-      "tags": [],
+      "summary": "执行 TreeSet 相关操作。\n关键词: V98 设置Tree的属性\n语法/要点: BindingDataTo:...",
+      "tags": [
+        "UCC"
+      ],
       "subtitle": "示例数 15 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 TreeSet 相关操作。"
+          "text": "执行 TreeSet 相关操作。\n关键词: V98 设置Tree的属性\n语法/要点: BindingDataTo:TreeControl1=DataSource,FieldNameOfParentID,FieldNameOfID,FieldNameOfTitle,FieldNameOfImage 绑定DataSource到Tree | Append:TreeControl1='ParentID','ID','Title','Image' 添加一个节点到Tree里 | Clear: TreeControl1 删除所有节点 | TreeSet:TreeControl1=Clear 删除所有节点 | TreeSet:TreeControl1=Remove,'ID' 删除节点ID（子节点会自动删除）'V144.6 2017-11-13 | TreeSet:TreeControl1=ShowLines,'True' 设置Tree是否显示连接线（默认是）"
         },
         {
           "title": "常用签名",
@@ -5556,30 +4495,11 @@
         {
           "title": "示例片段",
           "code": [
-            "ColorBrowse:varColor; TreeSet:Tree1=ForeColor,'@txtNodeID',varColor;",
-            "ColorBrowse:varColor; TreeSet:Tree1=BackColor,'@txtNodeID',varColor;",
-            "TreeSet:Tree1=MultiCheck,'True';"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::trigger",
-      "title": "trigger 方法",
-      "summary": "执行 trigger 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 4 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 trigger 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "q\\sq     }\\comma     tooltip: {         trigger: \\sqaxis\\sq     }\\comma     legend: {         left: \\sqcenter\\sq\\comma     }\\comma     radar: [         {             indicator: [               {{Data0",
-            "tooltip: {                 trigger: \\sqitem\\sq             }\\comma             areaStyle: {}\\comma             data: [                 {                     value: [5\\comma4\\comma4\\comma4",
-            "text: ''     },     tooltip: {         trigger: 'axis'     },     legend: {         left: 'center',     },     radar: [         {             indicator: [               {text: \"问题解决\", max: 10},{text:"
+            "TreeSet:TreeControl1=Clear 删除所有节点",
+            "TreeSet:TreeControl1=Remove,'ID' 删除节点ID（子节点会自动删除）'V144.6 2017-11-13",
+            "TreeSet:TreeControl1=ShowLines,'True' 设置Tree是否显示连接线（默认是）",
+            "TreeSet:TreeControl1=IconSize,16 设置Tree的图标大小，通常为16",
+            "TreeSet:TreeControl1=FullRowSelect,'True' 设置Tree是否整行选择（默认是）"
           ]
         }
       ]
@@ -5587,13 +4507,15 @@
     {
       "id": "method::Validate",
       "title": "Validate 方法",
-      "summary": "执行 Validate 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
+      "summary": "执行 Validate 相关操作。\n关键词: 校验数据 V160 2019-06-18\n语法/要点: Valida...",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 7 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Validate 相关操作。"
+          "text": "执行 Validate 相关操作。\n关键词: 校验数据 V160 2019-06-18\n语法/要点: Validate:varCollection=TextID1,TextID2,TextID3... '将有效性验证不通过的ID,保存为集合"
         },
         {
           "title": "常用签名",
@@ -5605,79 +4527,57 @@
         {
           "title": "示例片段",
           "code": [
+            "Validate:varCollection=TextID1,TextID2,TextID3... '将有效性验证不通过的ID,保存为集合",
             "Validate:varValidate=Text2,Text3; Count:txtCount.Text=varValidate;",
             "Validate:varValidate=txtText,txtEmail,txtNumber,txtIP,txtURL,txtKey,txtIDCard,txtMobile,txtPost,txtTelephone,txtUserDefine; Count:txtCount.Text=varValidate; Bin",
             "Validate: varValidate=Text2,Text3;",
-            "Validate: varValidate=txtText,txtEmail,txtNumber,txtIP,txtURL,txtKey,txtIDCard,txtMobile,txtPost,txtTelephone,txtUserDefine;",
-            "Validate:varValidate=Text2,Text3;"
+            "Validate: varValidate=txtText,txtEmail,txtNumber,txtIP,txtURL,txtKey,txtIDCard,txtMobile,txtPost,txtTelephone,txtUserDefine;"
           ]
         }
       ]
     },
     {
-      "id": "method::value",
-      "title": "value 方法",
-      "summary": "执行 value 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
+      "id": "method::Var",
+      "title": "Var 方法",
+      "summary": "关键词: V99ex33 设置局部变量 @延安",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 0 · 来源 6",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 value 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "[                 {                     value: [5\\comma4\\comma4\\comma4\\comma5\\comma3\\comma4\\comma5\\comma2\\comma3\\comma4\\comma5\\comma4\\comma3\\comma3\\comma5\\comma4]\\comma                     name: \\sq\\s",
-            "[                 {                     value: [5,4,4,4,5,3,4,5,2,3,4,5,4,3,3,5,4],                     name: ''                 }             ]         }              ] }; if (option && typeof option"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::varIP",
-      "title": "varIP 方法",
-      "summary": "执行 varIP 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 8 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 varIP 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "信息列表=S,'@varNow 启动 WebServer at http://@varIP :@txt监听端口.Text  ',0; LinkString:txt访问地址示例.Text='','http://','@varIP',':@txt监听端口.Text','/V1/drivers/6'; Barcode:Image二维码=2,'http://@varIP';",
-            "列表=S,'@varNow START WebServer at htt://@varIP :@txt监听端口.Text  '; LinkString:txt访问地址示例.Text='','http://','@varIP','/V1/orders/6';",
-            "表=S,'@varNow START WebServer at http://@varIP :@txt监听端口.Text  ',0; LinkString:txt访问地址示例.Text='','http://','@varIP','/V1/drivers/6'; Barcode:Image二维码=2,'http://@varIP';"
-          ]
+          "text": "关键词: V99ex33 设置局部变量 @延安"
         }
       ]
     },
     {
       "id": "method::Video",
       "title": "Video 方法",
-      "summary": "执行 Video 相关操作。",
-      "tags": [],
+      "summary": "执行 Video 相关操作。\n关键词: 播放视频",
+      "tags": [
+        "UCC"
+      ],
       "subtitle": "示例数 0 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Video 相关操作。"
+          "text": "执行 Video 相关操作。\n关键词: 播放视频"
         }
       ]
     },
     {
       "id": "method::Web",
       "title": "Web 方法",
-      "summary": "执行 Web 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 34 · 来源 2",
+      "summary": "执行 Web 相关操作。\n关键词: 浏览网址",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 Web 相关操作。"
+          "text": "执行 Web 相关操作。\n关键词: 浏览网址"
         },
         {
           "title": "常用签名",
@@ -5702,7 +4602,7 @@
     {
       "id": "method::WebServer",
       "title": "WebServer 方法",
-      "summary": "启动并管理内置 WebServer，处理请求与返回响应。",
+      "summary": "启动并管理内置 WebServer，处理请求与返回响应。\n关键词: Web服务 '2021-12-07 09:56",
       "tags": [
         "webserver",
         "http",
@@ -5711,11 +4611,11 @@
         "路由",
         "api"
       ],
-      "subtitle": "示例数 5 · 来源 2",
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "启动并管理内置 WebServer，处理请求与返回响应。"
+          "text": "启动并管理内置 WebServer，处理请求与返回响应。\n关键词: Web服务 '2021-12-07 09:56"
         },
         {
           "title": "常用签名",
@@ -5737,13 +4637,15 @@
     {
       "id": "method::WebService",
       "title": "WebService 方法",
-      "summary": "执行 WebService 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 13 · 来源 2",
+      "summary": "执行 WebService 相关操作。\n关键词: 调用WebService实现Post和Get方法",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 WebService 相关操作。"
+          "text": "执行 WebService 相关操作。\n关键词: 调用WebService实现Post和Get方法"
         },
         {
           "title": "常用签名",
@@ -5769,8 +4671,10 @@
       "id": "method::weight",
       "title": "weight 方法",
       "summary": "执行 weight 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 8 · 来源 2",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 3 · 来源 2",
       "sections": [
         {
           "title": "功能说明",
@@ -5787,71 +4691,17 @@
       ]
     },
     {
-      "id": "method::width",
-      "title": "width 方法",
-      "summary": "执行 width 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 13 · 来源 2",
+      "id": "method::XML",
+      "title": "XML 方法",
+      "summary": "关键词: V72 XML操作",
+      "tags": [
+        "UCC"
+      ],
+      "subtitle": "示例数 0 · 来源 6",
       "sections": [
         {
           "title": "功能说明",
-          "text": "执行 width 相关操作。"
-        },
-        {
-          "title": "常用签名",
-          "items": [
-            "Width: 100%",
-            "Width: 30px"
-          ]
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "iv> <input type=\"image\" value=\"\" style=\"width: 20px; height: 20px; \" onerror=\"eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(",
-            "ize:14px; color:#666666; } .error_page {width: 600px; padding: 50px; margin: auto; } .error_page h1 {margin: 20px 0 0; font-size:20px} .error_page p {margin: 10px 0; padding: 0; } a {color: #369; text",
-            "\\n        .container {\\n            max-width: 1200px; \\n            margin: 0 auto; \\n            padding: 20px; \\n        }\\n\\n        header {\\n            text-align: center; \\n            padding"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::xAxis",
-      "title": "xAxis 方法",
-      "summary": "执行 xAxis 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 2 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 xAxis 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "rue },  legend : {  data : [ \"销量\" ] },  xAxis : [ { type : \"category\",  data : [ \"衬衫\", \"羊毛衫\", \"雪纺衫\", \"裤子\", \"高跟鞋\", \"袜子\" ] } ],  yAxis : [ {  type : \"value\"  } ],  series : [ { name : \"销量\", type : \"bar\"",
-            "rue },  legend : {  data : [ \"销量\" ] },  xAxis : [ { type : \"category\",  data : [ \"衬衫\", \"羊毛衫\", \"雪纺衫\", \"裤子\", \"高跟鞋\", \"袜子\" ] } ],  yAxis : [ {  type : \"value\"  } ],  series : [ { \"name\" : \"销量\", \"type\" : \""
-          ]
-        }
-      ]
-    },
-    {
-      "id": "method::yAxis",
-      "title": "yAxis 方法",
-      "summary": "执行 yAxis 相关操作。",
-      "tags": [],
-      "subtitle": "示例数 3 · 来源 2",
-      "sections": [
-        {
-          "title": "功能说明",
-          "text": "执行 yAxis 相关操作。"
-        },
-        {
-          "title": "示例片段",
-          "code": [
-            "\"羊毛衫\", \"雪纺衫\", \"裤子\", \"高跟鞋\", \"袜子\" ] } ],  yAxis : [ {  type : \"value\"  } ],  series : [ { name : \"销量\", type : \"bar\", data : [ 5, 20, 40, 10, 10, 20 ] } ]  }; '; Console:INFO='@varDataOption';",
-            "\"羊毛衫\", \"雪纺衫\", \"裤子\", \"高跟鞋\", \"袜子\" ] } ],  yAxis : [ {  type : \"value\"  } ],  series : [ { \"name\" : \"销量\", \"type\" : \"bar\", \"data\" : [ 5, 20, 40, 10, 10, 20 ] } ]  };",
-            "\"羊毛衫\", \"雪纺衫\", \"裤子\", \"高跟鞋\", \"袜子\" ] } ],  yAxis : [ {  type : \"value\"  } ],  series : [ { \"name\" : \"销量\", \"type\" : \"bar\", \"data\" : [ 5, 20, 40, 10, 10, 20 ] } ]  }; // 为echarts对象加载数据         myChart.setO"
-          ]
+          "text": "关键词: V72 XML操作"
         }
       ]
     }

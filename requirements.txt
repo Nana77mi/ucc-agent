@@ -5,5 +5,4 @@ langchain-openai
 faiss-cpu
 sentence-transformers
 PyYAML
-Pillow
 Flask
