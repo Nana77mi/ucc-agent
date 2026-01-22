@@ -7,9 +7,12 @@ from src.chat_engine import ChatEngine, Message, safe_meta
 
 
 def main() -> None:
+    """启动命令行 RAG 对话。"""
+    # 加载聊天引擎及配置
     engine = ChatEngine.from_yaml("config.yaml")
     settings = engine.settings
 
+    # 打印运行参数
     print("=== RAG CHAT ===")
     print(f"- FAISS: {settings.persist_dir}")
     print(f"- embed: {settings.embed_model}")
@@ -25,11 +28,14 @@ def main() -> None:
     else:
         print("[rerank] disabled -> fallback to keyword boost")
 
+    # 交互提示
     print("输入问题，输入 exit 退出。\n")
 
+    # 会话上下文
     history: List[Message] = []
 
     while True:
+        # 读取用户输入
         q = input("Q> ").strip()
         if not q:
             continue
@@ -37,10 +43,12 @@ def main() -> None:
             print("Bye.")
             break
 
+        # 获取回答与检索结果
         response = engine.answer(q, history=history)
         docs_ranked = response.docs
 
         if not docs_ranked:
+            # 未命中任何文档
             print("\n--- Retrieved ---")
             print("(no hits)")
             print("--- End ---\n")
@@ -52,6 +60,7 @@ def main() -> None:
             ])
             continue
 
+        # 展示检索结果摘要
         print("\n--- Retrieved ---")
         for i, d in enumerate(docs_ranked[: settings.show_k], start=1):
             m = safe_meta(d)
@@ -64,6 +73,7 @@ def main() -> None:
             print("   ", snip[:240] + ("..." if len(snip) > 240 else ""))
         print("--- End ---\n")
 
+        # 输出回答内容与性能指标
         print("A>")
         print((response.answer or "").strip())
         metrics = response.metrics
@@ -74,6 +84,7 @@ def main() -> None:
             print(f"[metrics] duration: {metrics.elapsed:.2f}s | tokens/s: {metrics.tokens_per_s:.2f}")
         print()
 
+        # 记录对话历史
         history.extend([
             {"role": "user", "content": q},
             {"role": "assistant", "content": response.answer},

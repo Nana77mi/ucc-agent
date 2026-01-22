@@ -18,7 +18,9 @@ from src.rag_retrieval import CrossEncoderReranker, retrieve_ranked_docs
 
 
 def read_jsonl(path: str) -> List[dict]:
+    """读取 JSONL 文件，返回行列表。"""
     rows: List[dict] = []
+    # 逐行解析 JSON
     with open(path, "r", encoding="utf-8") as f:
         for line in f:
             s = (line or "").strip()
@@ -28,6 +30,8 @@ def read_jsonl(path: str) -> List[dict]:
 
 
 def dump_jsonl(path: str, rows: List[dict]) -> None:
+    """写入 JSONL 文件。"""
+    # 确保目录存在
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         for r in rows:
@@ -35,15 +39,18 @@ def dump_jsonl(path: str, rows: List[dict]) -> None:
 
 
 def safe_meta(doc: Document) -> Dict[str, str]:
+    """安全返回文档元数据。"""
     return doc.metadata or {}
 
 
 def safe_doc_id(doc: Document) -> str:
+    """安全返回文档 ID。"""
     md = doc.metadata or {}
     return str(md.get("id") or "").strip()
 
 
 def build_context_block(docs: List[Document]) -> str:
+    """构建用于 LLM 的 Context 文本。"""
     parts: List[str] = []
     for i, d in enumerate(docs, start=1):
         m = safe_meta(d)
@@ -67,6 +74,7 @@ def build_context_block(docs: List[Document]) -> str:
 
 
 def build_messages(system_prompt: str, user_query: str, context_block: str) -> List[dict]:
+    """生成 LLM 对话消息。"""
     sys = (system_prompt or "").strip()
     user = f"""你是文档问答助手。
 
@@ -85,6 +93,7 @@ def build_messages(system_prompt: str, user_query: str, context_block: str) -> L
 
 
 def cosine_similarity(a: List[float], b: List[float]) -> float:
+    """计算余弦相似度。"""
     dot = sum(x * y for x, y in zip(a, b))
     norm_a = math.sqrt(sum(x * x for x in a))
     norm_b = math.sqrt(sum(y * y for y in b))
@@ -95,6 +104,7 @@ def cosine_similarity(a: List[float], b: List[float]) -> float:
 
 
 def pairwise_similarity(vectors: List[List[float]]) -> Dict[str, float]:
+    """计算两两相似度统计。"""
     if len(vectors) < 2:
         return {"avg": 0.0, "min": 0.0, "max": 0.0}
     sims: List[float] = []
@@ -113,7 +123,9 @@ def run_llm_with_retries(
     max_retries: int,
     retry_backoff: float,
 ) -> tuple[str, Optional[Exception]]:
+    """调用 LLM 并按需重试。"""
     last_error: Optional[Exception] = None
+    # 允许多次尝试以增强稳定性
     for attempt in range(max_retries + 1):
         try:
             resp = llm.invoke(messages)
@@ -127,6 +139,7 @@ def run_llm_with_retries(
 
 
 def parse_args() -> argparse.Namespace:
+    """解析命令行参数。"""
     parser = argparse.ArgumentParser(description="Evaluate RAG/LLM stability on repeated runs.")
     parser.add_argument("--runs", type=int, default=3, help="Repeat count per query.")
     parser.add_argument("--queries", type=str, default=os.path.join("data", "eval_queries.jsonl"))
@@ -144,13 +157,17 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> None:
+    """执行稳定性评测。"""
     args = parse_args()
+    # 读取配置
     cfg = load_yaml("config.yaml")
 
+    # 读取路径与提示词
     persist_dir = cfg.get("paths", {}).get("persist_dir", "index/faiss_ucc")
     system_prompt_path = cfg.get("paths", {}).get("system_prompt", "prompts/system.txt")
     system_prompt = read_text(system_prompt_path, default="你是 UCC 文档助手。你只能基于已检索到的片段回答，禁止猜测。")
 
+    # 检索与运行时配置
     retrieval_cfg = cfg.get("retrieval", {}) or {}
     top_k = int(retrieval_cfg.get("top_k", 50))
     show_k = int(retrieval_cfg.get("show_k", 10))
@@ -163,6 +180,7 @@ def main() -> None:
     score_threshold = float(rag_cfg.get("score_threshold", 0.0))
     keyword_boost = float(rag_cfg.get("keyword_boost", 0.25))
 
+    # rerank 配置
     rerank_cfg = cfg.get("rerank", {}) or {}
     rerank_enabled = bool(rerank_cfg.get("enabled", False))
     rerank_model = str(rerank_cfg.get("model", "BAAI/bge-reranker-base"))
@@ -170,20 +188,24 @@ def main() -> None:
     rerank_batch_size = int(rerank_cfg.get("batch_size", 16))
     rerank_cache_dir = str(rerank_cfg.get("cache_dir", "models/rerank"))
 
+    # 输入校验
     if not Path(args.queries).exists():
         raise FileNotFoundError(f"queries not found: {args.queries}")
     if not os.path.isdir(persist_dir):
         raise FileNotFoundError(f"FAISS index dir not found: {persist_dir}")
 
+    # 加载查询并可选抽样
     queries = read_jsonl(args.queries)
     if args.sample_size and args.sample_size > 0 and len(queries) > args.sample_size:
         step = max(len(queries) // args.sample_size, 1)
         sampled = [queries[i] for i in range(0, len(queries), step)][: args.sample_size]
         queries = sampled
+    # 加载向量索引与模型
     embeddings = build_embeddings(cfg)
     db = FAISS.load_local(persist_dir, embeddings, allow_dangerous_deserialization=True)
     llm = None if args.skip_llm else build_llm(cfg, temperature=temperature)
 
+    # 初始化 reranker
     reranker: Optional[CrossEncoderReranker] = None
     if rerank_enabled:
         rr = CrossEncoderReranker(
@@ -197,6 +219,7 @@ def main() -> None:
             err = getattr(rr, "_init_error", None)
             print(f"[rerank] init failed -> fallback keyword boost. err={err!r}")
 
+    # 输出运行摘要
     print("\n=== STABILITY CHECK ===")
     print(f"queries: {len(queries)}")
     print(f"sample_size: {args.sample_size}")
@@ -210,6 +233,7 @@ def main() -> None:
     rag_consistent_cnt = 0
     sim_avgs: List[float] = []
 
+    # 遍历查询进行多次检索
     for row in queries:
         qid = row.get("qid", "")
         query = row.get("query", "")
@@ -224,6 +248,7 @@ def main() -> None:
         for _i in range(args.runs):
             docs_ranked: List[Document]
             try:
+                # 执行检索
                 docs_ranked = retrieve_ranked_docs(
                     db=db,
                     query=query,
@@ -238,18 +263,21 @@ def main() -> None:
                 )
             except Exception:
                 rag_lists.append([])
+                # 出错时记录 LLM 失败
                 if llm is not None:
                     llm_total += 1
                     llm_failures += 1
                     answers.append("")
                 continue
 
+            # 收集 Top-K 文档 ID
             doc_ids = [safe_doc_id(d) for d in docs_ranked[:show_k] if safe_doc_id(d)]
             rag_lists.append(doc_ids)
 
             if llm is None:
                 continue
 
+            # 组装上下文并调用 LLM
             docs_for_llm = docs_ranked[:max_ctx]
             context_block = build_context_block(docs_for_llm)
             messages = build_messages(system_prompt, query, context_block)
@@ -270,10 +298,12 @@ def main() -> None:
             if last_error is not None:
                 llm_failures += 1
 
+        # 计算检索结果一致性
         base = rag_lists[0] if rag_lists else []
         rag_consistent = all(x == base for x in rag_lists)
         rag_match_rate = sum(1 for x in rag_lists if x == base) / len(rag_lists) if rag_lists else 0.0
 
+        # 计算答案向量相似度
         valid_answers = [a for a in answers if a]
         ans_vectors = embeddings.embed_documents(valid_answers) if len(valid_answers) >= 2 else []
         sim_stats = pairwise_similarity(ans_vectors)
@@ -281,6 +311,7 @@ def main() -> None:
         rag_consistent_cnt += 1 if rag_consistent else 0
         sim_avgs.append(sim_stats["avg"])
 
+        # 汇总单条报告
         report_rows.append(
             {
                 "qid": qid,
@@ -299,6 +330,7 @@ def main() -> None:
             }
         )
 
+    # 输出总体统计与报告
     dump_jsonl(args.report, report_rows)
     total = len(report_rows)
     rag_consistency_rate = rag_consistent_cnt / total if total else 0.0
