@@ -15,10 +15,12 @@ from src.query_rewrite import QueryCandidate, rewrite_queries_with_meta
 
 
 def safe_meta(doc: Document) -> Dict[str, Any]:
+    """安全读取文档元数据。"""
     return doc.metadata or {}
 
 
 def apply_score_threshold(pairs: List[Tuple[Document, float]], score_threshold: float) -> List[Tuple[Document, float]]:
+    """根据阈值过滤距离分数。"""
     # 与 02_chat.py 保持一致：L2 距离越小越相似
     try:
         thr = float(score_threshold)
@@ -30,6 +32,7 @@ def apply_score_threshold(pairs: List[Tuple[Document, float]], score_threshold: 
 
 
 def doc_contains_query(query: str, doc: Document) -> bool:
+    """判断查询文本是否出现在文档内容或元数据中。"""
     q = (query or "").strip().lower()
     if not q:
         return False
@@ -47,6 +50,7 @@ def doc_contains_query(query: str, doc: Document) -> bool:
 
 
 def rerank_with_keyword_boost(query: str, results: List[Tuple[Document, float]], boost: float = 0.25) -> List[Tuple[Document, float]]:
+    """使用关键词命中对结果进行轻量排序。"""
     out: List[Tuple[Document, float]] = []
     for d, s in results:
         s2 = (s - boost) if doc_contains_query(query, d) else s
@@ -56,6 +60,7 @@ def rerank_with_keyword_boost(query: str, results: List[Tuple[Document, float]],
 
 
 class CrossEncoderReranker:
+    """Cross-Encoder reranker 封装。"""
     def __init__(self, model_name: str, batch_size: int = 16, cache_dir: Optional[str] = None):
         self.model_name = model_name
         self.batch_size = batch_size
@@ -79,6 +84,7 @@ class CrossEncoderReranker:
         cache_dir: Optional[str],
         snapshot_download,
     ) -> str:
+        """解析模型路径并根据需要下载。"""
         if os.path.isdir(model_name):
             return model_name
         if not cache_dir:
@@ -96,6 +102,7 @@ class CrossEncoderReranker:
         return str(local_dir)
 
     def rerank(self, query: str, docs: List[Document]) -> List[Tuple[Document, float]]:
+        """对文档列表进行重排序。"""
         if not self.available or not docs:
             return [(d, 0.0) for d in docs]
         pairs = [(query, d.page_content or "") for d in docs]
@@ -115,6 +122,7 @@ def _baseline_retrieve(
     reranker: Optional[CrossEncoderReranker],
     rerank_top_n: int,
 ) -> List[Document]:
+    """基础检索流程，支持 rerank 或关键词加权。"""
     pairs = db.similarity_search_with_score(query, k=top_k)
     pairs = apply_score_threshold(pairs, score_threshold)
     if not pairs:
@@ -135,6 +143,7 @@ def _baseline_retrieve(
 
 
 def _doc_key(doc: Document) -> str:
+    """生成可稳定去重的文档 key。"""
     md = doc.metadata or {}
     if md.get("id") is not None:
         return f"id:{md.get('id')}"
@@ -154,6 +163,7 @@ def _rrf_fuse(
     *,
     rrf_k: int,
 ) -> List[Document]:
+    """使用 RRF 融合多路检索结果。"""
     scores: Dict[str, float] = {}
     docs: Dict[str, Document] = {}
 
@@ -175,6 +185,7 @@ def _retrieve_pairs_for_query(
     score_threshold: float,
     keyword_boost: float,
 ) -> List[Document]:
+    """获取单个查询的候选文档。"""
     pairs = db.similarity_search_with_score(query, k=per_query_k)
     pairs = apply_score_threshold(pairs, score_threshold)
     if not pairs:
@@ -184,6 +195,7 @@ def _retrieve_pairs_for_query(
 
 
 def _get_rewrite_cfg(cfg: Optional[Dict[str, Any]]) -> Dict[str, Any]:
+    """读取改写配置。"""
     if not cfg:
         return {}
     return (cfg.get("rag", {}) or {}).get("query_rewrite", {}) or {}
@@ -205,6 +217,7 @@ def retrieve_ranked_docs(
     """
     稳定接口：给定 query，返回最终排序后的 docs（与 02_chat.py 行为一致）
     """
+    # 如果未启用查询改写，走基础检索逻辑
     rewrite_cfg = _get_rewrite_cfg(cfg)
     if not rewrite_cfg.get("enabled", False):
         return _baseline_retrieve(
@@ -218,6 +231,7 @@ def retrieve_ranked_docs(
         )
 
     try:
+        # 生成改写并可选日志输出
         emb = embeddings or getattr(db, "embeddings", None)
         candidates, stats = rewrite_queries_with_meta(query, llm=llm, embeddings=emb, cfg=cfg or {})
         if rewrite_cfg.get("log_rewrites", False):
@@ -234,6 +248,7 @@ def retrieve_ranked_docs(
             for item in candidates:
                 tag = "Q0" if item.is_original else "RW"
                 print(f"[query_rewrite] {tag}: {item.query}")
+        # 如果只有原始查询，直接走基础检索
         if not candidates or all(c.is_original for c in candidates):
             return _baseline_retrieve(
                 db,
@@ -245,6 +260,7 @@ def retrieve_ranked_docs(
                 rerank_top_n=rerank_top_n,
             )
 
+        # 多查询检索并做 RRF 融合
         per_query_k = int(rewrite_cfg.get("per_query_k", 15))
         rrf_k = int(rewrite_cfg.get("rrf_k", 60))
 
@@ -274,6 +290,7 @@ def retrieve_ranked_docs(
         fused_docs = _rrf_fuse(fused_inputs, rrf_k=rrf_k)
         fused_docs = fused_docs[:top_k]
 
+        # 结果可选 rerank
         if reranker is not None and reranker.available and fused_docs:
             docs_for_rerank = fused_docs[: min(rerank_top_n, len(fused_docs))]
             rr = reranker.rerank(query, docs_for_rerank)
@@ -295,6 +312,7 @@ def retrieve_ranked_docs(
 
 
 def _self_test() -> None:
+    """自测入口，用于快速验证检索。"""
     from src.common import load_yaml
     from src.model_factory import build_embeddings, build_llm
 

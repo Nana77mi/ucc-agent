@@ -8,6 +8,7 @@ from langchain_core.documents import Document
 
 
 def _pick_first(d: Dict[str, Any], keys: List[str], default: str = "") -> str:
+    """按优先级获取第一个非空字段。"""
     for k in keys:
         v = d.get(k)
         if v is None:
@@ -19,6 +20,7 @@ def _pick_first(d: Dict[str, Any], keys: List[str], default: str = "") -> str:
 
 
 def _normalize_tags(v: Any) -> List[str]:
+    """将标签字段归一化为列表。"""
     if v is None:
         return []
     if isinstance(v, list):
@@ -41,6 +43,7 @@ def _build_page_content(obj: Dict[str, Any]) -> str:
     把一条方法/示例/文档条目拼成更适合 embedding 的文本。
     你可以按需要再扩展字段，但不要依赖具体 schema。
     """
+    # 逐字段拼接可读文本
     lines: List[str] = []
 
     fid = _pick_first(obj, ["id", "uid", "key"], "")
@@ -49,6 +52,7 @@ def _build_page_content(obj: Dict[str, Any]) -> str:
     grammar = _pick_first(obj, ["grammar", "syntax", "sig", "signature"], "")
     signatures = obj.get("signatures")
 
+    # 组合标准字段
     if fid:
         lines.append(f"ID: {fid}")
     if name:
@@ -66,6 +70,7 @@ def _build_page_content(obj: Dict[str, Any]) -> str:
     if desc:
         lines.append(f"DESC: {desc}")
 
+    # 标签处理
     tags = _normalize_tags(obj.get("tags"))
     if tags:
         lines.append("TAGS: " + ", ".join(tags))
@@ -93,6 +98,7 @@ def _build_metadata(obj: Dict[str, Any], file_posix: str, line_no: int, raw_len:
     """
     关键：补齐 id/source/section/title/tags —— 你 chat 输出和离线评测都靠它们。
     """
+    # 读取元数据字段
     fid = _pick_first(obj, ["id", "uid", "key"], "")
     name = _pick_first(obj, ["name", "title"], "")
     section = _pick_first(obj, ["section", "group", "category"], "")
@@ -101,6 +107,7 @@ def _build_metadata(obj: Dict[str, Any], file_posix: str, line_no: int, raw_len:
     if not fid:
         fid = f"{file_posix}:{line_no}"
 
+    # 组装元数据
     meta: Dict[str, Any] = {
         "id": fid,
         "source": file_posix,
@@ -120,14 +127,16 @@ def load_jsonl_as_documents(
     verbose_warn_bad_json: bool = True,
 ) -> List[Document]:
     """
-    ✅ 每一行 jsonl 作为一个 Document
-    ✅ 解析 JSON，构造更适合 embedding 的 page_content
-    ✅ metadata 补齐 id/source/title/section/tags（支持 chat 展示与离线评测）
+    每一行 jsonl 作为一个 Document
+    解析 JSON，构造更适合 embedding 的 page_content
+    metadata 补齐 id/source/title/section/tags（支持 chat 展示与离线评测）
     """
+    # 校验文件是否存在
     p = Path(jsonl_path)
     if not p.exists():
         raise FileNotFoundError(f"jsonl not found: {jsonl_path} (cwd={Path.cwd()})")
 
+    # 逐行构建文档
     docs: List[Document] = []
     bad_cnt = 0
     file_posix = str(p.as_posix())
@@ -149,10 +158,12 @@ def load_jsonl_as_documents(
                     print(f"[WARN] bad json line skipped: file={jsonl_path} line={line_no}")
                 continue
 
+            # 构建元数据与内容
             meta = _build_metadata(obj, file_posix=file_posix, line_no=line_no, raw_len=len(raw))
             content = _build_page_content(obj)
             docs.append(Document(page_content=content, metadata=meta))
 
+    # 超过 20 条错误时输出汇总
     if verbose_warn_bad_json and bad_cnt > 20:
         print(f"[WARN] bad json lines skipped: file={jsonl_path} count={bad_cnt} (only first 20 shown)")
 
@@ -163,6 +174,7 @@ def load_many(paths: List[str]) -> List[Document]:
     """
     多个输入：.jsonl 走逐行；其他文本文件走 TextLoader 兜底
     """
+    # 汇总所有文档
     all_docs: List[Document] = []
     for p in paths:
         if p.lower().endswith(".jsonl"):
@@ -170,6 +182,7 @@ def load_many(paths: List[str]) -> List[Document]:
             print(f"[LOAD] {p} -> {len(one)} docs")
             all_docs.extend(one)
         else:
+            # 非 jsonl 文件作为普通文本加载
             from langchain_community.document_loaders import TextLoader
 
             one = TextLoader(p, encoding="utf-8").load()

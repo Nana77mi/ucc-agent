@@ -20,7 +20,9 @@ from src.model_factory import build_embeddings, build_llm
 # IO helpers
 # =========================
 def read_jsonl(path: str) -> List[dict]:
+    """读取 JSONL 文件，返回行列表。"""
     rows: List[dict] = []
+    # 按行解析 JSON
     with open(path, "r", encoding="utf-8") as f:
         for line in f:
             s = (line or "").strip()
@@ -30,6 +32,8 @@ def read_jsonl(path: str) -> List[dict]:
 
 
 def dump_jsonl(path: str, rows: List[dict]) -> None:
+    """将数据写入 JSONL 文件。"""
+    # 确保输出目录存在
     os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         for r in rows:
@@ -37,6 +41,7 @@ def dump_jsonl(path: str, rows: List[dict]) -> None:
 
 
 def safe_doc_id(doc: Document) -> str:
+    """安全读取文档 ID。"""
     md = doc.metadata or {}
     return str(md.get("id") or "").strip()
 
@@ -45,6 +50,7 @@ def safe_doc_id(doc: Document) -> str:
 # Metrics
 # =========================
 def precision_at_k(pred: List[str], rel: Set[str], k: int) -> float:
+    """计算 Precision@K。"""
     if k <= 0:
         return 0.0
     top = pred[:k]
@@ -53,6 +59,7 @@ def precision_at_k(pred: List[str], rel: Set[str], k: int) -> float:
 
 
 def recall_at_k(pred: List[str], rel: Set[str], k: int) -> float:
+    """计算 Recall@K。"""
     if not rel:
         return 0.0
     top = pred[:k]
@@ -61,10 +68,12 @@ def recall_at_k(pred: List[str], rel: Set[str], k: int) -> float:
 
 
 def f1(p: float, r: float) -> float:
+    """计算 F1 分数。"""
     return (2 * p * r / (p + r)) if (p + r) > 0 else 0.0
 
 
 def mrr_at_k(pred: List[str], rel: Set[str], k: int) -> float:
+    """计算 MRR@K。"""
     for i, x in enumerate(pred[:k], start=1):
         if x in rel:
             return 1.0 / i
@@ -72,6 +81,7 @@ def mrr_at_k(pred: List[str], rel: Set[str], k: int) -> float:
 
 
 def ndcg_at_k(pred: List[str], rel: Set[str], k: int) -> float:
+    """计算 nDCG@K（二值相关性）。"""
     # binary relevance
     def dcg(items: List[str]) -> float:
         s = 0.0
@@ -113,6 +123,7 @@ COMMON_TYPO_MAP = {
 
 
 def normalize_query(q: str) -> str:
+    """归一化查询文本，并修正常见拼写错误。"""
     s = (q or "").strip().lower()
     s = " ".join(s.split())
     for k, v in COMMON_TYPO_MAP.items():
@@ -124,6 +135,7 @@ def classify_query(q: str) -> str:
     """
     仅用于诊断分组，不影响检索
     """
+    # 原始 query 与归一化版本
     raw = q or ""
     s = normalize_query(raw)
 
@@ -156,6 +168,7 @@ def classify_query(q: str) -> str:
 
 
 def first_hit_rank(pred: List[str], rel: Set[str], k: int) -> int:
+    """返回首个命中排名（未命中返回 0）。"""
     for i, x in enumerate(pred[:k], start=1):
         if x in rel:
             return i
@@ -178,7 +191,9 @@ class PerQueryResult:
 
 
 def group_summary(results: List[PerQueryResult], k: int) -> Dict[str, dict]:
+    """按查询类型聚合评测指标。"""
     groups: Dict[str, List[PerQueryResult]] = {}
+    # 分组
     for r in results:
         groups.setdefault(r.qtype, []).append(r)
 
@@ -186,6 +201,7 @@ def group_summary(results: List[PerQueryResult], k: int) -> Dict[str, dict]:
         return sum(xs) / len(xs) if xs else 0.0
 
     out: Dict[str, dict] = {}
+    # 生成分组摘要
     for g, items in sorted(groups.items(), key=lambda x: (-len(x[1]), x[0])):
         out[g] = {
             "count": len(items),
@@ -204,11 +220,15 @@ def group_summary(results: List[PerQueryResult], k: int) -> Dict[str, dict]:
 # Main
 # =========================
 def main() -> None:
+    """运行离线检索评测并输出报告。"""
+    # 读取配置
     cfg = load_yaml("config.yaml")
 
+    # 输入数据路径
     queries_path = os.path.join("data", "eval_queries.jsonl")
     qrels_path = os.path.join("data", "eval_qrels.jsonl")
 
+    # 读取检索与模型配置
     persist_dir = cfg.get("paths", {}).get("persist_dir", "index/faiss_ucc")
     embed_model = cfg.get("models", {}).get("embed_model", "nomic-embed-text:latest")
 
@@ -224,6 +244,7 @@ def main() -> None:
     score_threshold = float(rag_cfg.get("score_threshold", 0.0))
     keyword_boost = float(rag_cfg.get("keyword_boost", 0.25))
 
+    # rerank 配置
     rerank_cfg = cfg.get("rerank", {}) or {}
     rerank_enabled = bool(rerank_cfg.get("enabled", False))
     rerank_model = str(rerank_cfg.get("model", "BAAI/bge-reranker-base"))
@@ -237,6 +258,7 @@ def main() -> None:
     if not Path(qrels_path).exists():
         raise FileNotFoundError(f"eval_qrels not found: {qrels_path}")
 
+    # 读取评测数据
     queries = read_jsonl(queries_path)
     qrels = read_jsonl(qrels_path)
     rel_map: Dict[str, Set[str]] = {row["qid"]: set(row.get("relevant_ids", [])) for row in qrels}
@@ -245,6 +267,7 @@ def main() -> None:
     if not os.path.isdir(persist_dir):
         raise FileNotFoundError(f"FAISS index dir not found: {persist_dir}")
 
+    # 加载向量索引与模型
     embeddings = build_embeddings(cfg)
     db = FAISS.load_local(persist_dir, embeddings, allow_dangerous_deserialization=True)
     llm = build_llm(cfg, temperature=temperature)
@@ -291,6 +314,7 @@ def main() -> None:
 
     per_results: List[PerQueryResult] = []
 
+    # 遍历查询执行检索与评测
     for row in queries:
         qid = row["qid"]
         query = row["query"]
@@ -301,6 +325,7 @@ def main() -> None:
             skipped += 1
             continue
 
+        # 执行检索与可选 rerank
         docs_ranked = retrieve_ranked_docs(
             db=db,
             query=query,
@@ -314,6 +339,7 @@ def main() -> None:
             cfg=cfg,
         )
 
+        # 提取预测文档 ID
         if not docs_ranked:
             empty_cnt += 1
             pred_ids: List[str] = []
@@ -321,6 +347,7 @@ def main() -> None:
             pred_ids = [safe_doc_id(d) for d in docs_ranked]
             pred_ids = [x for x in pred_ids if x]
 
+        # 计算评测指标
         p = precision_at_k(pred_ids, rel, k_eval)
         r = recall_at_k(pred_ids, rel, k_eval)
         mrr = mrr_at_k(pred_ids, rel, k_eval)
@@ -334,6 +361,7 @@ def main() -> None:
         mrrs.append(mrr)
         ndcgs.append(ndcg)
 
+        # 记录单条评测结果
         per_results.append(
             PerQueryResult(
                 qid=qid,
@@ -353,6 +381,7 @@ def main() -> None:
     def avg(xs: List[float]) -> float:
         return sum(xs) / len(xs) if xs else 0.0
 
+    # 总体统计
     n = len(ps)
     empty_rate = empty_cnt / n if n else 0.0
 
@@ -392,6 +421,7 @@ def main() -> None:
     )
     print(f"\n[diagnostic] per-query report saved -> {report_path}")
 
+    # 输出未命中示例
     misses = [x for x in per_results if x.first_rank == 0]
     print(f"\n[diagnostic] misses@{k_eval}: {len(misses)}/{len(per_results)}")
     for x in misses[:15]:
@@ -400,6 +430,7 @@ def main() -> None:
             q_short = q_short[:90] + "..."
         print(f"- {x.qid} [{x.qtype}] Q={q_short!r} rel={x.relevant_ids[:6]}")
 
+    # 分组汇总
     gs = group_summary(per_results, k_eval)
     print("\n=== GROUPED SUMMARY ===")
     for g, s in gs.items():

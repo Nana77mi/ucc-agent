@@ -18,6 +18,7 @@ Message = Dict[str, str]
 
 @dataclass(frozen=True)
 class ChatMetrics:
+    """聊天响应的性能指标。"""
     elapsed: float
     total_tokens: Optional[int]
     tokens_per_s: Optional[float]
@@ -25,6 +26,7 @@ class ChatMetrics:
 
 @dataclass(frozen=True)
 class ChatResponse:
+    """聊天响应结构。"""
     answer: str
     docs: List[Document]
     metrics: Optional[ChatMetrics]
@@ -32,6 +34,7 @@ class ChatResponse:
 
 @dataclass(frozen=True)
 class ChatSettings:
+    """聊天引擎配置。"""
     persist_dir: str
     embed_model: str
     llm_model: str
@@ -45,10 +48,12 @@ class ChatSettings:
 
 
 def safe_meta(doc: Document) -> Dict[str, Any]:
+    """安全读取文档元数据。"""
     return doc.metadata or {}
 
 
 def build_context_block(docs: List[Document]) -> str:
+    """构建 LLM 使用的上下文块。"""
     parts: List[str] = []
     for i, d in enumerate(docs, start=1):
         m = safe_meta(d)
@@ -72,6 +77,7 @@ def build_context_block(docs: List[Document]) -> str:
 
 
 def format_history_block(history: Optional[Iterable[Message]], *, max_turns: int = 6) -> str:
+    """格式化历史对话用于提示词。"""
     if not history:
         return ""
     trimmed = list(history)[-max_turns:]
@@ -87,6 +93,7 @@ def format_history_block(history: Optional[Iterable[Message]], *, max_turns: int
 
 
 def build_user_prompt(user_query: str, context_block: str, history_block: str = "") -> str:
+    """拼接用户提示词，包含上下文与历史。"""
     history_section = f"\n\n【History】\n{history_block}" if history_block else ""
     return f"""你是文档问答助手。
 
@@ -109,6 +116,7 @@ def build_messages(
     context_block: str,
     history: Optional[Iterable[Message]] = None,
 ) -> List[Message]:
+    """组装 system/user 消息。"""
     sys = (system_prompt or "").strip()
     history_block = format_history_block(history)
     user = build_user_prompt(user_query, context_block, history_block)
@@ -118,6 +126,7 @@ def build_messages(
 
 
 def extract_total_tokens(resp: Any) -> Optional[int]:
+    """尝试从响应中解析总 token 数。"""
     usage = getattr(resp, "usage_metadata", None)
     if isinstance(usage, dict):
         total = usage.get("total_tokens")
@@ -150,6 +159,7 @@ def extract_total_tokens(resp: Any) -> Optional[int]:
 
 class ChatEngine:
     def __init__(self, cfg: Dict[str, Any]):
+        """构造聊天引擎并加载索引与模型。"""
         self._cfg = cfg
         self.settings = self._load_settings(cfg)
         self.system_prompt = read_text(
@@ -160,6 +170,7 @@ class ChatEngine:
         if not self._reranker:
             self._reranker = None
 
+        # 初始化向量索引
         if not self.settings.persist_dir:
             raise FileNotFoundError("FAISS index dir not found: empty path")
         self.embeddings = build_embeddings(cfg)
@@ -168,15 +179,18 @@ class ChatEngine:
             self.embeddings,
             allow_dangerous_deserialization=True,
         )
+        # 初始化 LLM
         self.llm = build_llm(cfg, temperature=self.settings.temperature)
 
     @classmethod
     def from_yaml(cls, path: str) -> "ChatEngine":
+        """从 YAML 配置创建引擎实例。"""
         cfg = load_yaml(path)
         return cls(cfg)
 
     @staticmethod
     def _load_settings(cfg: Dict[str, Any]) -> ChatSettings:
+        """从配置字典读取设置。"""
         persist_dir = cfg.get("paths", {}).get("persist_dir", "index/faiss_ucc")
         embed_model = cfg.get("models", {}).get("embed_model", "nomic-embed-text:latest")
         llm_model = cfg.get("models", {}).get("llm_model", "qwen3:4b")
@@ -211,6 +225,7 @@ class ChatEngine:
 
     @staticmethod
     def _build_reranker(cfg: Dict[str, Any]) -> Optional[CrossEncoderReranker]:
+        """根据配置创建 reranker。"""
         rerank_cfg = cfg.get("rerank", {}) or {}
         if not bool(rerank_cfg.get("enabled", False)):
             return None
@@ -225,6 +240,7 @@ class ChatEngine:
         return reranker if reranker.available else None
 
     def retrieve_docs(self, query: str) -> List[Document]:
+        """执行检索并返回排序文档列表。"""
         rerank_cfg = self._cfg.get("rerank", {}) or {}
         rerank_top_n = int(rerank_cfg.get("top_n", self.settings.top_k))
         return retrieve_ranked_docs(
@@ -241,6 +257,7 @@ class ChatEngine:
         )
 
     def answer(self, query: str, history: Optional[Iterable[Message]] = None) -> ChatResponse:
+        """对问题进行检索并生成回答。"""
         docs_ranked = self.retrieve_docs(query)
         if not docs_ranked:
             return ChatResponse(
@@ -249,10 +266,12 @@ class ChatEngine:
                 metrics=None,
             )
 
+        # 截断上下文，构建提示
         docs_for_llm = docs_ranked[: self.settings.max_ctx]
         context_block = build_context_block(docs_for_llm)
         messages = build_messages(self.system_prompt, query, context_block, history)
 
+        # 调用 LLM 并记录耗时
         start_time = time.perf_counter()
         resp = self.llm.invoke(messages)
         elapsed = time.perf_counter() - start_time
@@ -263,6 +282,7 @@ class ChatEngine:
         return ChatResponse(answer=(ans or "").strip(), docs=docs_ranked, metrics=metrics)
 
     def reranker_status(self) -> Optional[str]:
+        """返回 reranker 状态。"""
         if not self._reranker:
             return None
         return "enabled"
