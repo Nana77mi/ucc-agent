@@ -79,6 +79,21 @@ python web_app.py
 
 浏览器访问：`http://localhost:8000/`。
 
+## 补充文档流程
+
+当需要新增/补充 Web 文档内容时，请按以下流程操作：
+
+1. 修改 `data/` 下的文档数据：
+   - 方法列表：`data/ucc_methods_list.jsonl`（JSONL 每行一条记录）
+   - 额外文档：`data/ucc_official_docs.json`（可选）
+2. 运行构建脚本生成前端所需的 `web/docs.json`：
+
+```shell
+python build_web_docs.py
+```
+
+3. 如需校验结果，可打开 `web/docs.json` 检查生成内容是否符合预期。
+
 ## 架构说明
 
 详见 `docs/architecture.md`，包含树状结构与各模块职责说明。
